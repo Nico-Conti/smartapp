@@ -1,0 +1,270 @@
+[
+    {
+        "title": "Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1261259001.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/db/55/db5527bf9e0284b8b8cb5a7193313c184df29a74.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/3a/28/3a28c9c80d606faf670fca1a3eb1064f16f8de77.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/00/6d/006d3fc124d43d348e945bbdb529224b2aa4d3ea.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Loafers with a decorative tab and moccasin seam at front. Twill lining and patterned soles. Heel height 1 1/4 in.",
+        "material": "Cotton/Thermoplastic rubber/Polyurethane",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "54.99",
+        "audience": "male"
+    },
+    {
+        "title": "Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1224142004.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/31/f4/31f42976a39fe574af08512bf6ef30e231d901ab.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/b5/d7/b5d7490467f6117a9467b6967d1594d51885c6e9.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/7a/34/7a342623cf5ccf4eaf5fc7827d7d373ad0df0f74.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Loafers with a moccasin seam at front. Cotton canvas lining and insoles. Rubber soles. Heel height approx. 1/2 in.",
+        "material": "Cotton/Rubber/Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "49.99",
+        "audience": "male"
+    },
+    {
+        "title": "Tasseled Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1283048001.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/04/6f/046fa5158bb90451b838624da4a458017a64b870.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/a1/47/a147faace72c661c1e359e18dff00db54d576351.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/97/c8/97c897118c8b478b69e836315c78f3902b1c0014.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Loafers in coated fabric with tassels and a moccasin seam at front. Cotton canvas lining and fluted soles.",
+        "material": "Cotton/Polyurethane/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "59.99",
+        "audience": "male"
+    },
+    {
+        "title": "Moccasin-Seam Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1265702003.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/fd/c9/fdc9e96a05338a6344458d025d7095d3917766a8.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/63/1b/631b4ec0b369b8e8d824588940181d8894e86b35.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/2f/e2/2fe28464f5611017a049842ea1a4760e6df61a47.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Loafers with a moccasin seam at front. Lining and insoles in cotton canvas. Patterned soles.",
+        "material": "Cotton/Polyester/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "47.99",
+        "audience": "male"
+    },
+    {
+        "title": "Loafers with Metal Buckle",
+        "url": "https://www2.hm.com/en_us/productpage.1295192001.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/32/55/325546fddf9d28d3a0c44a194b9d02113d6d7ae7.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/5d/67/5d670b34cc5625dd70d1bb40ebc2fe99013f90b9.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/ce/45/ce45d85b5c13d2eae6880071fad56635f1cf7932.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Loafers in coated fabric with a decorative metal buckle and moccasin seam at front. Cotton canvas lining and fluted soles for added grip.",
+        "material": "Cotton/Rubber/Polyurethane",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "59.99",
+        "audience": "male"
+    },
+    {
+        "title": "Moccasin-Seam Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1280547003.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/75/ec/75ecb0dd13185fed891b0cccfb66d27a0754189e.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/ec/07/ec07f194e31ec99b7b51972d6115f20112205ffd.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/66/d8/66d8e09af998bad6e8bb5d36f4f33ad754e4d6ec.jpg?imwidth=768"
+        ],
+        "schema_color": "Dark beige",
+        "schema_description": "Loafers with a moccasin seam at front. Lining and insoles in cotton canvas. Patterned rubber soles.",
+        "material": "Cotton/Rubber/Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "44.99",
+        "audience": "male"
+    },
+    {
+        "title": "Leather Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1291325001.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/17/4c/174cfb3f19e59ea67123ec821716f80722ac30f9.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/8b/9d/8b9dc423f5dd2c1fe67f2bcd01237cf41685fabc.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/49/9c/499ced9377655deaf437ac507d60abdb9054bfd4.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Loafers in soft leather with a decorative penny keeper and moccasin seam at front. Leather lining, leather insoles, and rubber soles.",
+        "material": "Nappa/Leather/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "119.0",
+        "audience": "male"
+    },
+    {
+        "title": "Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1224142001.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/5c/a0/5ca0ead494a1279346cd7f4ffae50d0ecd64ef68.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/c4/54/c4541faf265add413a1f6e6627aace0c676d8a88.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/74/b3/74b3021d4871c6815e493463ae5eb228ef30e841.jpg?imwidth=768"
+        ],
+        "schema_color": "Beige",
+        "schema_description": "Loafers with a moccasin seam at front. Cotton canvas lining and insoles. Rubber soles. Heel height approx. 1/2 in.",
+        "material": "Cotton/Rubber/Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "49.99",
+        "audience": "male"
+    },
+    {
+        "title": "Moccasin-Seam Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1265702002.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/3c/b2/3cb2763c59c34881ff013a6d984c37d3e269f38a.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/57/ed/57ed9e9d9191b347710156aae1b4430c7094fa2a.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/74/28/7428c4104114a756aa5f6f439b9f909bcccf4255.jpg?imwidth=768"
+        ],
+        "schema_color": "Navy blue",
+        "schema_description": "Loafers with a moccasin seam at front. Lining and insoles in cotton canvas. Patterned soles.",
+        "material": "Cotton/Thermoplastic rubber/Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "47.99",
+        "audience": "male"
+    },
+    {
+        "title": "Mesh Mule Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1283045002.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/e5/50/e550219ba9b8d8c7ed25c4ae9194f8929182fdb9.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/9b/57/9b57d0ccfc6961e458e7c3956cc87ca6c3589ffb.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/86/84/868435c12c84ce9b40af102a2255bcfa5a38e22f.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Mule loafers in braided plastic straw. Fluted rubber soles.",
+        "material": "Polypropylene/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "54.99",
+        "audience": "male"
+    },
+    {
+        "title": "Moccasin-Seam Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1265702001.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/04/da/04da0bf0aa40ea6e81fd0befc5700c0fbdcc0959.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/50/4b/504b136e1554827e90604014c0be42ded94ed4a6.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/91/3c/913cecf811893a3a5cf3c26df57fb56a8749c580.jpg?imwidth=768"
+        ],
+        "schema_color": "Beige",
+        "schema_description": "Loafers with a moccasin seam at front. Lining and insoles in cotton canvas. Patterned soles.",
+        "material": "Cotton/Thermoplastic rubber/Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "47.99",
+        "audience": "male"
+    },
+    {
+        "title": "Braided Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1265389002.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/9e/5d/9e5da63d6c31ed22b713f5997410d6b4f8c2c745.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/9d/9e/9d9edf3a661c6dad6d97f7363366ad74e2df5f24.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/05/2e/052e04569595dbbf3def41ba9e4e82a05ffb9881.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/a6/8e/a68e27766ad281880ed3754548448d8ed4d875d1.jpg?imwidth=768"
+        ],
+        "schema_color": "Light beige",
+        "schema_description": "Loafers with a braided design. Moccasin seam at front, canvas lining, and fluted rubber soles.",
+        "material": "Cotton/Polyurethane/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "69.99",
+        "audience": "male"
+    },
+    {
+        "title": "Mesh-Look Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1277779001.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/24/ff/24ff63bc0bb219ea726e38684401fbeb7a2abae3.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/3c/71/3c71a37e9ea605f8c6d0d3bf91ccfd809c020882.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/3f/e3/3fe3d265bed469847c320e926711acf1459ec785.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Loafers in coated, mesh-look fabric with a penny keeper and piped trim at front. Patterned rubber soles.",
+        "material": "Polyester/Polyurethane/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "74.99",
+        "audience": "male"
+    },
+    {
+        "title": "Braided Loafers",
+        "url": "https://www2.hm.com/en_us/productpage.1265389001.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/f6/6e/f66e34e43b2a558c9694eab62aad5e8757698714.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/02/34/023419b8a87de5fa363b3fe051a59afe66730a68.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/aa/0a/aa0a6423015985fb410d1449236c39154a694015.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/fc/a9/fca9e4a27446fb8179e0c43913678fcf9aee59d1.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Loafers with a braided design. Moccasin seam at front, canvas lining, and fluted rubber soles.",
+        "material": "Cotton/Polyurethane/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "69.99",
+        "audience": "male"
+    }
+]

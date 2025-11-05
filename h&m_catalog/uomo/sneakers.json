@@ -1,0 +1,459 @@
+[
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1289931004.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/9c/a4/9ca4bfccf04aa10cecfa425a591c3e8661e06220.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/95/8c/958ceb59557a9bc2763c134f0583e790090ff757.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/15/1c/151c9baef5aaf79acd913db37bed6f59a7168efc.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Sneakers with a tongue and lacing at front and padded upper edge. Cotton canvas lining, cotton canvas insoles, and patterned rubber soles.",
+        "material": "Cotton/Polyurethane/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "39.99",
+        "audience": "male"
+    },
+    {
+        "title": "Chunky Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1295295005.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/91/8e/918e07a0ef4eec4b511b269b208a83a790d10dd5.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/5f/95/5f95c2f1966cf82dfc21bbf129df6f368bc06bf2.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/ad/68/ad68bc639a67f84a4993e5685f5d060e8d014b66.jpg?imwidth=768"
+        ],
+        "schema_color": "Beige",
+        "schema_description": "Sneakers with a tongue and lacing at front, padded upper edge, and insoles. Chunky, textured patterned soles.",
+        "material": "Cotton/Polyester/Spandex/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "49.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1289931002.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/99/95/99954647846b70d1cab4df995fe25beff143bf02.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/35/e9/35e9da7cdbf50342dffefc8eda01bc126c27425e.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/c4/8f/c48f12dc5681173ac4bd6c69e0ac3af4a31929cb.jpg?imwidth=768"
+        ],
+        "schema_color": "Beige",
+        "schema_description": "Sneakers with a tongue and lacing at front and padded upper edge. Cotton canvas lining, cotton canvas insoles, and patterned rubber soles.",
+        "material": "Polyester/Polyurethane/Cotton/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "39.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1309169002.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/5e/b7/5eb76b2fa78ff60edcbb5c6910671b8fc310361b.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/92/07/920752c71351a7bff75721da815ea590cc66d6a8.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/4e/28/4e28867db3584f1a2f20846f4ce0eef391462949.jpg?imwidth=768"
+        ],
+        "schema_color": "Dark brown",
+        "schema_description": "Sneakers with a tongue, lacing at front, and padded upper edge. Canvas lining, canvas insoles, and patterned soles.",
+        "material": "Polyester/Spandex/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "49.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1303649002.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/4e/99/4e997a7c13d995e90e2978348c0507eb078e82a6.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/3d/da/3dda7410d4f561a2fce0f902ca757b9214d19698.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/0a/f6/0af65a624fcff0cb7bfd2b1bc1bfa1c56ef678b4.jpg?imwidth=768"
+        ],
+        "schema_color": "Dark khaki green",
+        "schema_description": "Sneakers with a tongue, lacing at front, and patterned rubber soles.",
+        "material": "Polyester/Polyurethane/Spandex/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "44.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1295306003.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/af/d1/afd16cbf90fcc04ce031d9e32335ed5835af658f.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/f0/95/f095657d0fb466ca243b84af10754b612d48a478.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/67/5f/675f688c13a88975d38836cbbac7a27e332de7bc.jpg?imwidth=768"
+        ],
+        "schema_color": "Light brown",
+        "schema_description": "Sneakers with a tongue and lacing at front, and padded upper edge. Cotton canvas lining, cotton canvas insoles, and textured, patterned soles for added grip.",
+        "material": "Polyester/Polyurethane/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "44.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1295306001.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/37/30/3730f36bbd7d366e9ed4cf0ff860ce229d8fa302.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/0a/03/0a03e999a29676f4bbf7bc1ee354680cb879c4a6.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/39/24/3924bda66a50db4e1b11570e79a17b5992649be8.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Sneakers with a tongue and lacing at front, and padded upper edge. Cotton canvas lining, cotton canvas insoles, and textured, patterned soles for added grip.",
+        "material": "Polyester/Polyurethane/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "44.99",
+        "audience": "male"
+    },
+    {
+        "title": "Chunky Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1295295001.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/be/86/be865fe54224f763335cf39865525cfed0814e0d.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/ed/4a/ed4a21ebdac3ec7c78ecefba5f57693441db124b.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/c5/40/c5404f5e64ad1c6d05ebf5db8b957a8dc3e0bda3.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Sneakers with a tongue and lacing at front, padded upper edge, and insoles. Chunky, textured patterned soles.",
+        "material": "Cotton/Thermoplastic rubber/Polyester/Spandex",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "49.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1289931005.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/d2/80/d280bb63e27922efc6a171e0fb14b93f407abced.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/f9/8d/f98d4daeb10f0e2dfebff57818204890b4739a58.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/55/85/55855d50a74c680b9fe1d21839fb7f51c711a86c.jpg?imwidth=768"
+        ],
+        "schema_color": "Green",
+        "schema_description": "Sneakers with a tongue and lacing at front and padded upper edge. Cotton canvas lining, cotton canvas insoles, and patterned rubber soles.",
+        "material": "Polyurethane/Cotton/Rubber/Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "39.99",
+        "audience": "male"
+    },
+    {
+        "title": "Chunky Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1297073001.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/0d/8f/0d8f66b1346c5a0d2f2a46a0c31cbcd3a9a4d69b.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/9d/d4/9dd4e5888ed3a1f66a558258d85dbf18ee659fc8.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/54/08/54086520351ca7748a623c2a6eb5040bf70d2baf.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Sneakers with a tongue and lacing at front, and padded upper edge. Canvas lining, canvas insoles, and chunky, patterned soles.",
+        "material": "Polyester/Polyurethane/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "49.99",
+        "audience": "male"
+    },
+    {
+        "title": "Canvas Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1283025002.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/f1/26/f1262d55bd448906407703e91427e64ce27a9696.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/d4/ce/d4cebdf5c45e8ab6ddc4bc123e83f1a3b2c1f92e.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/ba/ed/baeda137b2fdd0e803f43fab01706858bd7eb6af.jpg?imwidth=768"
+        ],
+        "schema_color": "Brown",
+        "schema_description": "Sneakers in cotton canvas with lacing at front and a loop at back. Canvas lining, canvas insoles, and patterned rubber soles.",
+        "material": "Cotton/Rubber",
+        "pattern": null,
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "59.99",
+        "audience": "male"
+    },
+    {
+        "title": "Canvas Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1283025001.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/ae/2c/ae2c343c4ffbf96ed3d8cbcfed246598ff67cfd6.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/b2/91/b2911150169346220d6953d4fbb7dd598fe8f530.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/eb/00/eb00d89104070c01af4e971d7c30f274d82759a4.jpg?imwidth=768"
+        ],
+        "schema_color": "Cream",
+        "schema_description": "Sneakers in cotton canvas with lacing at front and a loop at back. Canvas lining, canvas insoles, and patterned rubber soles.",
+        "material": "Cotton/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "59.99",
+        "audience": "male"
+    },
+    {
+        "title": "Slip-on trainers",
+        "url": "https://www2.hm.com/en_us/productpage.1265753001.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/41/80/41802be89cb285ad101979892fece950fbcd9d70.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/26/99/26996536603945a13520bfc8f33c4f37a642e366.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/f3/39/f33935b0cf5256d88b86ca236ff1d53fbfd8a926.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Trainers in napped fabric featuring elastic gores in the sides. Jersey linings and insoles and soles that are patterned underneath.",
+        "material": "Polyester/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "52.99",
+        "audience": "male"
+    },
+    {
+        "title": "Chunky Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1262439002.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/fb/8d/fb8d78018ef31d1891a4e96c7ad7b0bb80348db8.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/ff/00/ff0001a21f4d59b8f3bcf60cf080e2a00a55431d.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/b2/77/b27771f4bbea95a36ff662ee41672be8ffa92ea8.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/bb/a2/bba2973964fb610ad8ff9140ff54d357a47c6213.jpg?imwidth=768"
+        ],
+        "schema_color": "White",
+        "schema_description": "Sneakers in coated fabric with a padded upper edge. Tongue and lacing at front. Jersey lining, jersey insoles, and chunky, fluted, patterned soles. Sole thickness 1 3/4 in.",
+        "material": "Polyester/Thermoplastic rubber/Polyurethane",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "44.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1261321001.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/5c/b1/5cb1f60c8f4775452f7207a114dcfd4c768d0101.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/56/91/56913bd891c5137676e7fd25e7d27f7d269a5f30.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/f7/e7/f7e76cd8bc1700eee74982947497815a40933bba.jpg?imwidth=768"
+        ],
+        "schema_color": "White",
+        "schema_description": "Retro-inspired sneakers. Tongue, lacing at front, and padded upper edge. Cotton canvas lining, cotton canvas insoles, and patterned rubber soles. Sole thickness approx. 1 1/2 in.",
+        "material": "Polyurethane/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "34.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1262447003.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/f1/a8/f1a865dfdf9c7d5f1beb0067dcff6111538a59ac.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/ec/95/ec959a11be3c854131b9a1b02e6d0ce6d69e8adc.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/8e/e3/8ee3075d0d4f2df1b6626386d02958a8ea6e2091.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Skate shoes in mesh and coated fabric. Padded upper edge, padded tongue, and lacing at front. Loop at back. Terry lining, piqué insoles, and patterned soles. Sole thickness approx. 1 1/2 in.",
+        "material": "Polyester/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "52.99",
+        "audience": "male"
+    },
+    {
+        "title": "Slip-on trainers",
+        "url": "https://www2.hm.com/en_us/productpage.1265753002.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/ae/cb/aecb61f0c89e5754236810f959b22531225b74c3.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/4f/01/4f01c4daa2cdac7e6d035ee5fcd6cd4403810029.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/f7/e2/f7e2843bb9f28e4ce2abea671dedeb9252c33a21.jpg?imwidth=768"
+        ],
+        "schema_color": "Beige",
+        "schema_description": "Trainers in napped fabric featuring elastic gores in the sides. Jersey linings and insoles and soles that are patterned underneath.",
+        "material": "Polyester/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "52.99",
+        "audience": "male"
+    },
+    {
+        "title": "Slip-On Mesh Shoes",
+        "url": "https://www2.hm.com/en_us/productpage.1265709002.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/66/d5/66d5ceaf90793712ca93018784251b13db4c8c98.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/b7/cd/b7cd1a9d6ae7340d742c73dcf4324ed36ac634ff.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/49/04/49041dbf0569bd9d6555429023ec8788c308dcc9.jpg?imwidth=768"
+        ],
+        "schema_color": "Beige",
+        "schema_description": "Slip-on shoes in thick mesh with elasticized side panels and a loop at back. Canvas lining, canvas insoles, and patterned rubber soles.",
+        "material": "Cotton/Polyester/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "34.99",
+        "audience": "male"
+    },
+    {
+        "title": "Slip-On Mesh Shoes",
+        "url": "https://www2.hm.com/en_us/productpage.1265709001.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/91/34/9134f190b3c6530c589cee0e205a4534b4b5888e.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/1c/7f/1c7f7911d6a8694355e11a1c95ea586b891d980b.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/3c/91/3c910a029a994ef2c8cdd611e484b026541bacc6.jpg?imwidth=768"
+        ],
+        "schema_color": "Dark beige",
+        "schema_description": "Slip-on shoes in thick mesh with elasticized side panels and a loop at back. Canvas lining, canvas insoles, and patterned rubber soles.",
+        "material": "Cotton/Polyester/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "34.99",
+        "audience": "male"
+    },
+    {
+        "title": "Slip-On Mesh Shoes",
+        "url": "https://www2.hm.com/en_us/productpage.1265709003.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/9b/4a/9b4ac9184c5939ce0393249a05cd8b2c1a4b4b59.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/e8/03/e8033aca13b8f46a58e400595099fc2d8a013a41.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/3f/9b/3f9b6a613c6661a4424e82bf0fa76f633a4a1f37.jpg?imwidth=768"
+        ],
+        "schema_color": "Navy blue",
+        "schema_description": "Slip-on shoes in thick mesh with elasticized side panels and a loop at back. Canvas lining, canvas insoles, and patterned rubber soles.",
+        "material": "Cotton/Rubber/Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "34.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1295306002.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/80/d5/80d5482b69b4a55d351210e888475776eb983eb0.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/f4/24/f424c4d29d8d780df3208a918978512d2d95f959.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/38/52/3852a4cf50b85d13b1df0dbb575c94355ffbab0e.jpg?imwidth=768"
+        ],
+        "schema_color": "White",
+        "schema_description": "Sneakers with a tongue and lacing at front, and padded upper edge. Cotton canvas lining, cotton canvas insoles, and textured, patterned soles for added grip.",
+        "material": "Polyurethane/Polyester/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "44.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1262433002.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/f5/2b/f52bdb0e739e280e073562d43a974557f66cf031.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/c7/5f/c75f16731cc0bfd83ee2d4f51e0c4359e1fd7742.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/8a/e8/8ae815545f11e3d5e0bd2dc9e13c86ea3b07a844.jpg?imwidth=768"
+        ],
+        "schema_color": "Light beige",
+        "schema_description": "Sneakers with a tongue and lacing at front, and padded upper edge. Cotton canvas lining, cotton canvas insoles, and textured, patterned soles. Sole thickness 1 1/2 in.",
+        "material": "Cotton/Polyester/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "44.99",
+        "audience": "male"
+    },
+    {
+        "title": "Canvas Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1265392001.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/d6/c0/d6c08c108f9dfeb71b3096b4f0ece75f9252e3b6.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/db/0c/db0c4353f448c41006e85af232c101bcd1f93c57.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/2d/64/2d64cae83d1435660cc678d06e7921a811af9f17.jpg?imwidth=768"
+        ],
+        "schema_color": "Cream",
+        "schema_description": "Sneakers in cotton canvas with lacing at front and a loop at back. Canvas lining, canvas insoles, and patterned rubber soles. Sole thickness 1 1/4 in.",
+        "material": "Cotton/Rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "42.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sneakers",
+        "url": "https://www2.hm.com/en_us/productpage.1262400002.html",
+        "main_category": "shoes",
+        "role": "sneakers",
+        "images": [
+            "https://image.hm.com/assets/hm/a4/b2/a4b2c46ff028c2f3a2937c27862194c06eaaff22.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/d8/41/d841540f18e8a025a8cb1a9aeb0a2309935b9976.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/b0/f7/b0f75fa560696bbcddf2098c5f7ac027286928cf.jpg?imwidth=768"
+        ],
+        "schema_color": "White/beige",
+        "schema_description": "Retro-inspired sneakers in coated fabric with details in napped fabric. Padded upper edge, tongue, and lacing at front. Mesh lining, mesh insoles, and patterned rubber soles. Sole thickness 1 1/2 in.",
+        "material": "Polyurethane/Rubber/Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sneakers",
+        "price": "44.99",
+        "audience": "male"
+    }
+]

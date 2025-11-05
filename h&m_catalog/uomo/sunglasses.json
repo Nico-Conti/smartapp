@@ -1,0 +1,234 @@
+[
+    {
+        "title": "Polarized Sunglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1255797005.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/50/19/501922df28a5b58535482114e1a3719c3b67fc34.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/cc/7d/cc7dd999852956ace88bc28a89312a4cad66c062.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/c7/09/c70974a8461d727f8d8cfc567e2ecad24ad67c3e.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/fc/14/fc14064e1d0264b6beea7846535e3adbffb0fe34.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/53/58/535869bd6fa88a1c677c2d5f6d3e2f0838138e8d.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/57/5c/575cfad3a861ab3a9f6e607be4b20860ba09eed5.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/a3/02/a302a54ebf57fcfff5353663efaa814776c23d20.jpg?imwidth=768"
+        ],
+        "schema_color": "Beige",
+        "schema_description": "Square sunglasses with plastic frames, plastic sidepieces, and polarized, UV-protective lenses. Polarized lenses show colors more clearly and provide stronger contrast while preventing glare.",
+        "material": "Triacetate/Cellulose propionate/Brass/PCTG",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "24.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sunglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1255791005.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/e7/16/e7162079a840bf8a12be108baa18074fe4083d9d.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/17/d2/17d28f34e7a00953d8c68a07a211a40016970907.jpg?imwidth=768"
+        ],
+        "schema_color": "Dark brown",
+        "schema_description": "Sunglasses with frames in plastic and tinted, UV-protective lenses in plastic.",
+        "material": "Polymethyl methacrylate/PCTG",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "10.40",
+        "audience": "male"
+    },
+    {
+        "title": "Blue Light Eyeglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1256513002.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/c7/4a/c74a90028cfeb6866d970200897145f94e0622db.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/41/bb/41bb963a7c6802f8e1bcb1c304fc051eee0111e2.jpg?imwidth=768"
+        ],
+        "schema_color": "Beige/tortoiseshell-patterned",
+        "schema_description": "Eyeglasses with frames, sidepieces, and transparent lenses in plastic. Lenses with special coating to filter out blue light from digital screens.",
+        "material": "Cellulose propionate/Steel/Polymethyl methacrylate/PCTG",
+        "pattern": "Tortoiseshell-patterned",
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "12.00",
+        "audience": "male"
+    },
+    {
+        "title": "Sunglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1255791001.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/8f/9d/8f9d98a99371d6deeae0c5fd8ef6b44e6303be32.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/87/4b/874b7daa77b6f47672986b2f5bf9d9dd763e31a8.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/94/a9/94a9c03f4fdab1711de94ffaef5cddb473e5d1fe.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/0b/08/0b08793c5d952135938a2df5a333bf73efdeba90.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/58/a3/58a3439e766b8efb734d62a4c11f1623450b31b6.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/b5/17/b5176a3c8e02e0dac78fcdb31912de5068c0bd05.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/ac/b4/acb4070ee89155ac5189a47c7f4850294215913f.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Sunglasses with frames in plastic and tinted, UV-protective lenses in plastic.",
+        "material": "PCTG/Polymethyl methacrylate",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "10.40",
+        "audience": "male"
+    },
+    {
+        "title": "Blue Light Eyeglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1256513004.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/e1/b6/e1b6338080238511d9dc6b57423a8ff27622ae56.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/c0/d8/c0d81e09ac71c063225255cffdf9fc9f871d004f.jpg?imwidth=768"
+        ],
+        "schema_color": "Transparent",
+        "schema_description": "Eyeglasses with frames, sidepieces, and transparent lenses in plastic. Lenses with special coating to filter out blue light from digital screens.",
+        "material": "Polymethyl methacrylate/PCTG/Cellulose propionate/Steel",
+        "pattern": null,
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "12.00",
+        "audience": "male"
+    },
+    {
+        "title": "Blue Light Eyeglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1256513001.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/70/c5/70c567e83bd0901fff936502d50446cb77c01c0a.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/89/b8/89b8b3004907ac026e4a85dbf334303e7f2e1c56.jpg?imwidth=768"
+        ],
+        "schema_color": "Transparent gray",
+        "schema_description": "Eyeglasses with frames, sidepieces, and transparent lenses in plastic. Lenses with special coating to filter out blue light from digital screens.",
+        "material": "Polymethyl methacrylate/PCTG/Cellulose propionate/Steel",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "12.00",
+        "audience": "male"
+    },
+    {
+        "title": "Sunglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1255794003.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/7c/9f/7c9f299ce0a32d29940b577978cb1261999afbcc.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/58/0f/580f85ce443b4d1f469e5fcb4c2876bec3b8a822.jpg?imwidth=768"
+        ],
+        "schema_color": "Brown",
+        "schema_description": "Sunglasses with frames in plastic and tinted, UV-protective lenses in plastic.",
+        "material": "Polymethyl methacrylate/PCTG/Cellulose propionate/Steel",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "14.40",
+        "audience": "male"
+    },
+    {
+        "title": "Round Sunglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1267054002.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/0b/e4/0be49f5d63afe2e93f5cad90b60dcee59f781b7a.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/70/c1/70c1082bd9a9e15512e015180afff90e9954749c.jpg?imwidth=768"
+        ],
+        "schema_color": "Dark brown",
+        "schema_description": "Round sunglasses with plastic frames, plastic sidepieces, and tinted, UV-protective plastic lenses.",
+        "material": "PCTG/Triacetate/Cellulose propionate/Stainless steel",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "20.00",
+        "audience": "male"
+    },
+    {
+        "title": "Sunglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1255794006.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/28/24/2824ad84b0734e5b9d209d4eb6b9e1ec02c0b3a6.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/ca/b8/cab8c3ec2043ab50819470bb33e13d5af64f122e.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/ea/11/ea11c13994524ed406ed8a0f247601f9e695cc4a.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/84/d8/84d823a7d1d6b68cf8d4c1665d63132583f14a23.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/49/e8/49e874a9a4d1849aaf1e731b89a71ee24fc25b71.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/fa/a0/faa0b634571653e3237966cabc006b71cfc49ed2.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/23/57/235752ebeb14c8db90993c46695a5313542cc6bd.jpg?imwidth=768"
+        ],
+        "schema_color": "Brown/tortoiseshell-patterned",
+        "schema_description": "Sunglasses with frames in plastic and tinted, UV-protective lenses in plastic.",
+        "material": "Polymethyl methacrylate/Cellulose propionate/Steel/PCTG",
+        "pattern": "Tortoiseshell-patterned",
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "14.40",
+        "audience": "male"
+    },
+    {
+        "title": "Round Sunglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1267054001.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/ed/1c/ed1cc9bb9a1a81d6de29d06882008565dc34dd45.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/85/57/8557d9da7e12e614e9eb271605ae078df89525eb.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/23/0e/230e1cc50324a7a162953f9c33fb78620ba9f176.jpg?imwidth=768"
+        ],
+        "schema_color": "Gray",
+        "schema_description": "Round sunglasses with plastic frames, plastic sidepieces, and tinted, UV-protective plastic lenses.",
+        "material": "Cellulose propionate/Stainless steel/PCTG/Triacetate",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "20.00",
+        "audience": "male"
+    },
+    {
+        "title": "Polarized Sunglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1255797006.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/b8/66/b866414a7a2de3f9a60155f2f3a6e6ee4313507f.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/b5/ef/b5ef7317022226b1a1f6069a5b175cd6922009c9.jpg?imwidth=768"
+        ],
+        "schema_color": "Yellow",
+        "schema_description": "Square sunglasses with plastic frames, plastic sidepieces, and polarized, UV-protective lenses. Polarized lenses show colors more clearly and provide stronger contrast while preventing glare.",
+        "material": "PCTG/Triacetate/Cellulose propionate/Brass",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "24.99",
+        "audience": "male"
+    },
+    {
+        "title": "Sunglasses",
+        "url": "https://www2.hm.com/en_us/productpage.1255794005.html",
+        "main_category": "accesories",
+        "role": "sunglasses",
+        "images": [
+            "https://image.hm.com/assets/hm/bd/52/bd52991bd8ad6d489d89cecdd80cf95c2cc515ea.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/ab/58/ab587687ebe8506b822d2c80085e66331e6d3089.jpg?imwidth=768"
+        ],
+        "schema_color": "Transparent beige",
+        "schema_description": "Sunglasses with frames in plastic and tinted, UV-protective lenses in plastic.",
+        "material": "Polymethyl methacrylate/Cellulose propionate/Steel/PCTG",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sunglasses",
+        "price": "17.99",
+        "audience": "male"
+    }
+]

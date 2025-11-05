@@ -1,0 +1,148 @@
+[
+    {
+        "title": "Spike-Detail Bracelet",
+        "url": "https://www2.hm.com/en_us/productpage.1304472001.html",
+        "main_category": "accesories",
+        "role": "jewelry",
+        "images": [
+            "https://image.hm.com/assets/hm/07/0e/070e096aed5a7b3fa6ef3bc5b6a076f038044f90.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/7c/42/7c42c425243a02a5d36c555c05de43a7cdd1d92e.jpg?imwidth=768"
+        ],
+        "schema_color": "Silver-colored",
+        "schema_description": "Bracelet in metal with spiked details. Trigger clasp.",
+        "material": "Zinc/Steel",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Bracelets",
+        "price": "14.99",
+        "audience": "male"
+    },
+    {
+        "title": "Braided Bracelet",
+        "url": "https://www2.hm.com/en_us/productpage.1294417001.html",
+        "main_category": "accesories",
+        "role": "jewelry",
+        "images": [
+            "https://image.hm.com/assets/hm/2c/53/2c53795c3a7d6f373388ad8cf8dbc9aaffc80618.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/87/68/87684ee9ffc570eeea45bb595b968c6c2930b602.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/15/57/15577d37167af1d4be0e7a71061855ca3de72788.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Bracelet in braided, coated fabric with a toggle clasp. Can also be worn as a necklace.",
+        "material": "Zinc/Polyurethane/Steel",
+        "pattern": null,
+        "brand": "H&M",
+        "category": "Bracelets",
+        "price": "19.99",
+        "audience": "male"
+    },
+    {
+        "title": "Ring",
+        "url": "https://www2.hm.com/en_us/productpage.1304479001.html",
+        "main_category": "accesories",
+        "role": "jewelry",
+        "images": [
+            "https://image.hm.com/assets/hm/85/19/8519231992adb6334085381e1f6acf49c62d8163.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/60/32/6032e0b9a520326bfe6309ae4781664aabcc2595.jpg?imwidth=768"
+        ],
+        "schema_color": "Silver-colored",
+        "schema_description": "Ring in metal.",
+        "material": "Zinc",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Rings",
+        "price": "12.99",
+        "audience": "male"
+    },
+    {
+        "title": "Stainless Steel Bracelet",
+        "url": "https://www2.hm.com/en_us/productpage.1260791001.html",
+        "main_category": "accesories",
+        "role": "jewelry",
+        "images": [
+            "https://image.hm.com/assets/hm/3a/43/3a43da26ae3ebe40e24e2f2fac7ac02adae7a349.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/bb/46/bb460cf80fc5690d3c9c7582520ca558d98e1b0c.jpg?imwidth=768"
+        ],
+        "schema_color": "Silver-colored",
+        "schema_description": "Curb chain bracelet in stainless steel. Trigger clasp.",
+        "material": "Stainless steel",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Bracelets",
+        "price": "19.99",
+        "audience": "male"
+    },
+    {
+        "title": "Stainless Steel Necklace",
+        "url": "https://www2.hm.com/en_us/productpage.1260790001.html",
+        "main_category": "accesories",
+        "role": "jewelry",
+        "images": [
+            "https://image.hm.com/assets/hm/b2/7e/b27ee0ad01a0d18a339d728a8a407e8629d4b39b.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/99/ab/99ab836168ab90600c58163796f662f274549d27.jpg?imwidth=768"
+        ],
+        "schema_color": "Silver-colored",
+        "schema_description": "Necklace in stainless steel curb chain. Trigger clasp.",
+        "material": "Stainless steel",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Necklaces",
+        "price": "29.99",
+        "audience": "male"
+    },
+    {
+        "title": "Chunky Necklace",
+        "url": "https://www2.hm.com/en_us/productpage.1294552001.html",
+        "main_category": "accesories",
+        "role": "jewelry",
+        "images": [
+            "https://image.hm.com/assets/hm/2f/49/2f492714e5604adeda04834fdf1376d4368c983d.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/1c/9c/1c9c152ddf5947f1a19a4683899c90beb7dc8182.jpg?imwidth=768"
+        ],
+        "schema_color": "Silver-colored",
+        "schema_description": "Chunky necklace in metal. Trigger clasp.",
+        "material": "Steel/Brass",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Necklaces",
+        "price": "17.99",
+        "audience": "male"
+    },
+    {
+        "title": "Chunky Bracelet",
+        "url": "https://www2.hm.com/en_us/productpage.1294553001.html",
+        "main_category": "accesories",
+        "role": "jewelry",
+        "images": [
+            "https://image.hm.com/assets/hm/01/07/010784d0f1f973a27142eeb36dbe1218421b2451.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/95/6c/956c42b1aabe8f60a923c11aa7e20d896135d7c1.jpg?imwidth=768"
+        ],
+        "schema_color": "Silver-colored",
+        "schema_description": "Chunky metal chain bracelet with trigger clasp.",
+        "material": "Steel/Brass",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Bracelets",
+        "price": "14.99",
+        "audience": "male"
+    },
+    {
+        "title": "Flower-Shaped Brooch",
+        "url": "https://www2.hm.com/en_us/productpage.1260122001.html",
+        "main_category": "accesories",
+        "role": "jewelry",
+        "images": [
+            "https://image.hm.com/assets/hm/b3/23/b323285521010a4c5a53bb1bf06ec18e741ca428.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/2c/19/2c1908a718d1bb1d34c81ce412fdb2625728c994.jpg?imwidth=768",
+            "https://image.hm.com/assets/hm/dd/6a/dd6a0dc0c5783c8a84a282221f8dc2ef392bf161.jpg?imwidth=768"
+        ],
+        "schema_color": "Black",
+        "schema_description": "Brooch in metal decorated with a flower.",
+        "material": "Polyester/Steel",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Jewellery",
+        "price": "12.99",
+        "audience": "male"
+    }
+]
