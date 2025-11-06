@@ -6,14 +6,14 @@ import json
 abs_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(abs_path)
 
-# with open('zalando_scripts/zalando_catalog_cleaned_color.json', 'r', encoding='utf-8') as f:
-with open('zalando_catalog/donna/scarpe-piatte-donna.json', 'r', encoding='utf-8') as f: 
+# with open('zalando_scripts/shorts-donna.json', 'r', encoding='utf-8') as f:
+with open('zalando_catalog/donna/t-shirt-donna.json', 'r', encoding='utf-8') as f: 
     data = json.load(f)
 
 
 url_list = []
 for items in data:
-    url_list.append(items['title'])
+    url_list.append(items['schema_description'])
 
 
 print(len(url_list))

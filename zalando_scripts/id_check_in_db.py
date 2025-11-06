@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import supabase_queries as supa
 
-with open('zalando_scripts/sneakers-basse-donna.json', 'r', encoding='utf-8') as f:
+with open('zalando_scripts/felpe-donna.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 supabase_client = supa.setup_supabase_client()

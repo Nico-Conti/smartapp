@@ -4,7 +4,7 @@ import pandas as pd
 from typing import List, Dict, Any, Tuple
 
 # --- CONFIGURATION ---
-INPUT_FILE = 'zalando_scripts/scarpe-piatte-donna.json'
+INPUT_FILE = 'zalando_scripts/t-shirt-donna.json'
 # The key used to define uniqueness (e.g., 'url')
 DUPLICATE_KEY = 'url'
 # The key that holds the unique Supabase ID for deletion (must exist in data)

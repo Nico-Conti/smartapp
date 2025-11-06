@@ -1,96 +1,285 @@
-Canonical Color,Raw String Color
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Brown,braun/marrone
-Black,black/gold-coloured/nero
-Dark Blue,dark blue/blu scuro
-Brown,cognac
+Canonical Color,Raw Color String
+White,white
+Blue,navy blue
+Blue,drill blue
+Black, black
+Red,bordeaux
+Blue,blue stone
+Green,verde bosco
+Black,black
+Black, black
+Black,black
+White,blanc
+Black,black
+Black,black
+White,white swan
+White,classic white
+White,white
+Black,black
+White,bianco ottico
+Black,black
+Blue,blu notte
+White,off-white
+Grey,grey
+Black,black
+Black,black
+Black,black
+Black,black
+White,bright white
+White,bianco ottico
+Brown,marrone scuro
+Black,black
+Black,black
+Black,black
+Black,black
+Black,black
+Blue,marine
+White,white
+Black,black
+Blue,inkwell
+Blue,desert sky
+Green,verde
+White,white
+Brown,dark brown
+Grey,marl grey
+Black,black
+Black/White,black/white
+Grey,mottled grey
+Grey,anthracite
+White,white
 Black,nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Brown,brown/marrone
-Brown,brown/marrone
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Brown,mocca/marrone
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
+Black,black
 Black,nero
-Black,black/nero
-Brown,cognac
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Navy,navy/blu scuro
-Dark Blue,dark blue/blu scuro
-Black,black/nero
-Bordeaux,bordeaux
-Black,black/nero
-Black,black/nero
-Burgundy,burgundy/bordeaux
-Black,leopard comb/nero
-Black,black/nero
-Dark Brown,dark brown/marrone scuro
-Cognac,cognac
-Red,red/rosso
-Dark Red,dark red/rosso scuro
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Taupe,taupe/grigio talpa
-Bordeaux,bordeaux
-Black,black/nero
-Black,black/nero
-Black,black/nero
-Black,black patent/nero
-Brown,tobacco brown/marrone
-Brown,brown/marrone
-Brown,brown/marrone
-Beige,beige
-Black,black/nero
-Black,black/nero
-Beige,beige
-Brown,brown/marrone
+Pink,light pink
+Brown,dark brown
+White,white
+Grey,mottled dark grey
+Grey,grigio scuro
+Black,black
+Black,black
+Blue,navy
+Brown,dark brown
+Blue,navy
+White/Beige,off white/beige
+Black,black
+Brown,mottled light brown
+White,white
+Multi,black brown neutral nude white
+Black,black
+Black,black
 Black,nero
-Black,black/nero
-Black,black/nero
-Navy,navy/blu scuro
-Black,black/nero
-Black,nero
-Brown,rust/marrone
-Black,nero
-Brown,mud/marrone
-Olive Green,olive green/oliva
-Black,black/nero
-Burgundy,burgundy/bordeaux
-Dark Brown,dark brown/marrone scuro
-Black,black/nero
-Bordeaux,merlot/bordeaux
-Burgundy,burgundy/bordeaux
-Black,black/nero
-Dark Brown,dark hickory/marrone scuro
-Black,black/nero
-Navy,refined navy/blu scuro
-Brown,brown/marrone
-Brown,brown/marrone
-Dark Brown,dark hickory/marrone scuro
-Taupe,taupe brown/marrone chiaro
-Olive,dark olive/verde scuro
-Dark Red,dark garnet/rosso scuro
-Dark Red,dark garnet/rosso scuro
-Olive,dark olive/verde scuro
+Brown,tessa stripe anise f
+White,bright white
+Black,black
+White,white dune
+Black,black
+Black,black
+Black,black
+Black,black
+White,bright white
+Black,black
+Black,black
+Grey,mottled dark grey
+Brown,chocolate truffle
+White,ivory petal
+White,white
+Blue/White,midnight navy/white
+White,bright white
+Blue,desert sky
+White,white
+White,white
+Black,black
+Black,black
+Black,black
+Black,black
+White,bright white
+Black,black
+White,white
+Blue,marine
+Black,black
+Black,black
+White,white
+Black,black
+Black,black
+Black,black
+Black, black
+Grey,grey/dark grey
+Black,black
+Beige,ivory
+White,bright white
+Black,black
+Blue,nachtblau
+Black,black
+White,bright white
+Black,black
+White,white
+Orange/Purple,orange purple
+White,white
+Black,black
+White,white
+White,white
+Black,black
+White,white
+Black,black washed
+White,white
+White,white
+Brown,auburn
+Black,black
+Pink,clear pink
+Black,black
+Black,obsidian
+Black/White,black/white
+Blue,navy
+Brown,braun
+Grey,anthracite
+White,bright white
+Black,black
+Beige,oatmeal
+White,white
+Black,black
+Black,black
+White,white dune
+Black,black
+Black,black
+Black,jet black
+White,white
+Blue/White,midnight navy/white
+Black,black
+White,white
+White/Red,white/gym red
+Black,black
+Red,flame scarlet
+Black,black
+Black,black
+White,white
+Black,black
+Black,black
+Grey,anthracite
+Black,black
+Green,bottle green
+White,white
+Black,black
+Beige,pumice
+Black/White,black/off white
+White,white
+Black,black
+Black,black washed
+Red,rhythmic red
+Black,black washed
+Black,black
+Beige,cream
+White,white
+Black,black
+Black,black
+Green,paleleaf
+Black,faded black
+Black,black
+Black,black
+Black,off black
+Beige,pumice
+Black,black
+Black,mottled black
+White,white
+Grey,grey six
+Black,black
+Black,black
+Pink,pink
+Black,black
+Black,black
+Black,black
+Black,black
+Brown,coffee bean
+White,white
+Black,black
+Black,black
+White/Black/Grey,off white/black/grey
+Black,black
+Green,dark green
+Black,black
+White,off white
+Black,black
+White,white
+Black,black
+Black,black
+White,chalk
+White,white
+Black,black
+White,off white
+Black,black
+Black,black
+Grey,anthracite
+Black,black
+Black,black
+White/Green,white/off-white/green
+Beige/Green,ecru/green
+Blue,pacific royal
+White,white
+Red/Pink/Purple,red/light pink/dark purple
+Black,washed black
+White,white
+Black,black
+Black/White,black/off-white
+Black,black
+Grey,asphalt
+Brown,dark brown
+Black/Blue,black/blue
+Beige,vanilla ice
+Grey,dusky gray
+Black,black
+White,white
+Blue,maritime blue
+Blue,thermal blue
+Black,black
+Blue,evening blue
+Blue,blue stone
+White,white
+Grey,grey
+Beige,ivory
+White,white
+Red/Brown,maroon/wild sepia
+White,white
+White,white
+Black/White,black/white
+Black,black
+Black,black
+White,off white
+Black,black
+Grey,steel
+Grey,thunder grey
+Blue/Black,blue/black
+Grey,gris
+Black,black
+Black,black
+Black,black
+Blue,light blue
+White,white
+Black,true black
+Black,black
+Brown,brown
+Red,coral
+Green,green
+Black,black
+Black,black
+Green,green gables
+Black,black
+White,ceramic white
+White,white
+White,white
+Black,black
+White,white
+Black,black
+White,white
+Black,black
+Black,black
+Black/White,black /  / white
+White,white
+Black,black
+White,white
+Beige/Brown/White,sand/beige/offwhite
+Black,black
+Red,medium red
+Black/White,black/white
+Pink,pink
+White,bright white
+Blue,indigo fog
+Beige,mottled beige
