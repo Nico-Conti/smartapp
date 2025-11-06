@@ -7,36 +7,34 @@ from sklearn.metrics.pairwise import cosine_similarity
 from PIL import Image 
 import webbrowser 
 import time # Ensure this is imported at the top
+import sys 
 
 # Import custom modules
 from src.data import supabase_queries as supa 
 from src.ai.query_embedder import get_text_embedding_vector 
 from src.ai import query_handler
 
-# Define global variables for the final time report
-total_embed_time = 0
-total_sim_time = 0
-total_supabase_time = 0 # This will now be set to the time of the single batch query
+try:
+    # This will execute as soon as the module is imported
+    SUPABASE_CLIENT = supa.setup_supabase_client()
+except ValueError as e:
+    print(f"FATAL: Supabase client failed to initialize: {e}")
+    sys.exit(1)
 
-def search_best_product_with_vector_db(supabase_client, item_category: str, item_desc: str) -> dict | None:
+
+def search_best_product_with_vector_db(item) -> dict | None:
     """
     Finds the single best product match using an indexed vector search in Supabase.
     """
-    global total_embed_time, total_supabase_vector_search_time
-    
-    # 1. TIME QUERY EMBEDDING
-    start_embed = time.time()
-    query_vector = get_text_embedding_vector(item_desc) #GEMINI EXTENDED QUERY EMBEDDING
-    query_vector_list = query_vector.flatten().tolist() # Convert to list for Supabase (JSON standard)
-    total_embed_time += (time.time() - start_embed)
+    global total_supabase_vector_search_time
     
     # 2. TIME AND EXECUTE VECTOR SEARCH (The database handles the filtering and ranking)
     start_supabase_search = time.time()
     
     df_result = supa.vector_search_rpc_single(
-        supabase_client, 
-        query_vector_list,
-        item_category,  
+        SUPABASE_CLIENT, 
+        item['embedding'],
+        item['category'],  
         #"product_data", 
         limit=1
     )
@@ -65,11 +63,6 @@ def process_outfit_plan(parsed_item_list: list[dict]) -> list[dict]:
     total_embed_time = 0
     total_supabase_vector_search_time = 0
     
-    try:
-        supabase_client = supa.setup_supabase_client()
-    except ValueError as e:
-        return [{'error': str(e)}]
-        
     if parsed_item_list and 'message' in parsed_item_list[0]:
         return parsed_item_list 
 
@@ -77,11 +70,7 @@ def process_outfit_plan(parsed_item_list: list[dict]) -> list[dict]:
     
     for item in parsed_item_list:
         # The key logic is now encapsulated and timed inside this call
-        best_match = search_best_product_with_vector_db(
-            supabase_client, 
-            item_category=item['category'], 
-            item_desc=item['description']
-        )
+        best_match = search_best_product_with_vector_db(item)
         
         result = {'requested_item': item['description'], 'category': item['category']}
         
@@ -104,6 +93,7 @@ def process_outfit_plan(parsed_item_list: list[dict]) -> list[dict]:
 if __name__ == '__main__':
     # LLM calls, guardrail checks
     user_prompt = input("Enter your outfit request (e.g., 'A comfortable outfit for a remote work day'):\n> ")
+    budget = float(input("Enter the max budget(€) for the whole outfit:\n"))
     print("\n--- Sending request to Gemini... ---")
     
     start_time_llm = time.time()
@@ -111,19 +101,29 @@ if __name__ == '__main__':
     parsed_item_list = query_handler.parse_outfit_plan(outfit_json)
     #print(parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
     end_time_llm = time.time()
-    
+    #USER'S QUERY IS NOW RE-INTERPRETED TO BETTER UNDERSTAND USER'S INTENT AND WELL FORMATTED IN A JSON STRING
+
+    #CHECK USER'S QUERY FOR HATE-SPEECH OR NOT CONFORMING TO OUTFIT REQUESTS
     if parsed_item_list and 'ERROR' in parsed_item_list[0]:
         # ... (print guardrail ERROR)
         print("\n--- GUARDRAIL MESSAGE ---")
         print(parsed_item_list[0]['ERROR'])
     
     else:
-        start_time_retrieval = time.time()
         
+        # 1. EXTENDED QUERY EMBEDDING
+        start_time_embed = time.time()
+        for item in parsed_item_list:
+            query_vector = get_text_embedding_vector(item['description']) #GEMINI EXTENDED QUERY EMBEDDING
+            query_vector = query_vector.flatten().tolist() # Convert to list for Supabase (JSON standard)
+            item['embedding'] = query_vector
+        end_time_embed = time.time()
+
         print(f"--- Retrieving {len(parsed_item_list)} matching products... ---")
         
+        # 2. OUTFIT RETRIEVAL
+        start_time_retrieval = time.time()
         final_results = process_outfit_plan(parsed_item_list)
-        
         end_time_retrieval = time.time()
 
         # ... (Print JSON Results)
@@ -139,9 +139,11 @@ if __name__ == '__main__':
         for item in final_results:
             if item.get('image_link'):
                 image_url = item['image_link']
+                url = item['url']
                 print(f"Match found for {item['requested_item']}:")
                 print(f"  Title: {item.get('title')}")
                 print(f"  Image URL: {image_url}")
+                print(f"  URL for Purchase: {url}")
                 try:
                     webbrowser.open_new_tab(image_url)
                     print("  --> Image opened in your default web browser.")
@@ -156,18 +158,9 @@ if __name__ == '__main__':
         print("\n" + "="*50)
         print("--- EXECUTION TIME BREAKDOWN (Total) ---")
         print(f"1. LLM Generation & Parsing:   {end_time_llm - start_time_llm:.2f} seconds")
-        print(f"2. Product Retrieval & Embed:   {end_time_retrieval - start_time_retrieval:.2f} seconds")
-        print(f"3. Visualization (Browser Open): {end_time_viz - start_time_viz:.2f} seconds")
-        print("-" * 38)
-        print("--- RETRIEVAL BREAKDOWN ---")
-        print(f"   a. Total Query Embedding:    {total_embed_time:.2f} seconds")
-        print(f"   b. Total Supabase Query (BATCH): {total_supabase_time:.2f} seconds")
-        print(f"   c. Total Cosine Similarity:  {total_sim_time:.2f} seconds")
-        
-        # The remaining time is now due to DataFrame copying and filtering (fast)
-        retrieval_sum = total_embed_time + total_supabase_time + total_sim_time
-        other_retrieval_time = (end_time_retrieval - start_time_retrieval) - retrieval_sum
-        print(f"   d. Other Retrieval Ops (Filtering, Pandas): {other_retrieval_time:.2f} seconds")
+        print(f"2. Items embeddings: {end_time_embed - start_time_embed:.6f} seconds")
+        print(f"3. Product Retrieval:   {end_time_retrieval - start_time_retrieval:.2f} seconds")
+        print(f"4. Visualization (Browser Open): {end_time_viz - start_time_viz:.2f} seconds")
 
         print("-" * 50)
         print(f"TOTAL RUNTIME:               {time.time() - start_time_llm:.2f} seconds")
