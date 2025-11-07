@@ -38,7 +38,7 @@ def setup_supabase_client() -> Client:
         raise
     
 
-def vector_search_rpc_single(client: Client, query_vector: np.ndarray, category: str, max_espense: float, limit: int = 1, threshold: float = 0.0) -> pd.DataFrame:
+def vector_search_rpc_candidates(client: Client, query_vector: np.ndarray, category: str, budget: float, limit: int = 10, threshold: float = 0.0) -> pd.DataFrame:
     """
     Calls the optimized PostgreSQL RPC function (search_outfits) to find the best match 
     for a single query vector within a specified category.
@@ -57,7 +57,7 @@ def vector_search_rpc_single(client: Client, query_vector: np.ndarray, category:
                 "match_threshold": threshold,
                 "match_count": limit,
                 "category_in": category, # The main_category filter
-                "max_espense": max_espense
+                "max_espense": budget
             }
         ).execute()
 
@@ -78,14 +78,6 @@ def get_user_preferences(client: Client, user_id_key: int) -> dict | None:
     """
     Retrieves a user's preferences (favorite_color, favorite_material, favorite_brand) 
     from the users_prova_preferences table using the unique user ID (UID).
-
-    Args:
-        client: The initialized Supabase Client instance.
-        user_id_key: The unique User ID (UID) obtained from Supabase Auth.
-
-    Returns:
-        A dictionary containing the preferences (e.g., {'favorite_color': 'blue', ...})
-        or None if no preferences are found or an error occurs.
     """
     
     # 1. Define the specific columns to select
