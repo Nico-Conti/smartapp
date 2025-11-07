@@ -99,10 +99,14 @@ if __name__ == '__main__':
     # LLM calls, guardrail checks
     user_prompt = input("Enter your outfit request (e.g., 'A comfortable outfit for a remote work day'):\n> ")
     budget = float(input("Enter the max budget(€) for the whole outfit:\n"))
+
+    user_id_key = int(input("Enter your Supabase Auth User ID (UID) for preference lookup:\n> "))
+    user_preferences = supa.get_user_preferences(SUPABASE_CLIENT, user_id_key)
+
     print("\n--- Sending request to Gemini... ---")
     
     start_time_llm = time.time()
-    outfit_json = query_handler.generate_outfit_plan(user_prompt)
+    outfit_json = query_handler.generate_outfit_plan(user_prompt, user_preferences)
     parsed_item_list = query_handler.parse_outfit_plan(outfit_json)
     #print(parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
     end_time_llm = time.time()

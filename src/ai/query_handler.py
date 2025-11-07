@@ -13,7 +13,7 @@ load_dotenv()
 # This client object will be reused for every API call.
 CLIENT = genai.Client()
 
-MODEL_NAME = 'gemini-2.0-flash'
+MODEL_NAME = 'gemini-2.5-flash'
 
 # --- 2. Schema Definitions (From your notebook logic) ---
 
@@ -30,6 +30,7 @@ item_schema = types.Schema(
 # Define the schema for a category (e.g., "top")
 category_schema = types.Schema(
     type=types.Type.OBJECT,
+    description="A collection of item suggestions for a specific clothing category. If accessory limit to sunglasses, caps/hats or simple jewelry.",
     properties={
         "color_palette": types.Schema(type=types.Type.STRING, description="A specific color or color description (e.g., 'sky blue', 'dark indigo')."),
         "pattern": types.Schema(type=types.Type.STRING, description="A specific pattern (e.g., 'solid', 'striped', 'gingham')."),
@@ -68,15 +69,47 @@ The final output MUST be a single JSON object and nothing else.
 
 # --- 4. Core Functions ---
 
-def generate_outfit_plan(user_prompt: str) -> dict:
+def generate_outfit_plan(user_prompt: str, user_preferences: dict | None) -> dict:
     """
     Sends the user prompt to Gemini and enforces the structured JSON output.
     Returns the raw parsed JSON dictionary.
     """
     try:
+        
+        user_request_block = (
+            "*** USER REQUEST ***\n"
+            f"{user_prompt}"
+            "\n**************************\n"
+        )
+
+        preference_string = ""
+        if user_preferences:
+            # Build a list of specific preferences to pass to the LLM
+            preferences = []
+            if user_preferences.get('favorite_color'):
+                preferences.append(f"favorite color: {user_preferences['favorite_color']}")
+            if user_preferences.get('favorite_material'):
+                preferences.append(f"favorite material: {user_preferences['favorite_material']}")
+            if user_preferences.get('favorite_brand'):
+                preferences.append(f"favorite brand: {user_preferences['favorite_brand']}")
+                
+            if preferences:
+                # Combine the preferences into a natural language sentence
+                preference_string = (
+                    "\n*** USER PREFERENCES ***\n"
+                    "When selecting items for the outfit plan, prioritize products "
+                    f"that align with the following preferences: {', '.join(preferences)}."
+                    "\n*** MANDATORY ***\n"
+                    "Make sure that the products go well together, do not only enforce preferences for each product individually."
+                    "\n**************************"
+                )
+
+        full_prompt_for_llm = user_request_block + preference_string
+        print(full_prompt_for_llm)
+
         response = CLIENT.models.generate_content(
             model=MODEL_NAME,
-            contents=[user_prompt],
+            contents=[full_prompt_for_llm],
             config=types.GenerateContentConfig(
                 system_instruction=SYSTEM_PROMPT,
                 response_mime_type="application/json",

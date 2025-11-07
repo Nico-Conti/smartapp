@@ -72,6 +72,44 @@ def vector_search_rpc_single(client: Client, query_vector: np.ndarray, category:
     except Exception as e:
         print(f"Supabase RPC search error for category '{category}': {e}")
         return pd.DataFrame()
+    
+
+def get_user_preferences(client: Client, user_id_key: int) -> dict | None:
+    """
+    Retrieves a user's preferences (favorite_color, favorite_material, favorite_brand) 
+    from the users_prova_preferences table using the unique user ID (UID).
+
+    Args:
+        client: The initialized Supabase Client instance.
+        user_id_key: The unique User ID (UID) obtained from Supabase Auth.
+
+    Returns:
+        A dictionary containing the preferences (e.g., {'favorite_color': 'blue', ...})
+        or None if no preferences are found or an error occurs.
+    """
+    
+    # 1. Define the specific columns to select
+    select_columns = "favorite_color, favorite_material, favorite_brand"
+    
+    try:
+        # 2. Query the table, filter by the user's UID, and limit to 1 result
+        response = client.table('users_prova_preferences').select(select_columns).eq(
+            'user_id', # Column in your table that stores the user's UID (Ensure this column name is correct)
+            user_id_key
+        ).limit(1).execute() 
+
+        # 3. Check if data was returned
+        if not response.data:
+            #print(f"No preferences found for user ID: {user_id_key}")
+            return None
+        
+        # 4. Return the single result dictionary
+        # response.data is a list of dictionaries, so we take the first element [0]
+        return response.data[0]
+        
+    except Exception as e:
+        print(f"Error retrieving user preferences for {user_id_key}: {e}")
+        return None
 
 #ONLY USED FOR LOCAL AND TARGETED TESTING
 def query_products_in_main_category(client: Client, category: str, table_name: str) -> pd.DataFrame:
