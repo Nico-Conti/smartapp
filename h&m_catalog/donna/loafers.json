@@ -1,0 +1,207 @@
+[
+    {
+        "title": "Patent loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/c2/8e/c28ec89b9d4a5741bbb825668b94dcafb346958e.jpg",
+            "https://image.hm.com/assets/hm/53/40/5340401e7c8cdcaca90ecda240daa2a0c50b67ba.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/53/40/5340401e7c8cdcaca90ecda240daa2a0c50b67ba.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1304340002.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "schema_color": "Black",
+        "schema_description": "Classic loafers in coated fabric with patent finish. Featuring a penny keeper and a moccasin seam at the front. Jersey linings.",
+        "material": "Polyester/Polyurethane/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "44.99",
+        "audience": "female",
+        "id": "1304340002",
+        "image_link": "https://image.hm.com/assets/hm/c2/8e/c28ec89b9d4a5741bbb825668b94dcafb346958e.jpg"
+    },
+    {
+        "title": "Patent loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/2b/82/2b829dcddad176a2ad938daef526efe63d1761e3.jpg",
+            "https://image.hm.com/assets/hm/2b/82/2b829dcddad176a2ad938daef526efe63d1761e3.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1304340001.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "schema_color": "Red",
+        "schema_description": "Classic loafers in coated fabric with patent finish. Featuring a penny keeper and a moccasin seam at the front. Jersey linings.",
+        "material": "Polyester/Polyurethane/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "44.99",
+        "audience": "female",
+        "id": "1304340001",
+        "image_link": "https://image.hm.com/assets/hm/2b/82/2b829dcddad176a2ad938daef526efe63d1761e3.jpg"
+    },
+    {
+        "title": "Loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/b9/d7/b9d794884005be363a364a8f11f5fcae32709430.jpg",
+            "https://image.hm.com/assets/hm/b9/d7/b9d794884005be363a364a8f11f5fcae32709430.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1290745001.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "schema_color": "Black",
+        "schema_description": "Loafers with a moccasin seam at front, a tab at front with a metal chain detail, and lining in cotton twill.",
+        "material": "Cotton/Polyurethane/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "44.99",
+        "audience": "female",
+        "id": "1290745001",
+        "image_link": "https://image.hm.com/assets/hm/b9/d7/b9d794884005be363a364a8f11f5fcae32709430.jpg"
+    },
+    {
+        "title": "Leather Loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/93/ee/93ee8fbb9c7dfc8d872245cdecfdd9e9b6fd267b.jpg",
+            "https://image.hm.com/assets/hm/bc/74/bc74b8d53661d22dbaaa9b58dc05df083ae680f0.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/bc/74/bc74b8d53661d22dbaaa9b58dc05df083ae680f0.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1264551002.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "schema_color": "Beige/Brown",
+        "schema_description": "Loafers in leather with a fuzzy finish. Penny keeper and moccasin seam at front. Twill lining, leather insoles, and textured soles for good grip.",
+        "material": "Cotton/Thermoplastic rubber/Leather",
+        "pattern": "Leopard-print",
+        "brand": "H&M",
+        "category": "Shoes",
+        "price": "109.0",
+        "audience": "female",
+        "id": "1264551002",
+        "image_link": "https://image.hm.com/assets/hm/93/ee/93ee8fbb9c7dfc8d872245cdecfdd9e9b6fd267b.jpg"
+    },
+    {
+        "title": "Loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/40/36/4036aee733fbea907327cac742211cd04f3547b8.jpg",
+            "https://image.hm.com/assets/hm/1c/5c/1c5ce0c023108b2bfa32cf71eae067297d29f260.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/1c/5c/1c5ce0c023108b2bfa32cf71eae067297d29f260.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1290735002.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "schema_color": "Beige",
+        "schema_description": "Loafers with a penny keeper and a moccasin seam at front. Lining in cotton twill and pebble soles.",
+        "material": "Polyester/Cotton/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "39.99",
+        "audience": "female",
+        "id": "1290735002",
+        "image_link": "https://image.hm.com/assets/hm/40/36/4036aee733fbea907327cac742211cd04f3547b8.jpg"
+    },
+    {
+        "title": "Loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/06/7b/067bcddeeccc262bd1c1bd2ac9e8ce55e05cc88a.jpg",
+            "https://image.hm.com/assets/hm/5a/6f/5a6f62bff53997bda7261e31e4ef8a0272b58f27.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/5a/6f/5a6f62bff53997bda7261e31e4ef8a0272b58f27.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1290745002.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "schema_color": "Brown",
+        "schema_description": "Loafers with a moccasin seam at front, a tab at front with a metal chain detail, and lining in cotton twill.",
+        "material": "Cotton/Thermoplastic rubber/Polyurethane",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "44.99",
+        "audience": "female",
+        "id": "1290745002",
+        "image_link": "https://image.hm.com/assets/hm/06/7b/067bcddeeccc262bd1c1bd2ac9e8ce55e05cc88a.jpg"
+    },
+    {
+        "title": "Loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/07/44/0744495202bbd468ee9acd8c20c21bd9078c61ef.jpg",
+            "https://image.hm.com/assets/hm/07/44/0744495202bbd468ee9acd8c20c21bd9078c61ef.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1290735001.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "schema_color": "Black",
+        "schema_description": "Loafers with a penny keeper and a moccasin seam at front. Lining in cotton twill and pebble soles.",
+        "material": "Cotton/Thermoplastic rubber/Polyamide",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "39.99",
+        "audience": "female",
+        "id": "1290735001",
+        "image_link": "https://image.hm.com/assets/hm/07/44/0744495202bbd468ee9acd8c20c21bd9078c61ef.jpg"
+    },
+    {
+        "title": "Loafer Mules",
+        "images": [
+            "https://image.hm.com/assets/hm/03/21/03217bce6c9148661a11074e4c339d1d9e919df8.jpg",
+            "https://image.hm.com/assets/hm/03/21/03217bce6c9148661a11074e4c339d1d9e919df8.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1290743002.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "schema_color": "Beige",
+        "schema_description": "Loafer mules with rounded toes, a moccasin seam, and a penny keeper at front. Lining in cotton twill.",
+        "material": "Cotton/Polyurethane/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Loafers",
+        "price": "44.99",
+        "audience": "female",
+        "id": "1290743002",
+        "image_link": "https://image.hm.com/assets/hm/03/21/03217bce6c9148661a11074e4c339d1d9e919df8.jpg"
+    },
+    {
+        "title": "Leather Driving Loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/dc/77/dc77a5d3a82709440cc372be5c446d14e73c3242.jpg",
+            "https://image.hm.com/assets/hm/dc/77/dc77a5d3a82709440cc372be5c446d14e73c3242.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1264544005.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "schema_color": "Brown",
+        "schema_description": "Driving loafers in leather with a moccasin seam at front and lacing at top. Cotton canvas lining and leather insoles.",
+        "material": "Cotton/Leather/Nappa/Thermoplastic rubber",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Shoes",
+        "price": "79.99",
+        "audience": "female",
+        "id": "1264544005",
+        "image_link": "https://image.hm.com/assets/hm/dc/77/dc77a5d3a82709440cc372be5c446d14e73c3242.jpg"
+    },
+    {
+        "title": "Leather Loafers",
+        "images": [
+            "https://image.hm.com/assets/hm/df/64/df6469f6a2156c7664443085b72dd3fba1ac9ad2.jpg",
+            "https://image.hm.com/assets/hm/c6/d1/c6d1f22a7f0d27bd9bd77d0d0a205e15bd32542e.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/c6/d1/c6d1f22a7f0d27bd9bd77d0d0a205e15bd32542e.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1296782002.html",
+        "main_category": "shoes",
+        "role": "loafers",
+        "schema_color": "White",
+        "schema_description": "Loafers in soft leather with a penny keeper and a moccasin seam at front with gathers. Jersey lining and leather insoles.",
+        "material": "Polyester/Thermoplastic rubber/Leather",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Shoes",
+        "price": "99.0",
+        "audience": "female",
+        "id": "1296782002",
+        "image_link": "https://image.hm.com/assets/hm/df/64/df6469f6a2156c7664443085b72dd3fba1ac9ad2.jpg"
+    }
+]

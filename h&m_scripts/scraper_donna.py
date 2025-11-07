@@ -28,30 +28,38 @@ BASE_URL = "https://www2.hm.com"
 # CATEGORY_URL_ABBILIGIMENTO_TEMPLATE = "https://www2.hm.com/it_it/uomo/acquista-per-prodotto/{slug}.html?page={page}"
 CATEGORY_URL_ABBILIGIMENTO_TEMPLATE = "https://www2.hm.com/en_us/women/products/{slug}.html?page={page}"
 
-CATEGORY_URL_SHOES_TEMPLATE = "https://www2.hm.com/it_it/uomo/scarpe/{slug}.html?page={page}"
-# CATEGORY_URL_SHOES_TEMPLATE = "https://www2.hm.com/en_us/men/shoes/{slug}.html?page={page}"
 
+# CATEGORY_URL_SHOES_TEMPLATE = "https://www2.hm.com/en_us/men/shoes/{slug}.html?page={page}"
+CATEGORY_URL_SHOES_TEMPLATE = "https://www2.hm.com/en_us/women/shoes/{slug}.html?page={page}"
+
+CATEGORY_URL_ACCESORIES_TEMPLATE = "https://www2.hm.com/en_us/women/accessories/{slug}.html?page={page}"
 
 
 # --- NEW: Category configuration based on your schema ---
 CATEGORIES_TO_SCRAPE = [
+    # {
+    #     "slug": "hats",
+    #     "name": "hats",
+    #     "main_category": "accessories",
+    #     "role": "hats"
+    # },
     # {
     #     "slug": "hoodies-sweatshirts",
     #     "name": "hoodies-sweatshirts",
     #     "main_category": "top",
     #     "role": "hoodies-sweatshirts"
     # },
-    {
-        "slug": "cardigans-sweaters",
-        "name": "cardigans-sweaters",
-        "main_category": "top",
-        "role": "cardigans-sweaters"
-    },
     # {
-    #     "slug": "jeans",
-    #     "name": "jeans",
+    #     "slug": "cardigans-sweaters",
+    #     "name": "cardigans-sweaters",
+    #     "main_category": "top",
+    #     "role": "cardigans-sweaters"
+    # },
+    # {
+    #     "slug": "skirts",
+    #     "name": "skirts",
     #     "main_category": "bottom",
-    #     "role": "jeans"
+    #     "role": "skirts"
     # },
     # {
     #     "slug": "jackets-coats",
@@ -59,17 +67,17 @@ CATEGORIES_TO_SCRAPE = [
     #     "main_category": "outerwear",
     #     "role": "jackets-coats"
     # },
+    {
+        "slug": "pants",
+        "name": "pants",
+        "main_category": "bottom",
+        "role": "pants"
+    },
     # {
-    #     "slug": "sweatpants",
-    #     "name": "sweatpants",
-    #     "main_category": "bottom",
-    #     "role": "sweatpants"
-    # },
-    # {
-    #     "slug": "t-shirts-tank-tops",
-    #     "name": "t-shirts-tank-tops",
+    #     "slug": "tops",
+    #     "name": "tops",
     #     "main_category": "top",
-    #     "role": "t-shirts-tank-tops"
+    #     "role": "tops"
     # },
     # {
     #     "slug": "shirts",
@@ -98,10 +106,10 @@ CATEGORIES_TO_SCRAPE = [
     #     "role": "sneakers"
     # },
     # {   
-    #     "slug": "loafers",
-    #     "name": "loafers",
+    #     "slug": "heels",
+    #     "name": "heels",
     #     "main_category": "shoes",
-    #     "role": "loafers"
+    #     "role": "heels"
 
     # },
     # {   
@@ -178,7 +186,7 @@ def make_driver():
     # Initialize the driver. The argument 'browser_executable_path' is useful 
     # if the default location is wrong, but typically not needed.
     # Force driver for Chrome 135
-    driver = uc.Chrome(options=options, version_main=135)
+    driver = uc.Chrome(options=options, version_main=141)
     
     # Add a network timeout (separate from script timeout)
     driver.set_page_load_timeout(60) # Set a high limit for the page to load
@@ -399,7 +407,7 @@ def scrape_product_detail_via_schema(driver, product_url):
         # 2. POPUP/COOKIE BANNER HANDLING (Code omitted for brevity, assumed correct)
         try:
             cookie_accept_selector = (By.ID, "onetrust-accept-btn-handler")
-            cookie_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable(cookie_accept_selector))
+            cookie_button = WebDriverWait(driver, 0.5).until(EC.element_to_be_clickable(cookie_accept_selector))
             cookie_button.click()
             print("  -> Cookie banner accepted/closed.")
             # time.sleep(1) 
@@ -474,8 +482,8 @@ def main():
     
     # --- STEP 1: Scrape Listing Pages for URLs and basic info ---
     print("--- STEP 1: Scraping Listing Pages for URLs and basic info ---")
-    
-    # --- MODIFICATION 1: Set to 3 to test 3 pages per category ---
+
+    # --- MODIFICATION 1: Set to 5 to test 5 pages per category ---
     MAX_PAGES_PER_CATEGORY = 5
 
     # --- MODIFIED LOOP STRUCTURE ---
@@ -493,12 +501,15 @@ def main():
 
             if main_cat in ["shoes"]:
                 page_url = CATEGORY_URL_SHOES_TEMPLATE.format(slug=slug, page=i)
+            elif main_cat in ["accessories"]:
+                if i == 1:
+                    page_url = CATEGORY_URL_ACCESORIES_TEMPLATE.format(slug=slug, page="")
+                else:
+                    page_url = CATEGORY_URL_ACCESORIES_TEMPLATE.format(slug=slug, page=i)
             else:
                 page_url = CATEGORY_URL_ABBILIGIMENTO_TEMPLATE.format(slug=slug, page=i)
 
-            # page_url = f"https://www2.hm.com/en_us/men/products/{slug}.html?page={i}"
-            # page_url = f"https://www2.hm.com/en_us/men/products/suits-blazers/blazers.html"
-            
+
             # Pass the category info to the scraper
             data = scrap_images_titles_links(page_url, main_cat, role, supabase_client) 
             
@@ -558,9 +569,9 @@ def main():
 
     # --- Final Saving and Preview ---
     
-    with open(f"h&m_catalog/donna/cardigans-sweaters.json", "w", encoding="utf-8") as f:
+    with open(f"h&m_catalog/donna/{role}.json", "w", encoding="utf-8") as f:
         json.dump(successful_data, f, indent=4, ensure_ascii=False)
-    print("\n✅ Test data successfully saved to product_list_TEST.json")
+    print(f"\n✅ Test data successfully saved to h&m_catalog/donna/{role}.json")
 
     # print("\n" + "="*50)
     # print("--- Final Extracted Data Preview (First Item with Details) ---")

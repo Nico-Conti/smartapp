@@ -1,0 +1,973 @@
+[
+    {
+        "title": "Fluffy Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/8b/02/8b02fbb05ede3deef2417ad7e20c99f35aba8d55.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/8b/02/8b02fbb05ede3deef2417ad7e20c99f35aba8d55.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1304211002.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige",
+        "schema_description": "Hat in fluffy fabric with wide trim. Lined.",
+        "material": "Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "24.99",
+        "audience": "female",
+        "id": "1304211002",
+        "image_link": "https://image.hm.com/assets/hm/8b/02/8b02fbb05ede3deef2417ad7e20c99f35aba8d55.jpg"
+    },
+    {
+        "title": "Fluffy Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/f4/32/f4324c63e465f88783ba273ecb19a8e658ae09cc.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/f4/32/f4324c63e465f88783ba273ecb19a8e658ae09cc.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1304211003.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Brown",
+        "schema_description": "Hat in fluffy fabric with wide trim. Lined.",
+        "material": "Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "24.99",
+        "audience": "female",
+        "id": "1304211003",
+        "image_link": "https://image.hm.com/assets/hm/f4/32/f4324c63e465f88783ba273ecb19a8e658ae09cc.jpg"
+    },
+    {
+        "title": "Fluffy Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/f0/66/f06669239c6ecc94655713b3ddfdfc7c62262dbd.jpg",
+            "https://image.hm.com/assets/hm/ee/7a/ee7acb0572644cd1b64f6fefbafa98f663534bcd.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/ee/7a/ee7acb0572644cd1b64f6fefbafa98f663534bcd.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1304211001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige/Brown",
+        "schema_description": "Hat in fluffy fabric with wide trim. Lined.",
+        "material": "Polyester",
+        "pattern": "Leopard-print",
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "24.99",
+        "audience": "female",
+        "id": "1304211001",
+        "image_link": "https://image.hm.com/assets/hm/f0/66/f06669239c6ecc94655713b3ddfdfc7c62262dbd.jpg"
+    },
+    {
+        "title": "Soft-Brushed Beanie",
+        "images": [
+            "https://image.hm.com/assets/hm/34/b3/34b35d3a782bfeb7a1d8d6e8b60c75b0917fd127.jpg",
+            "https://image.hm.com/assets/hm/8f/3a/8f3abda7d12aa5ef1fbdc02314cb3a784ac0129b.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/8f/3a/8f3abda7d12aa5ef1fbdc02314cb3a784ac0129b.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1294163003.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Brown",
+        "schema_description": "Rib-knit beanie with a soft, brushed finish and foldover cuff.",
+        "material": "Polyamide/Polyester/Acrylic",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "19.99",
+        "audience": "female",
+        "id": "1294163003",
+        "image_link": "https://image.hm.com/assets/hm/34/b3/34b35d3a782bfeb7a1d8d6e8b60c75b0917fd127.jpg"
+    },
+    {
+        "title": "Fluffy Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/92/5e/925e443a7be0fe67cd281ad87339ec20dc92b0ab.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/92/5e/925e443a7be0fe67cd281ad87339ec20dc92b0ab.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1304211005.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Black",
+        "schema_description": "Hat in fluffy fabric with wide trim. Lined.",
+        "material": "Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "24.99",
+        "audience": "female",
+        "id": "1304211005",
+        "image_link": "https://image.hm.com/assets/hm/92/5e/925e443a7be0fe67cd281ad87339ec20dc92b0ab.jpg"
+    },
+    {
+        "title": "Soft-Brushed Beanie",
+        "images": [
+            "https://image.hm.com/assets/hm/0b/a6/0ba680451cca5a89cb93615af75a59cd2773ead9.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/0b/a6/0ba680451cca5a89cb93615af75a59cd2773ead9.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1294163004.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige",
+        "schema_description": "Rib-knit beanie with a soft, brushed finish and foldover cuff.",
+        "material": "Polyamide/Polyester/Acrylic",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "19.99",
+        "audience": "female",
+        "id": "1294163004",
+        "image_link": "https://image.hm.com/assets/hm/0b/a6/0ba680451cca5a89cb93615af75a59cd2773ead9.jpg"
+    },
+    {
+        "title": "Rib-Knit Beanie",
+        "images": [
+            "https://image.hm.com/assets/hm/3b/3b/3b3b0ad35d7339155b0cb23d785fa3822efc2d04.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/3b/3b/3b3b0ad35d7339155b0cb23d785fa3822efc2d04.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1294109001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "White",
+        "schema_description": "Soft, rib-knit beanie with a foldover cuff.",
+        "material": "Polyester/Acrylic/Polyamide",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "12.99",
+        "audience": "female",
+        "id": "1294109001",
+        "image_link": "https://image.hm.com/assets/hm/3b/3b/3b3b0ad35d7339155b0cb23d785fa3822efc2d04.jpg"
+    },
+    {
+        "title": "Fluffy Earmuffs",
+        "images": [
+            "https://image.hm.com/assets/hm/e0/c6/e0c67449d8c3fea37ad198dbcc89d58c19d30154.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/e0/c6/e0c67449d8c3fea37ad198dbcc89d58c19d30154.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1309890001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige",
+        "schema_description": "Padded earmuffs in soft, fluffy fabric with an adjustable headband.",
+        "material": "Polyester",
+        "pattern": null,
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "17.99",
+        "audience": "female",
+        "id": "1309890001",
+        "image_link": "https://image.hm.com/assets/hm/e0/c6/e0c67449d8c3fea37ad198dbcc89d58c19d30154.jpg"
+    },
+    {
+        "title": "Hooded Scarf",
+        "images": [
+            "https://image.hm.com/assets/hm/9d/c1/9dc15495c4701e33a87ff751a8ac3ab055af5f60.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/9d/c1/9dc15495c4701e33a87ff751a8ac3ab055af5f60.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1308951001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige",
+        "schema_description": "Hooded scarf in a soft knit.",
+        "material": "Polyester/Acrylic/Spandex",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "29.99",
+        "audience": "female",
+        "id": "1308951001",
+        "image_link": "https://image.hm.com/assets/hm/9d/c1/9dc15495c4701e33a87ff751a8ac3ab055af5f60.jpg"
+    },
+    {
+        "title": "Ribbed Balaclava",
+        "images": [
+            "https://image.hm.com/assets/hm/38/5b/385b85e560d40a8789bffd51b188766adbb7c18d.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/38/5b/385b85e560d40a8789bffd51b188766adbb7c18d.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1207778006.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Red",
+        "schema_description": "Soft, rib-knit balaclava with a drawstring at front.",
+        "material": "Polyester/Acrylic/Polyamide",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "17.99",
+        "audience": "female",
+        "id": "1207778006",
+        "image_link": "https://image.hm.com/assets/hm/38/5b/385b85e560d40a8789bffd51b188766adbb7c18d.jpg"
+    },
+    {
+        "title": "Hooded Scarf",
+        "images": [
+            "https://image.hm.com/assets/hm/3c/7e/3c7e72d98e6cc277c352d9d17013a9503985ae27.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/3c/7e/3c7e72d98e6cc277c352d9d17013a9503985ae27.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1308951003.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Black",
+        "schema_description": "Hooded scarf in a soft knit.",
+        "material": "Polyester/Acrylic/Spandex",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "29.99",
+        "audience": "female",
+        "id": "1308951003",
+        "image_link": "https://image.hm.com/assets/hm/3c/7e/3c7e72d98e6cc277c352d9d17013a9503985ae27.jpg"
+    },
+    {
+        "title": "Sports Balaclava with DryMove\u2122",
+        "images": [
+            "https://image.hm.com/assets/hm/c9/ae/c9ae261f3f9aeb8496da47646004186026a573e7.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/c9/ae/c9ae261f3f9aeb8496da47646004186026a573e7.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1297341001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Black",
+        "schema_description": "Sports balaclava in breathable functional fabric made with DryMove\u2122 to wick away moisture from skin and keep you comfortably dry while moving. Wear as a hood or pull front layer over mouth and nose for extra warmth. Non-chafing flatlock seams for added comfort and increased freedom of movement.",
+        "material": "Polyamide/Spandex",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "24.99",
+        "audience": "female",
+        "id": "1297341001",
+        "image_link": "https://image.hm.com/assets/hm/c9/ae/c9ae261f3f9aeb8496da47646004186026a573e7.jpg"
+    },
+    {
+        "title": "Fluffy-Knit Bucket Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/c3/f8/c3f83bedf0c832ea39ce1efd1597ca56c4b3db51.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/c3/f8/c3f83bedf0c832ea39ce1efd1597ca56c4b3db51.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1264627001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Black",
+        "schema_description": "Soft, fluffy rib-knit bucket hat. Sloped brim.",
+        "material": "Polyamide/Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Bucket hats",
+        "price": "14.99",
+        "audience": "female",
+        "id": "1264627001",
+        "image_link": "https://image.hm.com/assets/hm/c3/f8/c3f83bedf0c832ea39ce1efd1597ca56c4b3db51.jpg"
+    },
+    {
+        "title": "Mohair-Blend Beanie",
+        "images": [
+            "https://image.hm.com/assets/hm/46/ba/46bac2843c1d6a7af3e55336f34cb279e0b6bf4f.jpg",
+            "https://image.hm.com/assets/hm/39/05/3905d7fbb254b8b692685521c0f6a9c988ec8604.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/39/05/3905d7fbb254b8b692685521c0f6a9c988ec8604.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1301785001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Brown",
+        "schema_description": "Rib-knit beanie in a soft mohair and wool blend. Wide, doubled foldover cuff.",
+        "material": "Wool/Mohair",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "49.99",
+        "audience": "female",
+        "id": "1301785001",
+        "image_link": "https://image.hm.com/assets/hm/46/ba/46bac2843c1d6a7af3e55336f34cb279e0b6bf4f.jpg"
+    },
+    {
+        "title": "Soft-Brushed Beanie",
+        "images": [
+            "https://image.hm.com/assets/hm/a6/de/a6de70a089f218e5b13bb4bf1fc7386de3570ab8.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/a6/de/a6de70a089f218e5b13bb4bf1fc7386de3570ab8.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1294163001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "White",
+        "schema_description": "Rib-knit beanie with a soft, brushed finish and foldover cuff.",
+        "material": "Polyamide/Polyester/Acrylic",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "19.99",
+        "audience": "female",
+        "id": "1294163001",
+        "image_link": "https://image.hm.com/assets/hm/a6/de/a6de70a089f218e5b13bb4bf1fc7386de3570ab8.jpg"
+    },
+    {
+        "title": "Rib-Knit Alpaca-Blend Beanie",
+        "images": [
+            "https://image.hm.com/assets/hm/10/e1/10e14ae835cac3f0d4bb39e2af214bcad04e6712.jpg",
+            "https://image.hm.com/assets/hm/18/86/1886e5727164bda2cce0fa99866470319e3e9268.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/18/86/1886e5727164bda2cce0fa99866470319e3e9268.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1168105008.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Brown",
+        "schema_description": "Rib-knit beanie in a soft, fluffy alpaca and wool blend. Wide foldover cuff.",
+        "material": "Polyamide/Alpaca/Wool/Spandex",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "44.99",
+        "audience": "female",
+        "id": "1168105008",
+        "image_link": "https://image.hm.com/assets/hm/10/e1/10e14ae835cac3f0d4bb39e2af214bcad04e6712.jpg"
+    },
+    {
+        "title": "Fluffy Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/05/0b/050b4141ecd0fd12e2ad663cce3424e5cc080957.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/05/0b/050b4141ecd0fd12e2ad663cce3424e5cc080957.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1305803004.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Black",
+        "schema_description": "Hat in soft, fluffy fabric. Adjustable elastic at back. Lined.",
+        "material": "Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "24.99",
+        "audience": "female",
+        "id": "1305803004",
+        "image_link": "https://image.hm.com/assets/hm/05/0b/050b4141ecd0fd12e2ad663cce3424e5cc080957.jpg"
+    },
+    {
+        "title": "Washed-look Twill Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/9a/97/9a9715ff700ad589044d77868022d958048a2e05.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/9a/97/9a9715ff700ad589044d77868022d958048a2e05.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1232068011.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Gray",
+        "schema_description": "Cap in cotton twill with a washed look. Embroidered eyelets, adjustable tab at back with metal buckle, and a sweatband in woven fabric.",
+        "material": "Cotton/Polyester",
+        "pattern": "Leopard-print",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "17.99",
+        "audience": "female",
+        "id": "1232068011",
+        "image_link": "https://image.hm.com/assets/hm/9a/97/9a9715ff700ad589044d77868022d958048a2e05.jpg"
+    },
+    {
+        "title": "Fleece Sports Headband",
+        "images": [
+            "https://image.hm.com/assets/hm/64/72/64726c7fc520c53e844ec6db38fd09a4545b8ea7.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/64/72/64726c7fc520c53e844ec6db38fd09a4545b8ea7.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1297203001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Black",
+        "schema_description": "Headband in soft fleece to keep ears warm during outdoor activities.",
+        "material": "Polyester/Spandex",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "12.99",
+        "audience": "female",
+        "id": "1297203001",
+        "image_link": "https://image.hm.com/assets/hm/64/72/64726c7fc520c53e844ec6db38fd09a4545b8ea7.jpg"
+    },
+    {
+        "title": "Rib-Knit Beanie",
+        "images": [
+            "https://image.hm.com/assets/hm/79/af/79af7daea5ae00484f2029a7af71d48c16f3d019.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/79/af/79af7daea5ae00484f2029a7af71d48c16f3d019.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1308939001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Red",
+        "schema_description": "Soft, rib-knit beanie with a foldover cuff.",
+        "material": "Polyester/Acrylic/Polyamide",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "14.99",
+        "audience": "female",
+        "id": "1308939001",
+        "image_link": "https://image.hm.com/assets/hm/79/af/79af7daea5ae00484f2029a7af71d48c16f3d019.jpg"
+    },
+    {
+        "title": "Hooded Scarf",
+        "images": [
+            "https://image.hm.com/assets/hm/5f/4f/5f4f9fa0222d852da25eb2481efba0aeaabf3126.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/5f/4f/5f4f9fa0222d852da25eb2481efba0aeaabf3126.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1308951004.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "White",
+        "schema_description": "Hooded scarf in a soft knit.",
+        "material": "Polyester/Acrylic/Spandex",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "29.99",
+        "audience": "female",
+        "id": "1308951004",
+        "image_link": "https://image.hm.com/assets/hm/5f/4f/5f4f9fa0222d852da25eb2481efba0aeaabf3126.jpg"
+    },
+    {
+        "title": "Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/fc/0b/fc0b5cec1d75e8d8b178c58a5b0e94342a5441c6.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/fc/0b/fc0b5cec1d75e8d8b178c58a5b0e94342a5441c6.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1308729002.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige",
+        "schema_description": "Hat in woven fabric with a soft, napped finish and a wide cuff in fluffy fabric. Lined.",
+        "material": "Polyester",
+        "pattern": null,
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "39.99",
+        "audience": "female",
+        "id": "1308729002",
+        "image_link": "https://image.hm.com/assets/hm/fc/0b/fc0b5cec1d75e8d8b178c58a5b0e94342a5441c6.jpg"
+    },
+    {
+        "title": "Fluffy Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/ed/3e/ed3e682f3d7e88906fb5dce235b5f7c1196ad37b.jpg",
+            "https://image.hm.com/assets/hm/09/66/09668fb8146c668d4d8193d879f045c2783ba994.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/09/66/09668fb8146c668d4d8193d879f045c2783ba994.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1309782001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Brown",
+        "schema_description": "Hat in soft, fluffy fabric. Wide brim reinforced with wire boning for adjusting shape. Lined.",
+        "material": "Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "49.99",
+        "audience": "female",
+        "id": "1309782001",
+        "image_link": "https://image.hm.com/assets/hm/ed/3e/ed3e682f3d7e88906fb5dce235b5f7c1196ad37b.jpg"
+    },
+    {
+        "title": "Newsboy Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/0e/34/0e34a2a6172d4f5af20c4547b22e931db0c693f8.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/0e/34/0e34a2a6172d4f5af20c4547b22e931db0c693f8.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1304060003.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Black",
+        "schema_description": "Newsboy cap in woven fabric with a soft, napped finish. Concealed snap fasteners at back. Lined.",
+        "material": "Polyester/Spandex",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "19.99",
+        "audience": "female",
+        "id": "1304060003",
+        "image_link": "https://image.hm.com/assets/hm/0e/34/0e34a2a6172d4f5af20c4547b22e931db0c693f8.jpg"
+    },
+    {
+        "title": "Wool Beret",
+        "images": [
+            "https://image.hm.com/assets/hm/a0/3d/a03db4ef549dc2391f263f7695535192a4977b05.jpg",
+            "https://image.hm.com/assets/hm/51/0a/510a77af8d0d116ca73789235c8c4e334a227e9e.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/51/0a/510a77af8d0d116ca73789235c8c4e334a227e9e.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1308671001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "White",
+        "schema_description": "Classic beret in wool.",
+        "material": "Wool",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "24.99",
+        "audience": "female",
+        "id": "1308671001",
+        "image_link": "https://image.hm.com/assets/hm/a0/3d/a03db4ef549dc2391f263f7695535192a4977b05.jpg"
+    },
+    {
+        "title": "Appliqu\u00e9d Cotton Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/97/30/97300accbc71a252248312f539fc31eb86795d9e.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/97/30/97300accbc71a252248312f539fc31eb86795d9e.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1275744004.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige",
+        "schema_description": "Cap in cotton twill. Embroidered appliqu\u00e9 at front, frayed-edge visor, and cotton sweatband. Adjustable tab at back with metal buckle. Partly lined.",
+        "material": "Cotton",
+        "pattern": "NY",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "17.99",
+        "audience": "female",
+        "id": "1275744004",
+        "image_link": "https://image.hm.com/assets/hm/97/30/97300accbc71a252248312f539fc31eb86795d9e.jpg"
+    },
+    {
+        "title": "Rib-Knit Beanie",
+        "images": [
+            "https://image.hm.com/assets/hm/30/50/30506b8965e97b4b60295b1f2a93a494863f04c5.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/30/50/30506b8965e97b4b60295b1f2a93a494863f04c5.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1309884001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "White",
+        "schema_description": "Soft, rib-knit beanie with wool content. Wide foldover cuff.",
+        "material": "Polyester/Wool/Spandex",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "19.99",
+        "audience": "female",
+        "id": "1309884001",
+        "image_link": "https://image.hm.com/assets/hm/30/50/30506b8965e97b4b60295b1f2a93a494863f04c5.jpg"
+    },
+    {
+        "title": "Embroidered-motif Twill Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/2a/23/2a23cfce2dc790196a2829d92714fdc98555ae9d.jpg",
+            "https://image.hm.com/assets/hm/9b/6e/9b6e984aae189fd3968e5acc3d91544a93c433a9.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/9b/6e/9b6e984aae189fd3968e5acc3d91544a93c433a9.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1232067035.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "White",
+        "schema_description": "Cap in washed-look cotton twill with an embroidered motif at front. Rounded button at top, adjustable tab at back with metal fastener, and a cotton sweatband.",
+        "material": "Cotton",
+        "pattern": "Boston, Massachusetts",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "17.99",
+        "audience": "female",
+        "id": "1232067035",
+        "image_link": "https://image.hm.com/assets/hm/2a/23/2a23cfce2dc790196a2829d92714fdc98555ae9d.jpg"
+    },
+    {
+        "title": "Rib-Knit Beanie",
+        "images": [
+            "https://image.hm.com/assets/hm/d3/74/d374bd2cc153519e616ffae55947b224e41556f7.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/d3/74/d374bd2cc153519e616ffae55947b224e41556f7.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1309884002.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Gray",
+        "schema_description": "Soft, rib-knit beanie with wool content. Wide foldover cuff.",
+        "material": "Polyester/Wool/Spandex",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "19.99",
+        "audience": "female",
+        "id": "1309884002",
+        "image_link": "https://image.hm.com/assets/hm/d3/74/d374bd2cc153519e616ffae55947b224e41556f7.jpg"
+    },
+    {
+        "title": "Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/ae/92/ae92cd854d51b02b31a5a9071fe8f7667d90e28f.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/ae/92/ae92cd854d51b02b31a5a9071fe8f7667d90e28f.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1308729001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Gray",
+        "schema_description": "Hat in woven fabric with a soft, napped finish and a wide cuff in fluffy fabric. Lined.",
+        "material": "Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "39.99",
+        "audience": "female",
+        "id": "1308729001",
+        "image_link": "https://image.hm.com/assets/hm/ae/92/ae92cd854d51b02b31a5a9071fe8f7667d90e28f.jpg"
+    },
+    {
+        "title": "Balaclava with Zipper",
+        "images": [
+            "https://image.hm.com/assets/hm/39/92/399271cfc2ee4241a801c357091ae3a3212a5ca9.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/39/92/399271cfc2ee4241a801c357091ae3a3212a5ca9.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1308748001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Gray",
+        "schema_description": "Soft, rib-knit balaclava with a concealed zipper at front.",
+        "material": "Polyester/Acrylic/Polyamide",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "29.99",
+        "audience": "female",
+        "id": "1308748001",
+        "image_link": "https://image.hm.com/assets/hm/39/92/399271cfc2ee4241a801c357091ae3a3212a5ca9.jpg"
+    },
+    {
+        "title": "Water-Repellent Sports Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/89/5d/895dd64145d86438064dd91f8a8784b6928fb794.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/89/5d/895dd64145d86438064dd91f8a8784b6928fb794.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1259607001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Black",
+        "schema_description": "Sports cap in water-repellent, functional fabric to keep you dry during light showers. Adjustable tab at back with a metal fastener. Sweatband.",
+        "material": "Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Accessories",
+        "price": "14.99",
+        "audience": "unisex",
+        "id": "1259607001",
+        "image_link": "https://image.hm.com/assets/hm/89/5d/895dd64145d86438064dd91f8a8784b6928fb794.jpg"
+    },
+    {
+        "title": "Rib-Knit Beanie",
+        "images": [
+            "https://image.hm.com/assets/hm/90/5a/905ad0a6314ab78db499a7b3aad2fce6b18e51e8.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/90/5a/905ad0a6314ab78db499a7b3aad2fce6b18e51e8.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1309884004.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Pink",
+        "schema_description": "Soft, rib-knit beanie with wool content. Wide foldover cuff.",
+        "material": "Polyester/Wool/Spandex",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Beanies",
+        "price": "19.99",
+        "audience": "female",
+        "id": "1309884004",
+        "image_link": "https://image.hm.com/assets/hm/90/5a/905ad0a6314ab78db499a7b3aad2fce6b18e51e8.jpg"
+    },
+    {
+        "title": "Embroidered-motif Twill Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/5b/d7/5bd70215b7db0737f5ed3ba0d8d0eda4df1c77b4.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/5b/d7/5bd70215b7db0737f5ed3ba0d8d0eda4df1c77b4.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1232067042.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Blue",
+        "schema_description": "Cap in washed-look cotton twill with an embroidered motif at front. Rounded button at top, adjustable tab at back with metal fastener, and a cotton sweatband.",
+        "material": "Cotton",
+        "pattern": "San Francisco, California",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "17.99",
+        "audience": "female",
+        "id": "1232067042",
+        "image_link": "https://image.hm.com/assets/hm/5b/d7/5bd70215b7db0737f5ed3ba0d8d0eda4df1c77b4.jpg"
+    },
+    {
+        "title": "Embroidered Denim Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/f5/cf/f5cf32847ff1dc53cb6ff5bd84324559f2d02136.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/f5/cf/f5cf32847ff1dc53cb6ff5bd84324559f2d02136.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1271957002.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Blue",
+        "schema_description": "Cap in cotton denim. Embroidered design at front and back, adjustable tab at back with metal buckle, and a sweatband in woven fabric.",
+        "material": "Cotton/Polyester",
+        "pattern": "California, Los Angeles",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "17.99",
+        "audience": "female",
+        "id": "1271957002",
+        "image_link": "https://image.hm.com/assets/hm/f5/cf/f5cf32847ff1dc53cb6ff5bd84324559f2d02136.jpg"
+    },
+    {
+        "title": "Sports Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/fb/ef/fbef59e4553e29c4648868cc4e8b6a47c2e8558e.jpg",
+            "https://image.hm.com/assets/hm/66/85/66852ea06ba69bf5887e91eff09927ee380bb74f.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/66/85/66852ea06ba69bf5887e91eff09927ee380bb74f.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1258843001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "White",
+        "schema_description": "Sports cap with embroidered eyelets, a sweatband, and an elasticized, reflective drawstring at back with plastic cord stopper.",
+        "material": "Polyester/Polyamide",
+        "pattern": "Move",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "19.99",
+        "audience": "female",
+        "id": "1258843001",
+        "image_link": "https://image.hm.com/assets/hm/fb/ef/fbef59e4553e29c4648868cc4e8b6a47c2e8558e.jpg"
+    },
+    {
+        "title": "Motif-Detail Cotton Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/bd/26/bd26290ce7f2ac1a89cb4bf88f6721e484be56f1.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/bd/26/bd26290ce7f2ac1a89cb4bf88f6721e484be56f1.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1275748002.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige",
+        "schema_description": "Cap in cotton twill. Motif at front, a sweatband, and an adjustable tab at back with metal buckle. Partly lined.",
+        "material": "Cotton",
+        "pattern": "SOHO, Manhattan",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "14.99",
+        "audience": "female",
+        "id": "1275748002",
+        "image_link": "https://image.hm.com/assets/hm/bd/26/bd26290ce7f2ac1a89cb4bf88f6721e484be56f1.jpg"
+    },
+    {
+        "title": "Cotton Twill Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/d3/e4/d3e4f1614ab55b8fc242440479e51575b05f75ec.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/d3/e4/d3e4f1614ab55b8fc242440479e51575b05f75ec.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1306890001.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Red",
+        "schema_description": "Cap in cotton twill with an embroidered motif at front. Covered button at top, woven sweatband, and adjustable plastic fastener at back.",
+        "material": "Cotton",
+        "pattern": "The Hamptons Vineyard est. 1979",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "19.99",
+        "audience": "female",
+        "id": "1306890001",
+        "image_link": "https://image.hm.com/assets/hm/d3/e4/d3e4f1614ab55b8fc242440479e51575b05f75ec.jpg"
+    },
+    {
+        "title": "Felted Wool Cowboy Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/02/d4/02d45aad33db3055e432ebee59629edc24698dde.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/02/d4/02d45aad33db3055e432ebee59629edc24698dde.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1253913005.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige",
+        "schema_description": "Cowboy hat in felted wool with a classic pinched crown. Grosgrain sweatband.",
+        "material": "Wool",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "39.99",
+        "audience": "female",
+        "id": "1253913005",
+        "image_link": "https://image.hm.com/assets/hm/02/d4/02d45aad33db3055e432ebee59629edc24698dde.jpg"
+    },
+    {
+        "title": "Straw Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/cc/78/cc78967f01a19e3ebde27ee33be043145537ebcd.jpg",
+            "https://image.hm.com/assets/hm/37/ac/37ac00e1e5ff087a905d67c510b26ef6cccb44ee.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/37/ac/37ac00e1e5ff087a905d67c510b26ef6cccb44ee.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1220264004.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Red",
+        "schema_description": "Hat in braided paper straw with a wide, sloped brim and grosgrain sweatband.",
+        "material": "Paper/Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Sunhats",
+        "price": "19.99",
+        "audience": "female",
+        "id": "1220264004",
+        "image_link": "https://image.hm.com/assets/hm/cc/78/cc78967f01a19e3ebde27ee33be043145537ebcd.jpg"
+    },
+    {
+        "title": "Fluffy Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/ad/4b/ad4bc35ea026d337bf3856fbe4bc48f6211d1392.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/ad/4b/ad4bc35ea026d337bf3856fbe4bc48f6211d1392.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1305803002.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Brown",
+        "schema_description": "Hat in soft, fluffy fabric. Adjustable elastic at back. Lined.",
+        "material": "Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "24.99",
+        "audience": "female",
+        "id": "1305803002",
+        "image_link": "https://image.hm.com/assets/hm/ad/4b/ad4bc35ea026d337bf3856fbe4bc48f6211d1392.jpg"
+    },
+    {
+        "title": "Washed-look Twill Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/8e/f4/8ef482a30d45391bdc7d66162c5a196bbde9fb51.jpg",
+            "https://image.hm.com/assets/hm/fe/07/fe07edcb690e32a15f251b0ceb0de8700662c72d.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/fe/07/fe07edcb690e32a15f251b0ceb0de8700662c72d.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1232068007.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige/Brown",
+        "schema_description": "Cap in cotton twill with a washed look. Embroidered eyelets, adjustable tab at back with metal buckle, and a sweatband in woven fabric.",
+        "material": "Cotton/Polyester",
+        "pattern": "Leopard-print",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "17.99",
+        "audience": "female",
+        "id": "1232068007",
+        "image_link": "https://image.hm.com/assets/hm/8e/f4/8ef482a30d45391bdc7d66162c5a196bbde9fb51.jpg"
+    },
+    {
+        "title": "Corduroy Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/ed/56/ed56d63d5795d279ba5eeccfe36c85a3c841809c.jpg",
+            "https://image.hm.com/assets/hm/cd/a5/cda5012023dd3f131de45cdcac91ed581a8b0838.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/cd/a5/cda5012023dd3f131de45cdcac91ed581a8b0838.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1249899006.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Blue",
+        "schema_description": "Cap in cotton corduroy. Motif at front, adjustable tab at back with metal buckle, and a sweatband in woven fabric.",
+        "material": "Cotton/Polyester",
+        "pattern": "San Francisco, California",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "17.99",
+        "audience": "female",
+        "id": "1249899006",
+        "image_link": "https://image.hm.com/assets/hm/ed/56/ed56d63d5795d279ba5eeccfe36c85a3c841809c.jpg"
+    },
+    {
+        "title": "Linen Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/d3/c5/d3c50d90a50f8d4dc20ddcb1cdb34eef5bf6a397.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/d3/c5/d3c50d90a50f8d4dc20ddcb1cdb34eef5bf6a397.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1220278007.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Brown",
+        "schema_description": "Cap in linen with embroidered eyelets, adjustable tab at back with metal fastener, and a cotton sweatband. Lined.",
+        "material": "Linen/Cotton",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "24.99",
+        "audience": "female",
+        "id": "1220278007",
+        "image_link": "https://image.hm.com/assets/hm/d3/c5/d3c50d90a50f8d4dc20ddcb1cdb34eef5bf6a397.jpg"
+    },
+    {
+        "title": "Embroidered-motif Twill Cap",
+        "images": [
+            "https://image.hm.com/assets/hm/16/d5/16d5d5e4ed80c8c55fa2236a749567a1520334fb.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/16/d5/16d5d5e4ed80c8c55fa2236a749567a1520334fb.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1232067041.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige",
+        "schema_description": "Cap in washed-look cotton twill with an embroidered motif at front. Rounded button at top, adjustable tab at back with metal fastener, and a cotton sweatband.",
+        "material": "Cotton",
+        "pattern": "Running Club",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "17.99",
+        "audience": "female",
+        "id": "1232067041",
+        "image_link": "https://image.hm.com/assets/hm/16/d5/16d5d5e4ed80c8c55fa2236a749567a1520334fb.jpg"
+    },
+    {
+        "title": "Cotton cap",
+        "images": [
+            "https://image.hm.com/assets/hm/a8/84/a8841de9a858235692576868663185c6b32000ab.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/a8/84/a8841de9a858235692576868663185c6b32000ab.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1062001005.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "White",
+        "schema_description": "Cap in a cotton weave with an adjustable tab and metal fastener at the back and a sweatband.",
+        "material": "Cotton/Polyester",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Caps",
+        "price": "9.99",
+        "audience": "female",
+        "id": "1062001005",
+        "image_link": "https://image.hm.com/assets/hm/a8/84/a8841de9a858235692576868663185c6b32000ab.jpg"
+    },
+    {
+        "title": "Felted Wool Cowboy Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/3a/1f/3a1ff4ab64490958f648700bff72a4a380da750c.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/3a/1f/3a1ff4ab64490958f648700bff72a4a380da750c.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1253913008.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Brown",
+        "schema_description": "Cowboy hat in felted wool with a classic pinched crown. Grosgrain sweatband.",
+        "material": "Wool",
+        "pattern": "Solid-color",
+        "brand": "H&M",
+        "category": "Hats",
+        "price": "39.99",
+        "audience": "female",
+        "id": "1253913008",
+        "image_link": "https://image.hm.com/assets/hm/3a/1f/3a1ff4ab64490958f648700bff72a4a380da750c.jpg"
+    },
+    {
+        "title": "Straw Hat",
+        "images": [
+            "https://image.hm.com/assets/hm/a1/7d/a17da44845ae9a81c8073176784a0cb7986a6600.jpg?imwidth=16",
+            "https://image.hm.com/assets/hm/a1/7d/a17da44845ae9a81c8073176784a0cb7986a6600.jpg?imwidth=1536"
+        ],
+        "url": "https://www2.hm.com/en_us/productpage.1213803003.html",
+        "main_category": "accessories",
+        "role": "hats",
+        "schema_color": "Beige",
+        "schema_description": "Hat in braided paper straw. Wide grosgrain band with a twisted detail. Grosgrain sweatband.",
+        "material": "Paper",
+        "pattern": null,
+        "brand": "H&M",
+        "category": "Sunhats",
+        "price": "14.99",
+        "audience": "female",
+        "id": "1213803003",
+        "image_link": "https://image.hm.com/assets/hm/a1/7d/a17da44845ae9a81c8073176784a0cb7986a6600.jpg"
+    }
+]
