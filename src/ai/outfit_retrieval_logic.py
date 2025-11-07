@@ -22,7 +22,7 @@ except ValueError as e:
     sys.exit(1)
 
 
-def search_best_product_with_vector_db(item) -> dict | None:
+def search_best_product_with_vector_db(item, max_espense) -> dict | None:
     """
     Finds the single best product match using an indexed vector search in Supabase.
     """
@@ -30,12 +30,12 @@ def search_best_product_with_vector_db(item) -> dict | None:
     
     # 2. TIME AND EXECUTE VECTOR SEARCH (The database handles the filtering and ranking)
     start_supabase_search = time.time()
-    
+    # print("DEBUG: ", item['embedding'])
     df_result = supa.vector_search_rpc_single(
         SUPABASE_CLIENT, 
         item['embedding'],
         item['category'],  
-        #"product_data", 
+        max_espense, 
         limit=1
     )
     total_supabase_vector_search_time += (time.time() - start_supabase_search)
@@ -53,7 +53,7 @@ def search_best_product_with_vector_db(item) -> dict | None:
     return best_match
 
 
-def process_outfit_plan(parsed_item_list: list[dict]) -> list[dict]:
+def process_outfit_plan(parsed_item_list: list[dict], budget: float) -> list[dict]:
     """
     Orchestrates the retrieval for every item in the LLM's plan using the optimized 
     single-item vector search in a loop.
@@ -62,15 +62,19 @@ def process_outfit_plan(parsed_item_list: list[dict]) -> list[dict]:
     global total_embed_time, total_supabase_vector_search_time
     total_embed_time = 0
     total_supabase_vector_search_time = 0
+
+    remaining_budget = budget
     
     if parsed_item_list and 'message' in parsed_item_list[0]:
         return parsed_item_list 
 
     final_outfit_results = []
     
-    for item in parsed_item_list:
+    for i, item in enumerate(parsed_item_list):
         # The key logic is now encapsulated and timed inside this call
-        best_match = search_best_product_with_vector_db(item)
+        max_espence = (budget / len(parsed_item_list)) if i != (len(parsed_item_list) - 1) else remaining_budget
+        best_match = search_best_product_with_vector_db(item, max_espence)
+        remaining_budget -= best_match.get('price')
         
         result = {'requested_item': item['description'], 'category': item['category']}
         
@@ -80,14 +84,15 @@ def process_outfit_plan(parsed_item_list: list[dict]) -> list[dict]:
                 'url': best_match.get('url'),
                 'id': best_match.get('id'), 
                 'similarity': best_match.get('similarity'),
-                'image_link': best_match.get('image_link')
+                'image_link': best_match.get('image_link'), 
+                'price': best_match.get('price')
             })
         else:
             result['status'] = 'Product not found in catalog for this category.'
             
         final_outfit_results.append(result)
             
-    return final_outfit_results
+    return final_outfit_results, remaining_budget
 
 
 if __name__ == '__main__':
@@ -123,7 +128,7 @@ if __name__ == '__main__':
         
         # 2. OUTFIT RETRIEVAL
         start_time_retrieval = time.time()
-        final_results = process_outfit_plan(parsed_item_list)
+        final_results, remaining_budget = process_outfit_plan(parsed_item_list, budget)
         end_time_retrieval = time.time()
 
         # ... (Print JSON Results)
@@ -132,6 +137,7 @@ if __name__ == '__main__':
             print(f"ERROR: {final_results[0]['error']}")
         else:
             print(json.dumps(final_results, indent=2))
+            print("FINAL REMAINING BUDGET, HOPING IT IS >= 0:", remaining_budget)
         print("\n" + "="*50)
         
         # ... (5. Terminal Visualization Block)
