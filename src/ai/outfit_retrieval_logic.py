@@ -27,6 +27,10 @@ def search_product_candidates_with_vector_db(item, budget) -> dict | None:
     Finds the single best product match using an indexed vector search in Supabase.
     """
     global total_supabase_vector_search_time
+
+    MAX_BUDGET = 1e9  # A very high budget to simulate "no budget" scenario
+
+    budget = MAX_BUDGET if budget is None else budget
     
     # 2. TIME AND EXECUTE VECTOR SEARCH (The database handles the filtering and ranking)
     start_supabase_search = time.time()
@@ -179,12 +183,29 @@ def process_outfit_plan(parsed_item_list: list[dict], budget: float) -> list[dic
         processed_candidates.append(category_items)
 
 
-    # 3. Run the Knapsack Solver
-    final_outfit_results, total_price_selected = run_knapsack_solver(processed_candidates, budget)
+    if budget is None:
+        print("INFO: Budget is None. Selecting the single best similarity match from each category.")
+        total_price_selected = 0.0
+        
+        # Select the item with the highest similarity from each category's list
+        for category_items in processed_candidates:
+            # Find the item with the max 'similarity'
+            best_item = max(category_items, key=lambda x: x['similarity'])
+            
+            # Append its 'data' (the original record) and update total price
+            final_outfit_results.append(best_item['data'])
+            total_price_selected += best_item['data']['price'] # Use original price
+            
+    # 3. Run the Knapsack Solver ONLY if a concrete budget is provided
+    else:
+        print(f"INFO: Running Knapsack Solver with budget: €{budget:.2f}")
+        # Note: The knapsack solver expects a float budget (which is guaranteed if not None)
+        final_outfit_results, total_price_selected = run_knapsack_solver(processed_candidates, budget)
 
     # 4. Final Formatting and Budget Calculation
     if final_outfit_results:
-        remaining_budget = budget - total_price_selected
+        if budget is not None:
+            remaining_budget = budget - total_price_selected
 
         formatted_results = []
         for i, item_match in enumerate(final_outfit_results):
@@ -209,10 +230,26 @@ def process_outfit_plan(parsed_item_list: list[dict], budget: float) -> list[dic
 if __name__ == '__main__':
     # LLM calls, guardrail checks
     user_prompt = input("Enter your outfit request (e.g., 'A comfortable outfit for a remote work day'):\n> ")
-    budget = float(input("Enter the max budget(€) for the whole outfit:\n"))
 
-    user_id_key = int(input("Enter your Supabase Auth User ID (UID) for preference lookup:\n> "))
-    user_preferences = supa.get_user_preferences(SUPABASE_CLIENT, user_id_key)
+
+    # --- Make Budget Optional ---
+    budget_input = input("Enter the max budget (€) for the whole outfit (or press Enter to skip):\n")
+    if budget_input:
+        budget = float(budget_input)
+    else:
+        # Use a very high default budget if omitted (effectively no budget limit)
+        budget = None
+    
+    # --- Make User ID/Preferences Optional ---
+    user_id_key_input = input("Enter your Supabase Auth User ID (UID) for preference lookup (or press Enter to skip):\n> ")
+    
+    if user_id_key_input:
+        user_id_key = int(user_id_key_input)
+        # Only attempt to fetch preferences if an ID was provided
+        user_preferences = supa.get_user_preferences(SUPABASE_CLIENT, user_id_key)
+    else:
+        # Use an empty dictionary or a sensible default if preferences are skipped
+        user_preferences = {}
 
     print("\n--- Sending request to Gemini... ---")
     

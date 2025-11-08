@@ -38,7 +38,7 @@ def setup_supabase_client() -> Client:
         raise
     
 
-def vector_search_rpc_candidates(client: Client, query_vector: np.ndarray, category: str, budget: float, limit: int = 10, threshold: float = 0.0) -> pd.DataFrame:
+def vector_search_rpc_candidates(client: Client, query_vector: np.ndarray, category: str, budget: float, limit: int = 10, threshold: float = -1.0) -> pd.DataFrame:
     """
     Calls the optimized PostgreSQL RPC function (search_outfits) to find the best match 
     for a single query vector within a specified category.
@@ -48,6 +48,8 @@ def vector_search_rpc_candidates(client: Client, query_vector: np.ndarray, categ
     try:
         # The RPC function expects a list of floats for the embedding
         #embedding_list = query_vector.tolist()
+
+        print(f"INFO: Calling RPC search_outfits with category='{category}', budget={budget}, limit={limit}, threshold={threshold}")
         
         # Call the RPC function defined in PostgreSQL
         response = client.rpc(
