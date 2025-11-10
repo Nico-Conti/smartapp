@@ -43,7 +43,7 @@ except Exception as e:
     # In a real app, you'd handle this more gracefully (e.g., logging and returning a 500 error)
     raise
 
-GEMINI_MODEL_NAME = 'gemini-2.0-flash'
+GEMINI_MODEL_NAME = 'gemini-2.5-flash'
 
 # --- Global Initialization (Loaded only ONCE) ---
 CLIP_MODEL_NAME = "patrickjohncyh/fashion-clip"
@@ -65,7 +65,7 @@ if __name__ == '__main__':
 
         # 1. USER'S QUERY HANDLING
         start_time_llm = time.time()
-        outfit_json = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, user_preferences)
+        outfit_json = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, user_preferences, gender)
         parsed_item_list = parse_outfit_plan(outfit_json)
         # print(parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
         end_time_llm = time.time()

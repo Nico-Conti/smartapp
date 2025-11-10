@@ -55,7 +55,7 @@ The final output MUST be a single JSON object and nothing else.
 
 # --- 4. Core Functions ---
 
-def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, user_preferences: dict | None) -> dict:
+def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, user_preferences: dict | None, gender: str) -> dict:
     """
     Sends the user prompt to Gemini and enforces the structured JSON output.
     Returns the raw parsed JSON dictionary.
@@ -82,6 +82,9 @@ def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, user
             if preferences:
                 # Combine the preferences into a natural language sentence
                 preference_string = (
+                    "\n*** USER GENDER ***\n"
+                    "When selecting the outfit plan, note that the gender of the user is: "
+                    f"{', '.join(gender)}."
                     "\n*** USER PREFERENCES ***\n"
                     "When selecting the outfit plan, keep the following user preferences in mind: "
                     f"{', '.join(preferences)}."
