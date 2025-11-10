@@ -102,6 +102,9 @@ def get_outfit(all_candidates, budget: float):
         for i, item_match in enumerate(final_outfit_results):
             formatted_results.append({
                 'title': item_match.get('title'),
+                'description': item_match.get('schema_description'),
+                'color': item_match.get('schema_color'),
+                'material': item_match.get('material'),
                 'url': item_match.get('url'),
                 'id': item_match.get('id'),
                 'similarity': float(f"{item_match.get('similarity'):.4f}"),

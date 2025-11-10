@@ -1,13 +1,7 @@
 import json
-from google import genai
 from google.genai import types, Client
-from dotenv import load_dotenv
 
-# --- 1. Global Initialization (Loaded only ONCE when the server starts) ---
-
-MODEL_NAME = 'gemini-2.5-flash'
-
-# --- 2. Schema Definitions (From your notebook logic) ---
+# --- Schema Definitions (From your notebook logic) ---
 
 # Define the schema for an individual item (e.g., "shirt", "relaxed")
 item_schema = types.Schema(
@@ -51,17 +45,17 @@ SYSTEM_PROMPT = """
 You are an expert fashion stylist AI. Your task is to receive a user's request for an outfit and return a structured JSON object that complies with the provided schema.
 
 GUARDRAIL: If the user's request is offensive towards any ethnicity, contains hatespeech or is in any way offensive towards anybody, you MUST immediately stop and return the following JSON object ONLY:
-{'ERROR': "I cannot fulfill this request. Content that promotes hate speech, discrimination, or is offensive toward any group or individual violates my safety policy and is strictly forbidden."}
+{'message': "I cannot fulfill this request. Content that promotes hate speech, discrimination, or is offensive toward any group or individual violates my safety policy and is strictly forbidden."}
 
 GUARDRAIL: If the user's request is NOT related to fashion, outfits, styles, or clothing, you MUST immediately stop and return the following JSON object ONLY:
-{'ERROR': "I'm here to help with fashion-related inquiries. Please ask me about outfits, styles, or clothing recommendations"}
+{'message': "I'm here to help with fashion-related inquiries. Please ask me about outfits, styles, or clothing recommendations"}
 
 The final output MUST be a single JSON object and nothing else.
 """
 
 # --- 4. Core Functions ---
 
-def generate_outfit_plan(CLIENT: Client, user_prompt: str, user_preferences: dict | None) -> dict:
+def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, user_preferences: dict | None) -> dict:
     """
     Sends the user prompt to Gemini and enforces the structured JSON output.
     Returns the raw parsed JSON dictionary.
@@ -98,7 +92,7 @@ def generate_outfit_plan(CLIENT: Client, user_prompt: str, user_preferences: dic
                 )
 
         full_prompt_for_llm = user_request_block + preference_string
-        print(full_prompt_for_llm)
+        # print(full_prompt_for_llm)
 
         response = CLIENT.models.generate_content(
             model=MODEL_NAME,
@@ -109,6 +103,7 @@ def generate_outfit_plan(CLIENT: Client, user_prompt: str, user_preferences: dic
                 response_schema=outfit_schema
             )
         )
+        # print(response.parsed)
         # The .parsed property automatically gives you the JSON as a Python dict
         return response.parsed
     except Exception as e:
@@ -120,7 +115,7 @@ def parse_outfit_plan(json_plan: dict) -> list[dict]:
     Transforms the structured JSON plan (output of the LLM) into a simplified 
     list of item descriptions for the Embedding Component.
     """
-    if 'ERROR' in json_plan:
+    if 'message' in json_plan:
         # Pass the guardrail message straight through
         return [json_plan] 
 
