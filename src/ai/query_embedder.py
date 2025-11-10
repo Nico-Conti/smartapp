@@ -1,18 +1,10 @@
 # src/ai/query_embedder.py (Updated)
-from transformers import CLIPProcessor, CLIPModel
+
 import torch
 import numpy as np
 from PIL import Image # <--- ADD THIS IMPORT
 
-# --- Global Initialization (Loaded only ONCE) ---
-MODEL_NAME = "patrickjohncyh/fashion-clip"
-MODEL = CLIPModel.from_pretrained(MODEL_NAME)
-PROC = CLIPProcessor.from_pretrained(MODEL_NAME)
-DEVICE = "cpu" # Use 'cuda' if GPU is available
-MODEL.to(DEVICE)
-MODEL.eval()
-
-def get_text_embedding_vector(text: str) -> np.ndarray:
+def get_text_embedding_vector(MODEL, PROC, DEVICE, text: str) -> np.ndarray:
     """
     Generates a single, normalized NumPy vector embedding for a text string,
     using a dummy image to satisfy the CLIP model's requirement.

@@ -1,17 +1,9 @@
-import os
 import json
 from google import genai
-from google.genai import types
+from google.genai import types, Client
 from dotenv import load_dotenv
 
 # --- 1. Global Initialization (Loaded only ONCE when the server starts) ---
-
-# Load environment variables (like the GEMINI_API_KEY)
-load_dotenv()
-
-# Initialize the Gemini Client ONCE
-# This client object will be reused for every API call.
-CLIENT = genai.Client()
 
 MODEL_NAME = 'gemini-2.5-flash'
 
@@ -69,7 +61,7 @@ The final output MUST be a single JSON object and nothing else.
 
 # --- 4. Core Functions ---
 
-def generate_outfit_plan(user_prompt: str, user_preferences: dict | None) -> dict:
+def generate_outfit_plan(CLIENT: Client, user_prompt: str, user_preferences: dict | None) -> dict:
     """
     Sends the user prompt to Gemini and enforces the structured JSON output.
     Returns the raw parsed JSON dictionary.
@@ -97,10 +89,11 @@ def generate_outfit_plan(user_prompt: str, user_preferences: dict | None) -> dic
                 # Combine the preferences into a natural language sentence
                 preference_string = (
                     "\n*** USER PREFERENCES ***\n"
-                    "When selecting items for the outfit plan, prioritize products "
-                    f"that align with the following preferences: {', '.join(preferences)}."
-                    "\n*** MANDATORY ***\n"
-                    "Make sure that the products go well together, do not only enforce preferences for each product individually."
+                    "When selecting the outfit plan, keep the following user preferences in mind: "
+                    f"{', '.join(preferences)}."
+                    "\n*** CRITICAL INSTRUCTION ***\n"
+                    "**DO NOT** enforce the favorite color on *every* item. The **color_palette** field for each category should describe the item's specific color within a *cohesive, stylish* outfit. For example, if the favorite color is black, only one or two items might be black, with the others being complementary colors (e.g., white, grey, or charcoal)."
+                    "Ensure all returned descriptions are **coherent** and make up a **well-structured, complete outfit**."
                     "\n**************************"
                 )
 
