@@ -4,9 +4,8 @@ import time
 import json
 from google import genai
 from supabase import create_client, Client
-from google.genai import Client
 from transformers import CLIPProcessor, CLIPModel
-from typing import Optional
+from typing import Optional, List, Dict, Any
 from dotenv import load_dotenv
 
 # Import custom modules
@@ -37,14 +36,19 @@ except Exception as e:
 
 # Initialize the Gemini Client ONCE
 # This client object will be reused for every API call.
-GEMINI_CLIENT = genai.Client()
+try:
+    GEMINI_CLIENT = genai.Client()
+except Exception as e:
+    print(f"Error initializing Gemini client: {e}")
+    # In a real app, you'd handle this more gracefully (e.g., logging and returning a 500 error)
+    raise
 
-MODEL_NAME = 'gemini-2.0-flash'
+GEMINI_MODEL_NAME = 'gemini-2.0-flash'
 
 # --- Global Initialization (Loaded only ONCE) ---
-MODEL_NAME = "patrickjohncyh/fashion-clip"
-MODEL = CLIPModel.from_pretrained(MODEL_NAME)
-PROC = CLIPProcessor.from_pretrained(MODEL_NAME, use_fast=True)
+CLIP_MODEL_NAME = "patrickjohncyh/fashion-clip"
+MODEL = CLIPModel.from_pretrained(CLIP_MODEL_NAME)
+PROC = CLIPProcessor.from_pretrained(CLIP_MODEL_NAME, use_fast=True)
 DEVICE = "cpu" # Use 'cuda' if GPU is available
 MODEL.to(DEVICE)
 MODEL.eval()
@@ -61,9 +65,9 @@ if __name__ == '__main__':
 
         # 1. USER'S QUERY HANDLING
         start_time_llm = time.time()
-        outfit_json = generate_outfit_plan(GEMINI_CLIENT, MODEL_NAME, user_prompt, user_preferences)
+        outfit_json = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, user_preferences)
         parsed_item_list = parse_outfit_plan(outfit_json)
-        print(parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
+        # print(parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
         end_time_llm = time.time()
         
         #USER'S QUERY IS NOW RE-INTERPRETED TO BETTER UNDERSTAND USER'S INTENT AND WELL FORMATTED IN A JSON STRING
@@ -97,39 +101,86 @@ if __name__ == '__main__':
 
         end_time_retrieval = time.time()
 
-        # 4. FINAL OUTFIT ASSEMBLY
+        # 4. FINAL OUTFIT ASSEMBLY (Knapsack)
         start_time_assembly = time.time()
 
-        final_outfit_results, remaining_budget = get_outfit(all_candidates, budget)
-        is_error = not final_outfit_results or ('error' in final_outfit_results[0])
+        # --- UPDATED: Unpack the four return values from the new get_outfit ---
+        feasible_outfit: List[Dict[str, Any]]
+        remaining_budget: float
+        best_full_outfit: List[Dict[str, Any]]
+        best_full_cost: float
+        
+        (
+            feasible_outfit, 
+            remaining_budget, 
+            best_full_outfit, 
+            best_full_cost
+        ) = get_outfit(all_candidates, budget)
+        
+        # Variables to hold the final selection for display and explanation
+        outfit_to_display: List[Dict[str, Any]] = []
+        display_cost: float = 0.0
+
+        # --- LOGIC TO SELECT WHICH OUTFIT TO DISPLAY ---
+        
+        if len(feasible_outfit) == len(all_candidates):
+            # Case 1: Full outfit found within budget
+            print("--- Full Outfit Found (Within Budget) ---")
+            outfit_to_display = feasible_outfit
+            display_cost = budget - remaining_budget # Actual cost of the feasible full outfit
+        
+        elif len(feasible_outfit) > 0 and len(feasible_outfit) < len(all_candidates):
+            # Case 2: Partial outfit found within budget (Primary recommendation)
+            print("--- Primary Recommendation (Partial, Within Budget) ---")
+            print(f"We found the best outfit of {len(feasible_outfit)} items under your budget of €{budget:.2f}.")
+            # Offer the full outfit as an alternative
+            print("\n--- Alternative Full Outfit (Over Budget) ---")
+            print(f"The best possible full outfit (all categories) costs €{best_full_cost:.2f}.")
+            print("Displaying the partial outfit now. If you want the full outfit, you'll go over budget.")
+            outfit_to_display = feasible_outfit
+            display_cost = budget - remaining_budget # Actual cost of the feasible partial outfit
+
+        else:
+            # Case 3: No feasible items found (Default to best full outfit as the only suggestion)
+            print("--- No Feasible Items Found Within Budget ---")
+            print(f"Your budget (€{budget:.2f}) is too low to purchase any combination of items.")
+            print(f"**Suggestion:** The best possible full outfit (all categories) costs €{best_full_cost:.2f}. Displaying this alternative.")
+            outfit_to_display = best_full_outfit
+            # Note: remaining_budget will be negative here if we use the original budget, so we set a clear cost
+            remaining_budget = budget - best_full_cost 
+            display_cost = best_full_cost
+
+
+        # --- ERROR CHECK (if outfit_to_display is still empty/has an error) ---
+        is_error = not outfit_to_display or ('error' in outfit_to_display[0] if outfit_to_display else False)
         
         if is_error:
-            # We already know it's either empty or contains an error dict.
-            if final_outfit_results:
-                 print(final_outfit_results[0])
+            if outfit_to_display:
+                print(outfit_to_display[0])
             else:
-                 print({"error": "Outfit assembly returned an unexpected empty result list."})
+                print({"error": "Outfit assembly returned an unexpected empty result list after processing."})
             continue
 
         end_time_assembly = time.time()
 
+        # 5. GENERATE EXPLANATIONS for the selected outfit (outfit_to_display)
         start_time_explanations = time.time()
-        explanations = explain_selected_outfit(GEMINI_CLIENT, MODEL_NAME, user_prompt, final_outfit_results)
+        explanations = explain_selected_outfit(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, outfit_to_display)
         end_time_explanations = time.time()
         print("Explanations for the retrieved outfit:\n", explanations)
 
         # ... (Print JSON Results)
         print("\n--- Final Outfit Retrieval Results (JSON Data) ---")
-        if final_outfit_results and 'error' in final_outfit_results[0]:
-            print(f"ERROR: {final_outfit_results[0]['error']}")
-        else:
-            print(json.dumps(final_outfit_results, indent=2))
-            print("FINAL REMAINING BUDGET, HOPING IT IS >= 0:", remaining_budget)
+        print(f"Displaying Outfit Cost: €{display_cost:.2f}")
+        print(f"Remaining Budget (based on original budget): €{remaining_budget:.2f}")
+
+        # Print the selected outfit
+        print(json.dumps(outfit_to_display, indent=2))
         print("\n" + "="*50)
         
-        # ... (5. Terminal Visualization Block)
+        # ... (6. Terminal Visualization Block)
         start_time_viz = time.time()
-        for item in final_outfit_results:
+        for item in outfit_to_display:
             if item.get('image_link'):
                 image_url = item['image_link']
                 url = item['url']
@@ -152,10 +203,10 @@ if __name__ == '__main__':
         print(f"1. LLM Generation & Parsing:   {end_time_llm - start_time_llm:.2f} seconds")
         print(f"2. Items embeddings: {end_time_embed - start_time_embed:.6f} seconds")
         print(f"3. Product Retrieval:   {end_time_retrieval - start_time_retrieval:.2f} seconds")
-        print(f"3. Outfit assembly:   {end_time_assembly - start_time_assembly:.2f} seconds")
-        print(f"4. Explanations:   {end_time_explanations - start_time_explanations:.2f} seconds")
-        print(f"5. Visualization (Browser Open): {end_time_viz - start_time_viz:.2f} seconds")
+        print(f"4. Outfit assembly:   {end_time_assembly - start_time_assembly:.2f} seconds")
+        print(f"5. Explanations:   {end_time_explanations - start_time_explanations:.2f} seconds")
+        print(f"6. Visualization (Browser Open): {end_time_viz - start_time_viz:.2f} seconds")
 
         print("-" * 50)
-        print(f"TOTAL RUNTIME:               {time.time() - start_time_llm:.2f} seconds")
+        print(f"TOTAL RUNTIME:            {time.time() - start_time_llm:.2f} seconds")
         print("="*50)

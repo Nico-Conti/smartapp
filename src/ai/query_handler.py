@@ -107,8 +107,8 @@ def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, user
         # The .parsed property automatically gives you the JSON as a Python dict
         return response.parsed
     except Exception as e:
-        print(f"Error generating outfit plan from Gemini: {e}")
-        return {'error': 'Failed to generate outfit plan.'}
+        print("EXCEPTION: ", e)
+        return {'message': 'Failed to generate outfit plan.'}
 
 def parse_outfit_plan(json_plan: dict) -> list[dict]:
     """
