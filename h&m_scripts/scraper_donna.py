@@ -37,12 +37,12 @@ CATEGORY_URL_ACCESORIES_TEMPLATE = "https://www2.hm.com/en_us/women/accessories/
 
 # --- NEW: Category configuration based on your schema ---
 CATEGORIES_TO_SCRAPE = [
-    # {
-    #     "slug": "hats",
-    #     "name": "hats",
-    #     "main_category": "accessories",
-    #     "role": "hats"
-    # },
+    {
+        "slug": "dresses",
+        "name": "dresses",
+        "main_category": "dresses",
+        "role": "dresses"
+    },
     # {
     #     "slug": "hoodies-sweatshirts",
     #     "name": "hoodies-sweatshirts",
@@ -67,12 +67,12 @@ CATEGORIES_TO_SCRAPE = [
     #     "main_category": "outerwear",
     #     "role": "jackets-coats"
     # },
-    {
-        "slug": "pants",
-        "name": "pants",
-        "main_category": "bottom",
-        "role": "pants"
-    },
+    # {
+    #     "slug": "pants",
+    #     "name": "pants",
+    #     "main_category": "bottom",
+    #     "role": "pants"
+    # },
     # {
     #     "slug": "tops",
     #     "name": "tops",
