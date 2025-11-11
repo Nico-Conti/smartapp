@@ -33,6 +33,7 @@ outfit_schema = types.Schema(
         "bottom": category_schema,
         "dresses": category_schema,
         "outerwear": category_schema,
+        "swimwear": category_schema,
         "shoes": category_schema,
         "accessories": category_schema,
         "message": types.Schema(type=types.Type.STRING, description="A message for non-fashion related inquiries. MUST ONLY be present for guardrail messages.")
@@ -42,7 +43,7 @@ outfit_schema = types.Schema(
 # --- 3. System Prompt and Guardrail ---
 
 SYSTEM_PROMPT = """
-You are an expert fashion stylist AI. Your task is to receive a user's request for an outfit and return a structured JSON object that complies with the provided schema.
+You are an expert fashion stylist AI. Your task is to receive a user's request for an outfit and return a structured JSON object that complies with the provided response_schema.
 
 GUARDRAIL: If the user's request is offensive towards any ethnicity, contains hatespeech or is in any way offensive towards anybody, you MUST immediately stop and return the following JSON object ONLY:
 {'message': "I cannot fulfill this request. Content that promotes hate speech, discrimination, or is offensive toward any group or individual violates my safety policy and is strictly forbidden."}
@@ -51,7 +52,12 @@ GUARDRAIL: If the user's request is NOT related to fashion, outfits, styles, or 
 {'message': "I'm here to help with fashion-related inquiries. Please ask me about outfits, styles, or clothing recommendations"}
 
 The final output MUST be a single JSON object and nothing else.
+\n*** CRITICAL INSTRUCTION ***\n
+the field 'message' MUST BE PRESENT ONLY if a guardrail triggers.
+\n**************************
 """
+
+FASHION_CATEGORIES = ['top', 'bottom', 'dresses', 'outerwear', 'swimwear', 'shoes', 'accessories']
 
 # --- 4. Core Functions ---
 
@@ -79,23 +85,32 @@ def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, user
             if user_preferences.get('favorite_brand'):
                 preferences.append(f"favorite brand: {user_preferences['favorite_brand']}")
                 
-            if preferences:
-                # Combine the preferences into a natural language sentence
-                preference_string = (
+            gender_block = ""
+            if gender:
+                gender_block = (
                     "\n*** USER GENDER ***\n"
-                    "When selecting the outfit plan, note that the gender of the user is: "
-                    f"{', '.join(gender)}."
-                    "\n*** USER PREFERENCES ***\n"
-                    "When selecting the outfit plan, keep the following user preferences in mind: "
-                    f"{', '.join(preferences)}."
-                    "\n*** CRITICAL INSTRUCTION ***\n"
-                    "**DO NOT** enforce the favorite color on *every* item. The **color_palette** field for each category should describe the item's specific color within a *cohesive, stylish* outfit. For example, if the favorite color is black, only one or two items might be black, with the others being complementary colors (e.g., white, grey, or charcoal)."
-                    "Ensure all returned descriptions are **coherent** and make up a **well-structured, complete outfit**."
-                    "\n**************************"
+                    f"When selecting the outfit plan, note that the gender of the user is: {gender}.\n"
                 )
+                if preferences:
+            # Build the complete preference string with the improved instructions
+                    preference_string = (
+                        gender_block +
+                        "\n*** USER PREFERENCES ***\n"
+                        "When selecting the outfit plan, keep the following user preferences in mind: "
+                        f"{', '.join(preferences)}."
+                        "\n*** CRITICAL INSTRUCTION: STYLISH INTEGRATION ***\n"
+                        "Treat all provided user preferences (color, material, brand) as strong suggestions to be **integrated tastefully** into the final ensemble, not as mandatory rules for every single item. Style and outfit cohesion are paramount."
+                        "Specifically:\n"
+                        "1. **Color:** **DO NOT** enforce the favorite color on *every* item. Use it sparingly to create a cohesive, balanced look (e.g., one or two black items if the preference is black, with the rest being complementary colors)."
+                        "2. **Material/Brand:** **DO NOT** enforce the preferred material or brand on *every* item. More importantly, **NEVER** recommend a material that clashes with the user's request context (e.g., recommending wool for a beach outfit, even if it is a user preference)."
+                        "Ensure all returned descriptions are **coherent** and make up a **well-structured, complete outfit**."
+                        "\n**************************"
+                    )
+                else:
+                    preference_string = gender_block
 
         full_prompt_for_llm = user_request_block + preference_string
-        # print(full_prompt_for_llm)
+        #print(full_prompt_for_llm)
 
         response = CLIENT.models.generate_content(
             model=MODEL_NAME,
@@ -118,8 +133,10 @@ def parse_outfit_plan(json_plan: dict) -> list[dict]:
     Transforms the structured JSON plan (output of the LLM) into a simplified 
     list of item descriptions for the Embedding Component.
     """
-    if 'message' in json_plan:
-        # Pass the guardrail message straight through
+    has_fashion_categories = any(key in json_plan for key in FASHION_CATEGORIES)
+    
+    # Scenario 1: Guardrail fired correctly (only 'message' key present)
+    if 'message' in json_plan and not has_fashion_categories:
         return [json_plan] 
 
     response_list = []

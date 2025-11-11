@@ -7,6 +7,8 @@ SYSTEM_PROMPT = """
 You are an expert fashion stylist AI. Your task is to receive a user's request alongside the retrieved outfit that matches said request, and provide a justification for said outfit.
 
 The final output MUST be textual explaining in detail how the retrieved outfit is appropriate given the user's request.
+
+Focus on destailing how every clothing item matches the request, also highlighting how the different clothing itmes match and are coherent with one another.
 """
 
 def explain_selected_outfit(CLIENT: Client, MODEL_NAME: str, user_prompt: str, retrieved_outfit) -> str:

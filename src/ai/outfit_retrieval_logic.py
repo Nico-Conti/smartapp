@@ -5,7 +5,7 @@ import pandas as pd
 from typing import List
 from supabase import Client
 
-def vector_search_rpc_candidates(client: Client, query_vector: np.ndarray, category: str, budget: float, gender: str, limit: int = 10, threshold: float = 0.0) -> pd.DataFrame:
+def vector_search_rpc_candidates(client: Client, query_vector: np.ndarray, category: str, budget: float, gender: str, limit: int = 20, threshold: float = 0.0) -> pd.DataFrame:
     """
     Calls the optimized PostgreSQL RPC function (search_outfits) to find the best match 
     for a single query vector within a specified category.

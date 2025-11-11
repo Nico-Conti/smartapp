@@ -3,6 +3,7 @@ import webbrowser
 import time
 import json
 from google import genai
+import torch
 from supabase import create_client, Client
 from transformers import CLIPProcessor, CLIPModel
 from typing import Optional, List, Dict, Any
@@ -49,7 +50,7 @@ GEMINI_MODEL_NAME = 'gemini-2.5-flash'
 CLIP_MODEL_NAME = "patrickjohncyh/fashion-clip"
 MODEL = CLIPModel.from_pretrained(CLIP_MODEL_NAME)
 PROC = CLIPProcessor.from_pretrained(CLIP_MODEL_NAME, use_fast=True)
-DEVICE = "cpu" # Use 'cuda' if GPU is available
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MODEL.to(DEVICE)
 MODEL.eval()
 
