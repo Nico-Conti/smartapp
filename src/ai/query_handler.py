@@ -42,8 +42,8 @@ outfit_schema = types.Schema(
 
 # --- 3. System Prompt and Guardrail ---
 
-SYSTEM_PROMPT = """
-You are an expert fashion stylist AI. Your task is to receive a user's request for an outfit and return a structured JSON object that complies with the provided response_schema. You should not consider any external hard constraints (like specific item color/brand) as those will be applied later in the database query. Focus only on providing a stylish and cohesive outfit plan based on the user's request and general preferences.
+TEXTUAL_SYSTEM_PROMPT = """
+You are an expert fashion stylist AI. Your task is to receive a user's request for an outfit and return a structured JSON object that complies with the provided response_schema. Focus only on providing a stylish and cohesive outfit plan based on the user's request and general preferences.
 
 GUARDRAIL: If the user's request is offensive towards any ethnicity, contains hatespeech or is in any way offensive towards anybody, you MUST immediately stop and return the following JSON object ONLY:
 {'message': "I cannot fulfill this request. Content that promotes hate speech, discrimination, or is offensive toward any group or individual violates my safety policy and is strictly forbidden."}
@@ -57,10 +57,29 @@ the field 'message' MUST BE PRESENT ONLY if a guardrail triggers.
 \n**************************
 """
 
+IMAGE_SYSTEM_PROMPT = """
+You are an expert fashion stylist AI. Your task is to analyze the provided image and the user's accompanying request, then return a structured JSON object that complies with the provided response_schema. Focus only on providing a stylish and cohesive outfit plan based on the user's request, the visual elements of the image, and general fashion principles.
+
+**Image Analysis Directives:**
+1.  If the user's request is to find **matching items** or **complete the outfit** shown in the image, you must only generate the **complementary items** required to form a full, cohesive look.
+2.  If the user's request is to find an outfit in the **same style** or **aesthetic** as the image, you must generate a **full, coherent outfit** that captures the overall fashion sense and style of the image.
+
+GUARDRAIL: If the user's request is offensive towards any ethnicity, contains hatespeech or is in any way offensive towards anybody, you MUST immediately stop and return the following JSON object ONLY:
+{'message': "I cannot fulfill this request. Content that promotes hate speech, discrimination, or is offensive toward any group or individual violates my safety policy and is strictly forbidden."}
+
+GUARDRAIL: If the user's request is NOT related to fashion, outfits, styles, or clothing, you MUST immediately stop and return the following JSON object ONLY:
+{'message': "I'm here to help with fashion-related inquiries. Please ask me about outfits, styles, or clothing recommendations"}
+
+The final output MUST be a single JSON object and nothing else.
+\n*** CRITICAL INSTRUCTION ***\n
+the field 'message' MUST BE PRESENT ONLY if a guardrail triggers.
+\n**************************
+""" 
+
 FASHION_CATEGORIES = ['top', 'bottom', 'dresses', 'outerwear', 'swimwear', 'shoes', 'accessories']
 
 # --- 4. Core Functions ---
-def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, user_preferences: dict | None, gender: str) -> dict:
+def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, image_data:tuple[str, str] | None, user_preferences: dict | None, gender: str) -> dict:
     """
     Sends the user prompt to Gemini for stylistic suggestions.
     NOTE: hard_constraints are EXCLUDED from the prompt sent to the LLM.
@@ -68,14 +87,19 @@ def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, user
     """
     try:
         
-        user_request_block = (
-            "*** USER REQUEST ***\n"
-            f"{user_prompt}"
-            "\n**************************\n"
-        )
-        
-        # Normalize the prompt for conflict filtering
-        normalized_prompt = user_prompt.lower()
+        if image_data is None:
+            user_request_block = (
+                "*** USER REQUEST ***\n"
+                f"{user_prompt}"
+                "\n**************************\n"
+            )
+        else:
+            image_data_str = f"Image Data: {image_data[0]}, MIME Type: {image_data[1]}"
+            user_request_block = (
+                "*** USER REQUEST ***\n"
+                f"{user_prompt} {image_data_str}" # Concatenate the strings
+                "\n**************************\n"
+            )
 
         preference_string = ""
         
@@ -119,15 +143,26 @@ def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, user
         # The final prompt sent to the LLM deliberately EXCLUDES hard_constraints
         full_prompt_for_llm = user_request_block + preference_string
 
-        response = CLIENT.models.generate_content(
-            model=MODEL_NAME,
-            contents=[full_prompt_for_llm],
-            config=types.GenerateContentConfig(
-                system_instruction=SYSTEM_PROMPT,
-                response_mime_type="application/json",
-                response_schema=outfit_schema
+        if image_data is None:
+            response = CLIENT.models.generate_content(
+                model=MODEL_NAME,
+                contents=[full_prompt_for_llm],
+                config=types.GenerateContentConfig(
+                    system_instruction=TEXTUAL_SYSTEM_PROMPT,
+                    response_mime_type="application/json",
+                    response_schema=outfit_schema
+                )
             )
-        )
+        else:
+            response = CLIENT.models.generate_content(
+                model=MODEL_NAME,
+                contents=[full_prompt_for_llm],
+                config=types.GenerateContentConfig(
+                    system_instruction=IMAGE_SYSTEM_PROMPT,
+                    response_mime_type="application/json",
+                    response_schema=outfit_schema
+                )
+            )
         return response.parsed
     except Exception as e:
         print("EXCEPTION: ", e)

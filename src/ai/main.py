@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 # Import custom modules
 from src.ai.preferences_management import get_user_preferences
 from src.ai.constraints_management import get_user_constraints
+from src.ai.image_handler import encode_image_to_base64
 from src.ai.query_handler import generate_outfit_plan, parse_outfit_plan
 from src.ai.query_embedder import get_text_embedding_vector 
 from src.ai.outfit_retrieval_logic import search_product_candidates_with_vector_db
@@ -57,6 +58,12 @@ MODEL.eval()
 
 if __name__ == '__main__':
     while True:
+        image = input("Enter the path for an image to test the image_input functionality if you want to:\n")
+        if image != "":
+            image_data = encode_image_to_base64(image)
+        else:
+            image_data = None
+        
         user_prompt = input("Enter your outfit request (e.g., 'A comfortable outfit for a remote work day'):\n> ")
         budget = float(input("Enter the max budget(€) for the whole outfit:\n"))
 
@@ -68,9 +75,9 @@ if __name__ == '__main__':
 
         # 1. USER'S QUERY HANDLING
         start_time_llm = time.time()
-        outfit_json = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, user_preferences, gender)
+        outfit_json = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, image_data, user_preferences, gender)
         parsed_item_list = parse_outfit_plan(outfit_json, user_constraints)
-        # print(parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
+        print(parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
         end_time_llm = time.time()
         
         #USER'S QUERY IS NOW RE-INTERPRETED TO BETTER UNDERSTAND USER'S INTENT AND WELL FORMATTED IN A JSON STRING
