@@ -1,6 +1,23 @@
 import numpy as np
 from typing import List, Dict, Tuple
 
+
+def format_results(outfit_list):
+        """Formats the list of selected item dicts for final output."""
+        formatted_list = []
+        for item_match in outfit_list:
+            # Recreate the expected output dictionary structure
+            formatted_list.append({
+                'title': item_match.get('title'),
+                'url': item_match.get('url'),
+                'id': item_match.get('id'),
+                'similarity': float(f"{item_match.get('similarity'):.4f}"),
+                'image_link': item_match.get('image_link'),
+                'price': item_match.get('price')
+            })
+        return formatted_list
+
+
 # Helper function for the Knapsack DP logic, designed to be reusable.
 def _run_knapsack_dp(
     processed_candidates: List[List[Dict]], 
@@ -155,22 +172,6 @@ def get_outfit(all_candidates: List[List[Dict]], budget: float) -> Tuple[List[Di
     
 
     # --- FINAL FORMATTING & RETURN ---
-    
-    def format_results(outfit_list):
-        """Formats the list of selected item dicts for final output."""
-        formatted_list = []
-        for item_match in outfit_list:
-            # Recreate the expected output dictionary structure
-            formatted_list.append({
-                'title': item_match.get('title'),
-                'url': item_match.get('url'),
-                'id': item_match.get('id'),
-                'similarity': float(f"{item_match.get('similarity'):.4f}"),
-                'image_link': item_match.get('image_link'),
-                'price': item_match.get('price')
-            })
-        return formatted_list
-
     formatted_feasible_outfit = format_results(feasible_outfit)
     formatted_best_full_outfit = format_results(best_full_outfit)
     

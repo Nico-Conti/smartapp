@@ -2,7 +2,7 @@
 
 import torch
 import numpy as np
-from PIL import Image # <--- ADD THIS IMPORT
+from PIL import Image 
 
 def get_text_embedding_vector(MODEL, PROC, DEVICE, text: str) -> np.ndarray:
     """

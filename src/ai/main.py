@@ -10,7 +10,8 @@ from typing import Optional, List, Dict, Any
 from dotenv import load_dotenv
 
 # Import custom modules
-from src.ai.get_user_preferences import get_user_preferences
+from src.ai.preferences_management import get_user_preferences
+from src.ai.constraints_management import get_user_constraints
 from src.ai.query_handler import generate_outfit_plan, parse_outfit_plan
 from src.ai.query_embedder import get_text_embedding_vector 
 from src.ai.outfit_retrieval_logic import search_product_candidates_with_vector_db
@@ -44,7 +45,7 @@ except Exception as e:
     # In a real app, you'd handle this more gracefully (e.g., logging and returning a 500 error)
     raise
 
-GEMINI_MODEL_NAME = 'gemini-2.5-flash'
+GEMINI_MODEL_NAME = 'gemini-2.0-flash'
 
 # --- Global Initialization (Loaded only ONCE) ---
 CLIP_MODEL_NAME = "patrickjohncyh/fashion-clip"
@@ -61,13 +62,14 @@ if __name__ == '__main__':
 
         user_id_key = int(input("Enter your Supabase Auth User ID (UID) for preference lookup:\n> "))
         user_preferences, gender = get_user_preferences(SUPABASE_CLIENT, user_id_key)
+        user_constraints = get_user_constraints()
 
         print("\n--- Sending request to Gemini... ---")
 
         # 1. USER'S QUERY HANDLING
         start_time_llm = time.time()
         outfit_json = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, user_preferences, gender)
-        parsed_item_list = parse_outfit_plan(outfit_json)
+        parsed_item_list = parse_outfit_plan(outfit_json, user_constraints)
         # print(parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
         end_time_llm = time.time()
         
