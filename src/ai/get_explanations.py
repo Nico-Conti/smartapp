@@ -1,7 +1,4 @@
-import json
 from google.genai import types, Client
-
-# --- 1. Global Initialization (Loaded only ONCE when the server starts) ---
 
 SYSTEM_PROMPT = """
 You are an expert fashion stylist AI. Your task is to receive a user's request alongside the retrieved outfit that matches said request, and provide a justification for said outfit.

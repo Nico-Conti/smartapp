@@ -56,26 +56,48 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MODEL.to(DEVICE)
 MODEL.eval()
 
+FASHION_CATEGORIES = ['top', 'bottom', 'dresses', 'outerwear', 'swimwear', 'shoes', 'accessories']
+
 if __name__ == '__main__':
     while True:
-        image = input("Enter the path for an image to test the image_input functionality if you want to:\n")
+        image = input("Enter the path for an image to test the image_input functionality if you want to:")
         if image != "":
             image_data = encode_image_to_base64(image)
         else:
             image_data = None
+
+        print("\n--- Outfit Generation Mode ---")
+        partial_input = input(
+            "Enter specific categories to generate (e.g., top, shoes) \n"
+            f"Valid categories: {', '.join(FASHION_CATEGORIES)}\n"
+            "OR leave blank for a FULL outfit recommendation:\n> "
+        ).strip().lower()
+        
+        partial_list = None
+        
+        if partial_input:
+            requested_categories = [cat.strip() for cat in partial_input.split(',') if cat.strip()]
+            valid_categories = [cat for cat in requested_categories if cat in FASHION_CATEGORIES]
+            
+            if not valid_categories:
+                print(f"Warning: None of the entered categories were valid. Falling back to FULL outfit.")
+            else:
+                partial_list = valid_categories
+                print(f"Generating PARTIAL outfit for: {', '.join(partial_list)}")
         
         user_prompt = input("Enter your outfit request (e.g., 'A comfortable outfit for a remote work day'):\n> ")
         budget = float(input("Enter the max budget(€) for the whole outfit:\n"))
 
         user_id_key = int(input("Enter your Supabase Auth User ID (UID) for preference lookup:\n> "))
         user_preferences, gender = get_user_preferences(SUPABASE_CLIENT, user_id_key)
+        # print(user_preferences)
         user_constraints = get_user_constraints()
 
         print("\n--- Sending request to Gemini... ---")
 
         # 1. USER'S QUERY HANDLING
         start_time_llm = time.time()
-        outfit_json = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, image_data, user_preferences, gender)
+        outfit_json = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, image_data, user_preferences, gender, partial_list)
         parsed_item_list = parse_outfit_plan(outfit_json, user_constraints)
         print(parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
         end_time_llm = time.time()

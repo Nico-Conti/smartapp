@@ -78,8 +78,24 @@ the field 'message' MUST BE PRESENT ONLY if a guardrail triggers.
 
 FASHION_CATEGORIES = ['top', 'bottom', 'dresses', 'outerwear', 'swimwear', 'shoes', 'accessories']
 
+
+def build_dynamic_system_prompt(base_prompt, partial_list):
+
+    dynamic_prompt = base_prompt
+    item_list = ", ".join([f"'{item}'" for item in partial_list])
+
+    constraint_injection = (
+                f"\n\n*** PARTIAL OUTFIT CRITICAL INSTRUCTION ***\n"
+                f"Since this is a partial generation request, you MUST only include the following categories in the JSON output: [{item_list}]. "
+                f"You MUST NOT include any other categories (like 'top', 'bottom', etc.) in the final JSON object keys. "
+                f"If the request is for a dress, but the user requested 'top' and 'bottom', only return 'top' and 'bottom' suggestions that can pair with the dress."
+                f"\n*********************************************"
+            )
+    dynamic_prompt = dynamic_prompt.replace("\n*** CRITICAL INSTRUCTION ***\n", constraint_injection + "\n*** CRITICAL INSTRUCTION ***\n")
+    return dynamic_prompt
+
 # --- 4. Core Functions ---
-def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, image_data:tuple[str, str] | None, user_preferences: dict | None, gender: str) -> dict:
+def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, image_data:tuple[str, str] | None, user_preferences: dict | None, gender: str, partial_list: list[str] | None) -> dict:
     """
     Sends the user prompt to Gemini for stylistic suggestions.
     NOTE: hard_constraints are EXCLUDED from the prompt sent to the LLM.
@@ -143,27 +159,22 @@ def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, imag
         # The final prompt sent to the LLM deliberately EXCLUDES hard_constraints
         full_prompt_for_llm = user_request_block + preference_string
 
-        if image_data is None:
-            response = CLIENT.models.generate_content(
-                model=MODEL_NAME,
-                contents=[full_prompt_for_llm],
-                config=types.GenerateContentConfig(
-                    system_instruction=TEXTUAL_SYSTEM_PROMPT,
-                    response_mime_type="application/json",
-                    response_schema=outfit_schema
-                )
+        base_prompt = IMAGE_SYSTEM_PROMPT if image_data else TEXTUAL_SYSTEM_PROMPT
+        if partial_list:
+            base_prompt = build_dynamic_system_prompt(base_prompt, partial_list)
+
+        response = CLIENT.models.generate_content(
+            model = MODEL_NAME,
+            contents = [full_prompt_for_llm],
+            config = types.GenerateContentConfig(
+                system_instruction = base_prompt,
+                response_mime_type = "application/json",
+                response_schema = outfit_schema
             )
-        else:
-            response = CLIENT.models.generate_content(
-                model=MODEL_NAME,
-                contents=[full_prompt_for_llm],
-                config=types.GenerateContentConfig(
-                    system_instruction=IMAGE_SYSTEM_PROMPT,
-                    response_mime_type="application/json",
-                    response_schema=outfit_schema
-                )
-            )
+        )
+
         return response.parsed
+    
     except Exception as e:
         print("EXCEPTION: ", e)
         return {'message': 'Failed to generate outfit plan.'}
