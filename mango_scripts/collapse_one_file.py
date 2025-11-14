@@ -4,7 +4,7 @@ from typing import List, Dict, Any
 from pathlib import Path
 
 # --- CONFIGURATION ---
-FOLDER_PATH = Path('zara_catalog/final/') 
+FOLDER_PATH = Path('mango_catalog/final/') 
 
 final_json: List[Dict[str, Any]] = []
 
@@ -46,7 +46,7 @@ if __name__ == '__main__':
                     print(f"   ❌ An unexpected error occurred while processing {file_path.name}: {e}")
 
         # 3. Save the combined records into a single JSON file
-        output_path = Path('zara_catalog/final.json')
+        output_path = Path('mango_catalog/final.json')
         try:
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(final_json, f, indent=4)

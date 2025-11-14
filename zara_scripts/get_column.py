@@ -7,7 +7,7 @@ abs_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(abs_path)
 
 # with open('zalando_scripts/zalando_catalog_cleaned_color.json', 'r', encoding='utf-8') as f:
-with open('zara_catalog/uomo/coats-jackets.json', 'r', encoding='utf-8') as f: 
+with open('zara_catalog/final.json', 'r', encoding='utf-8') as f: 
     data = json.load(f)
 
 check = False 
