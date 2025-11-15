@@ -6,7 +6,7 @@ with open('nike_catalog/final.json', 'r') as file:
 count = []
 
 for item in data:
-    if item['price'] is None:
+    if item['price']:
         count.append(item['url'])
 
 print(f'Total items with null price: {len(count)}')
