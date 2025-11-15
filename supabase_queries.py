@@ -85,6 +85,27 @@ def query_products_in_main_category(supabase_client: Client, main_category: str,
     
     return df
 
+
+def query_product_url(supabase_client: Client, url: str, table_name: str) -> pd.DataFrame:
+
+    print(f"Querying record with url: '{url}'...")
+    
+    response = (
+        supabase_client.table(table_name)
+        .select("*")  # Select all columns
+        .eq("url", url)  # Filter by main category
+        .execute()
+    )
+    
+    # Convert the response data to a pandas DataFrame
+    data = response.data
+    df = pd.DataFrame(data)
+    
+    print(f"✅ Retrieved {len(df)} record with url '{url}'.")
+
+    
+    return df
+
 def query_products_in_role(supabase_client: Client, role: str, table_name: str) -> pd.DataFrame:
 
     print(f"Querying records in role: '{role}'...")
