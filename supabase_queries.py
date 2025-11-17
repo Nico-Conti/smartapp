@@ -126,14 +126,34 @@ def query_products_in_role(supabase_client: Client, role: str, table_name: str) 
 
     return df
 
-def load_table(supabase_client: Client, table_name: str):
+def load_table(supabase_client: Client, table_name: str, page_size: int = 1000):
+    all_data = []
+    offset = 0
+    total_loaded = 0
 
-    response = (
-        supabase_client.table(table_name)
-        .select("*")  # Select all columns
-        .limit(1000000)  # Limit to 1,000,000 records
-        .execute()
-    )
-    data = response.data
-    df = pd.DataFrame(data)
-    print(f"✅ Loaded {len(df)} records from table '{table_name}'.")
+    while True:
+        response = (
+            supabase_client.table(table_name)
+            .select("*")
+            .range(offset, offset + page_size - 1)  # Fetch records from offset to offset + page_size - 1
+            .execute()
+        )
+        
+        chunk = response.data
+        
+        if not chunk:
+            break  # Exit loop if no more data is returned
+
+        all_data.extend(chunk)
+        total_loaded += len(chunk)
+        
+        print(f"Loaded {total_loaded} records so far...")
+        
+        if len(chunk) < page_size:
+            break # Last page was partial, so we are done
+            
+        offset += page_size
+
+    df = pd.DataFrame(all_data)
+    print(f"✅ Loaded total of {len(df)} records from table '{table_name}'.")
+    return df
