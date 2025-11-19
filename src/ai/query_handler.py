@@ -86,9 +86,8 @@ def build_dynamic_system_prompt(base_prompt, partial_list):
 
     constraint_injection = (
                 f"\n\n*** PARTIAL OUTFIT CRITICAL INSTRUCTION ***\n"
-                f"Since this is a partial generation request, you MUST only include the following categories in the JSON output: [{item_list}]. "
+                f"Since this is a partial generation request, you **MUST** only include the following categories AND NOTHING ELSE in the JSON output: [{item_list}]. "
                 f"You MUST NOT include any other categories (like 'top', 'bottom', etc.) in the final JSON object keys. "
-                f"If the request is for a dress, but the user requested 'top' and 'bottom', only return 'top' and 'bottom' suggestions that can pair with the dress."
                 f"\n*********************************************"
             )
     dynamic_prompt = dynamic_prompt.replace("\n*** CRITICAL INSTRUCTION ***\n", constraint_injection + "\n*** CRITICAL INSTRUCTION ***\n")

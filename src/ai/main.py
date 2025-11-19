@@ -196,10 +196,10 @@ if __name__ == '__main__':
         end_time_assembly = time.time()
 
         # 5. GENERATE EXPLANATIONS for the selected outfit (outfit_to_display)
-        start_time_explanations = time.time()
-        explanations = explain_selected_outfit(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, outfit_to_display)
-        end_time_explanations = time.time()
-        print("Explanations for the retrieved outfit:\n", explanations)
+        # start_time_explanations = time.time()
+        # explanations = explain_selected_outfit(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, outfit_to_display)
+        # end_time_explanations = time.time()
+        # print("Explanations for the retrieved outfit:\n", explanations)
 
         # ... (Print JSON Results)
         print("\n--- Final Outfit Retrieval Results (JSON Data) ---")
@@ -236,7 +236,7 @@ if __name__ == '__main__':
         print(f"2. Items embeddings: {end_time_embed - start_time_embed:.6f} seconds")
         print(f"3. Product Retrieval:   {end_time_retrieval - start_time_retrieval:.2f} seconds")
         print(f"4. Outfit assembly:   {end_time_assembly - start_time_assembly:.2f} seconds")
-        print(f"5. Explanations:   {end_time_explanations - start_time_explanations:.2f} seconds")
+        # print(f"5. Explanations:   {end_time_explanations - start_time_explanations:.2f} seconds")
         print(f"6. Visualization (Browser Open): {end_time_viz - start_time_viz:.2f} seconds")
 
         print("-" * 50)
