@@ -1,10 +1,13 @@
 import os
+import logging
 from google import genai
 import torch
 from supabase import create_client, Client
 from transformers import CLIPProcessor, CLIPModel
 from typing import Optional, List, Dict, Any
 from dotenv import load_dotenv
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Import custom modules
 from src.ai.preferences_management import get_user_preferences
@@ -24,37 +27,53 @@ SUPABASE_URL: Optional[str] = os.environ.get("SUPABASE_URL")
 SUPABASE_KEY: Optional[str] = os.environ.get("SUPABASE_KEY")
 
 if not SUPABASE_URL or not SUPABASE_KEY:
-    raise ValueError("Supabase credentials (SUPABASE_URL, SUPABASE_KEY) must be set in the environment or .env file.")
+    # Handle environment variables missing: Critical, must stop.
+    logging.critical("Supabase credentials (SUPABASE_URL, SUPABASE_KEY) are missing.")
+    raise ValueError("Supabase credentials must be set in the environment or .env file.")
     
+# 1. Supabase Client Initialization
 try:
     SUPABASE_CLIENT: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+    # Optional: Perform a small check query here to ensure connectivity (e.g., SELECT 1)
+    logging.info("✅ Supabase client initialized successfully.")
 except Exception as e:
-    print(f"Error initializing Supabase client: {e}")
-    # In a real app, you'd handle this more gracefully (e.g., logging and returning a 500 error)
-    raise
+    # Handle Supabase connection failure: Critical, must stop.
+    logging.critical(f"❌ Error initializing Supabase client: {e}", exc_info=True)
+    # Reraise the exception to stop the server process from starting
+    raise ConnectionError("Failed to connect to Supabase.") from e
 
-# Initialize the Gemini Client ONCE
-# This client object will be reused for every API call.
+# 2. Gemini Client Initialization
 try:
     GEMINI_CLIENT = genai.Client()
+    logging.info("✅ Gemini client initialized successfully.")
 except Exception as e:
-    print(f"Error initializing Gemini client: {e}")
-    # In a real app, you'd handle this more gracefully (e.g., logging and returning a 500 error)
-    raise
+    # Handle Gemini client initialization failure: Critical, must stop.
+    logging.critical(f"❌ Error initializing Gemini client: {e}", exc_info=True)
+    # Reraise the exception to stop the server process from starting
+    raise RuntimeError("Failed to initialize the Google Gemini Client.") from e
 
 GEMINI_MODEL_NAME = 'gemini-2.0-flash'
 
-# --- Global Initialization (Loaded only ONCE) ---
+# 3. CLIP Model Initialization (Heavy/Critical Resource)
 CLIP_MODEL_NAME = "patrickjohncyh/fashion-clip"
-MODEL = CLIPModel.from_pretrained(CLIP_MODEL_NAME)
-PROC = CLIPProcessor.from_pretrained(CLIP_MODEL_NAME, use_fast=True)
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-MODEL.to(DEVICE)
-MODEL.eval()
+try:
+    DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    MODEL = CLIPModel.from_pretrained(CLIP_MODEL_NAME)
+    PROC = CLIPProcessor.from_pretrained(CLIP_MODEL_NAME, use_fast=True)
+    MODEL.to(DEVICE)
+    MODEL.eval()
+    logging.info(f"✅ CLIP model initialized successfully on device: {DEVICE}")
+except Exception as e:
+    # Handle Model loading failure: Critical, must stop.
+    logging.critical(f"❌ Error initializing CLIP model: {e}", exc_info=True)
+    raise RuntimeError("Failed to load the CLIP model and processor.") from e
 
 FASHION_CATEGORIES = ['top', 'bottom', 'dresses', 'outerwear', 'swimwear', 'shoes', 'accessories']
 
 def outfit_recommendation_handler(user_prompt: str, budget: float, user_id_key: int | None, image_data: Optional[str] = None, partial_input: Optional[str] = "") -> Dict[str, Any]:
+    
+    #CRITICAL: IMAGE_DATA NEEDS TO BE ALREADY ENCODED IN base64 BY THE FRONTEND
+    #BEFORE GETTING PASSED TO THIS METHOD
     
     partial_list = None
     
