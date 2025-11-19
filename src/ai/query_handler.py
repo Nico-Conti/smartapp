@@ -94,13 +94,19 @@ def build_dynamic_system_prompt(base_prompt, partial_list):
     return dynamic_prompt
 
 # --- 4. Core Functions ---
-def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, image_data:tuple[str, str] | None, user_preferences: dict | None, gender: str, partial_list: list[str] | None) -> dict:
+def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, image_data:tuple[str, str] | None, user_preferences: dict | None, gender: str | None, partial_list: list[str] | None) -> dict:
     """
     Sends the user prompt to Gemini for stylistic suggestions.
     NOTE: hard_constraints are EXCLUDED from the prompt sent to the LLM.
     Returns the raw parsed JSON dictionary.
     """
     try:
+
+        #MOCK-UP RIGHT NOW, FOR THE FINAL IMPLEMENTATION SINCE THEY WANT TO MAKE IT ALL CHAT BASED
+        #IF THE USER IS NOT LOGGED IN AND DOES NOT SPECIFY HIS/HER GENDER IN THE INITIAL QUERY
+        #GEMINI NEEDS TO ASK THE USER FOR MORE DETAILS, INCLUDING THE GENDER
+        if gender is None:
+            gender = "male"
         
         if image_data is None:
             user_request_block = (

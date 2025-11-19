@@ -1,5 +1,5 @@
 import numpy as np
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Any
 
 
 def format_results(outfit_list):
@@ -187,3 +187,77 @@ def get_outfit(all_candidates: List[List[Dict]], budget: float) -> Tuple[List[Di
         formatted_best_full_outfit, 
         best_full_cost
     )
+
+def select_final_outfit_and_metrics(
+    all_candidates: List[List[Dict[str, Any]]],
+    budget: float,
+    feasible_outfit: List[Dict[str, Any]],
+    remaining_budget: float,
+    best_full_outfit: List[Dict[str, Any]],
+    best_full_cost: float
+) -> Dict[str, Any]:
+    """
+    Selects the final outfit to display based on feasibility and constructs the result dictionary.
+    """
+    num_required_items = len(all_candidates)
+    num_feasible_items = len(feasible_outfit)
+    
+    # Initialize variables to hold the selection
+    outfit_to_display: List[Dict[str, Any]] = []
+    display_cost: float = 0.0
+    final_remaining_budget: float = 0.0
+    message: str = ""
+
+    # Case 1: Full outfit found within budget
+    if num_feasible_items == num_required_items:
+        message = "Full Outfit Found: All requested items were successfully matched within your budget."
+        outfit_to_display = feasible_outfit
+        display_cost = budget - remaining_budget # Actual cost of the feasible full outfit
+        final_remaining_budget = remaining_budget
+
+    # Case 2: Partial outfit found within budget (Primary recommendation)
+    elif num_feasible_items > 0 and num_feasible_items < num_required_items:
+        message = (
+            f"Partial Outfit Recommendation: We found the best outfit of {num_feasible_items} out of {num_required_items} items under your budget (€{budget:.2f}). "
+            f"The best possible full outfit (all categories) costs €{best_full_cost:.2f}."
+        )
+        outfit_to_display = feasible_outfit
+        display_cost = budget - remaining_budget # Actual cost of the feasible partial outfit
+        final_remaining_budget = remaining_budget
+    
+    # Case 3: No feasible items found (Default to best full outfit as the only suggestion)
+    else:
+        # Check if even the best_full_outfit is empty (database issue)
+        if not best_full_outfit:
+             return {
+                "error": "No Candidates Found",
+                "detail": "Failed to find *any* matching items across all categories in the database.",
+                "status_code": 404
+            }
+
+        message = (
+            f"Budget Constraint Issue: Your budget (€{budget:.2f}) is too low to purchase any feasible combination of items. "
+            f"Suggestion: Displaying the best possible full outfit, which costs €{best_full_cost:.2f}."
+        )
+        outfit_to_display = best_full_outfit
+        display_cost = best_full_cost
+        # Recalculate remaining budget to be clearly negative based on the suggestion
+        final_remaining_budget = budget - best_full_cost 
+    
+    
+    # Check for a complete failure to find any item (even over budget)
+    if not outfit_to_display:
+        return {
+            "error": "Critical Assembly Error",
+            "detail": "Outfit assembly returned an empty result list after processing. Check database connectivity and retrieval logic.",
+            "status_code": 500
+        }
+
+    # Final Output Structure for the API
+    return {
+        "outfit": outfit_to_display,
+        "cost": round(display_cost, 2),
+        "remaining_budget": round(final_remaining_budget, 2),
+        "message": message,
+        "status_code": 200 # Indicate success, even if it's a partial outfit
+    }
