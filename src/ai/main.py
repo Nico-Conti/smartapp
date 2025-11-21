@@ -1,4 +1,5 @@
 import os
+import sys
 import webbrowser 
 import time
 import json
@@ -11,7 +12,6 @@ from dotenv import load_dotenv
 
 # Import custom modules
 from src.ai.preferences_management import get_user_preferences
-from src.ai.constraints_management import get_user_constraints
 from src.ai.image_handler import encode_image_to_base64
 from src.ai.query_handler import generate_outfit_plan, parse_outfit_plan
 from src.ai.query_embedder import get_text_embedding_vector 
@@ -65,42 +65,53 @@ if __name__ == '__main__':
             image_data = encode_image_to_base64(image)
         else:
             image_data = None
-
-        print("\n--- Outfit Generation Mode ---")
-        partial_input = input(
-            "Enter specific categories to generate (e.g., top, shoes) \n"
-            f"Valid categories: {', '.join(FASHION_CATEGORIES)}\n"
-            "OR leave blank for a FULL outfit recommendation:\n> "
-        ).strip().lower()
         
-        partial_list = None
-        
-        if partial_input:
-            requested_categories = [cat.strip() for cat in partial_input.split(',') if cat.strip()]
-            valid_categories = [cat for cat in requested_categories if cat in FASHION_CATEGORIES]
-            
-            if not valid_categories:
-                print(f"Warning: None of the entered categories were valid. Falling back to FULL outfit.")
-            else:
-                partial_list = valid_categories
-                print(f"Generating PARTIAL outfit for: {', '.join(partial_list)}")
-        
-        user_prompt = input("Enter your outfit request (e.g., 'A comfortable outfit for a remote work day'):\n> ")
-        budget = float(input("Enter the max budget(€) for the whole outfit:\n"))
-
-        user_id_key = int(input("Enter your Supabase Auth User ID (UID) for preference lookup:\n> "))
-        user_preferences, gender = get_user_preferences(SUPABASE_CLIENT, user_id_key)
-        # print(user_preferences)
-        user_constraints = get_user_constraints()
-
-        print("\n--- Sending request to Gemini... ---")
+        user_id_key = input("Enter your Supabase Auth User ID (UID) for preference lookup:\n> ")
+        if user_id_key:
+            user_preferences, gender = get_user_preferences(SUPABASE_CLIENT, user_id_key)
+        else:
+            user_preferences = None
+            gender = "male"
 
         # 1. USER'S QUERY HANDLING
-        start_time_llm = time.time()
-        outfit_json = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, image_data, user_preferences, gender, partial_list)
-        parsed_item_list = parse_outfit_plan(outfit_json, user_constraints)
+        budget = 10000
+        user_constraints = {}
+        outfit_ready = False
+        chat_history = []
+        print("Input a request per cortesia bisogna testare")
+        while not outfit_ready:
+            user_prompt = input()
+            print("\n--- Sending request to Gemini... ---")
+            response = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, chat_history, image_data, user_preferences, gender)
+            # print("BBBBBBBBBBBBBBBBBB", response)
+            status = response.get('status')
+            print(status)
+            if not status:
+                print("SUCCESSO CASINO")
+                sys.exit(1)
+            if status == "Guardrail":
+                print("\n--- GUARDRAIL MESSAGE ---")
+                print(response.get('message'))
+                sys.exit(1)
+            if status == "AWAITING_INPUT":
+                chat_history = response.get('history')
+                budget = response.get('current_budget')
+                user_constraints = response.get('current_constraints')
+                print(response.get('prompt_to_user'))
+            elif status == "Complete":
+                outfit = response.get('outfit_plan')
+                budget = response.get('budget')
+                user_constraints = response.get('constraints')
+                chat_history = response.get('history')
+                outfit_ready = True
+            elif status == 'Error':
+                print(response.get('missing_info'))
+                sys.exit(1)
+
+        print(user_constraints)
+        parsed_item_list = parse_outfit_plan(outfit, user_constraints)
         print(parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
-        end_time_llm = time.time()
+        # print(budget)
         
         #USER'S QUERY IS NOW RE-INTERPRETED TO BETTER UNDERSTAND USER'S INTENT AND WELL FORMATTED IN A JSON STRING
         #CHECK USER'S QUERY FOR HATE-SPEECH OR NOT CONFORMING TO OUTFIT REQUESTS
@@ -228,17 +239,3 @@ if __name__ == '__main__':
             elif item.get('status'):
                 print(f"No match found for {item['requested_item']}: {item['status']}\n")
         end_time_viz = time.time()
-        
-        # --- FINAL TIME REPORT ---
-        print("\n" + "="*50)
-        print("--- EXECUTION TIME BREAKDOWN (Total) ---")
-        print(f"1. LLM Generation & Parsing:   {end_time_llm - start_time_llm:.2f} seconds")
-        print(f"2. Items embeddings: {end_time_embed - start_time_embed:.6f} seconds")
-        print(f"3. Product Retrieval:   {end_time_retrieval - start_time_retrieval:.2f} seconds")
-        print(f"4. Outfit assembly:   {end_time_assembly - start_time_assembly:.2f} seconds")
-        # print(f"5. Explanations:   {end_time_explanations - start_time_explanations:.2f} seconds")
-        print(f"6. Visualization (Browser Open): {end_time_viz - start_time_viz:.2f} seconds")
-
-        print("-" * 50)
-        print(f"TOTAL RUNTIME:            {time.time() - start_time_llm:.2f} seconds")
-        print("="*50)

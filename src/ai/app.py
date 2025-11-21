@@ -85,6 +85,8 @@ def outfit_recommendation_handler(user_prompt: str, budget: float, user_id_key: 
 
     if user_id_key:
         user_preferences, gender = get_user_preferences(SUPABASE_CLIENT, user_id_key)
+    else:
+        user_preferences = None
     user_constraints = get_user_constraints()
 
     # 1. USER'S QUERY HANDLING

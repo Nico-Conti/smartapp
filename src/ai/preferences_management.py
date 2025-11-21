@@ -1,11 +1,11 @@
 from supabase import Client
 
-def get_user_preferences(client: Client, user_id_key: int) -> dict | None:
+def get_user_preferences(client: Client, user_id_key: str) -> dict | None:
     """
     Retrieves a user's preferences (favorite_color, favorite_material, favorite_brand) 
     from the users_prova_preferences table using the unique user ID (UID).
     """
-    
+    user_id_key = int(user_id_key)
     # 1. Define the specific columns to select
     select_columns = "favorite_color, favorite_material, favorite_brand, gender"
     
