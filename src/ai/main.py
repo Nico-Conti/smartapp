@@ -90,7 +90,7 @@ if __name__ == '__main__':
                 print("SUCCESSO CASINO")
                 sys.exit(1)
             if status == "Guardrail":
-                print("\n--- GUARDRAIL MESSAGE ---")
+                print("--- GUARDRAIL MESSAGE ---")
                 print(response.get('message'))
                 sys.exit(1)
             if status == "AWAITING_INPUT":
@@ -108,9 +108,10 @@ if __name__ == '__main__':
                 print(response.get('missing_info'))
                 sys.exit(1)
 
-        print(user_constraints)
+        print("BUDGET: ", budget)
+        print("CONSTRAINTS: ", user_constraints)
         parsed_item_list = parse_outfit_plan(outfit, user_constraints)
-        print(parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
+        print("OUTFIT CONTENT", parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
         # print(budget)
         
         #USER'S QUERY IS NOW RE-INTERPRETED TO BETTER UNDERSTAND USER'S INTENT AND WELL FORMATTED IN A JSON STRING
