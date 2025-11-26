@@ -445,10 +445,10 @@ def generate_outfit_plan(
             final_data = final_response.parsed
 
             return {
-                'status': 'Complete',
+                'status': 'READY_TO_GENERATE',
                 'outfit_plan': final_data.get('outfit_plan'),
                 'budget': final_data.get('max_budget'),
-                'constraints': final_data.get('hard_constraints'),
+                'hard_constraints': final_data.get('hard_constraints'),
                 'history': final_generation_prompt 
             }
             
@@ -458,7 +458,6 @@ def generate_outfit_plan(
             
     else:
         # Handles guardrail response or unexpected structure
-        print(dialogue_state)
         return dialogue_state
     
 

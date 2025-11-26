@@ -83,7 +83,6 @@ if __name__ == '__main__':
             user_prompt = input()
             print("\n--- Sending request to Gemini... ---")
             response = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, chat_history, image_data, user_preferences, gender)
-            # print("BBBBBBBBBBBBBBBBBB", response)
             status = response.get('status')
             print(status)
             if not status:
@@ -98,10 +97,10 @@ if __name__ == '__main__':
                 budget = response.get('current_budget')
                 user_constraints = response.get('current_constraints')
                 print(response.get('prompt_to_user'))
-            elif status == "Complete":
+            elif status == "READY_TO_GENERATE":
                 outfit = response.get('outfit_plan')
                 budget = response.get('budget')
-                user_constraints = response.get('constraints')
+                user_constraints = response.get('hard_constraints')
                 chat_history = response.get('history')
                 outfit_ready = True
             elif status == 'Error':
@@ -112,7 +111,6 @@ if __name__ == '__main__':
         print("CONSTRAINTS: ", user_constraints)
         parsed_item_list = parse_outfit_plan(outfit, user_constraints)
         print("OUTFIT CONTENT", parsed_item_list) #UNCOMMENT TO CHECK WHAT GEMINI COOKED
-        # print(budget)
         
         #USER'S QUERY IS NOW RE-INTERPRETED TO BETTER UNDERSTAND USER'S INTENT AND WELL FORMATTED IN A JSON STRING
         #CHECK USER'S QUERY FOR HATE-SPEECH OR NOT CONFORMING TO OUTFIT REQUESTS
