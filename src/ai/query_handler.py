@@ -288,7 +288,6 @@ FASHION_CATEGORIES = ['top', 'bottom', 'dresses', 'outerwear', 'swimwear', 'shoe
 #         print("EXCEPTION: ", e)
 #         return {'message': 'Failed to generate outfit plan.'}
 
-
 def generate_outfit_plan(
     client: Client, 
     model_name: str, 
@@ -305,22 +304,15 @@ def generate_outfit_plan(
     if gender is None:
             gender = "male"
         
-    if image_data is None:
-        user_request_block = (
-            "*** USER REQUEST ***\n"
-            f"{new_user_query}"
-            "\n**************************\n"
-        )
-    else:
-        image_data_str = f"Image Data: {image_data[0]}, MIME Type: {image_data[1]}"
-        user_request_block = (
-            "*** USER REQUEST ***\n"
-            f"{new_user_query} {image_data_str}" # Concatenate the strings
-            "\n**************************\n"
-        )
+    
+    user_request_block = (
+        "*** USER REQUEST ***\n"
+        f"{new_user_query}"
+        "\n**************************\n"
+    )
+  
 
     preference_string = ""
-    
     if user_preferences or gender:
         preferences = []
 
@@ -358,13 +350,37 @@ def generate_outfit_plan(
             )
         else:
             preference_string = gender_block
-    # The final prompt sent to the LLM deliberately EXCLUDES hard_constraints
-    full_prompt_for_llm = user_request_block + preference_string
+# Combine text and FORCE string type to be safe
+    full_text_prompt = str(user_request_block + preference_string)
+
+    # 3. Construct the PARTS List using SDK Objects
+    # This is the specific fix for the validation errors.
+    parts_list = []
+
+    # Part A: The Text
+    # We explicitly tell the SDK "This is text"
+    parts_list.append(types.Part(text=full_text_prompt))
+
+    # Part B: The Image (if it exists)
+    if image_data:
+        try:
+            # We explicitly tell the SDK "This is bytes"
+            # image_data[0] MUST be raw bytes (b'\x89PNG...'), not a Base64 string.
+            img_part = types.Part.from_bytes(
+                data=image_data[0], 
+                mime_type=image_data[1]
+            )
+            parts_list.append(img_part)
+        except Exception as e:
+            print(f"Error packing image data: {e}")
+
+    # 4. Update History
+    # The 'parts' key now contains a clean list of Part objects
+    chat_history.append({"role": "user", "parts": parts_list})
+
 
     base_prompt = IMAGE_SYSTEM_PROMPT if image_data else TEXTUAL_SYSTEM_PROMPT
 
-    # 1. Add the new user query to the history
-    chat_history.append({"role": "user", "parts": [{"text": full_prompt_for_llm}]})
     
     # 2. First attempt: Use the Input Gathering Schema to check state and extract constraints
     try:
