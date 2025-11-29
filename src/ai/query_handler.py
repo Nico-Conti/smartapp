@@ -184,232 +184,96 @@ the field 'message' MUST BE PRESENT ONLY if a guardrail triggers.
 
 FASHION_CATEGORIES = ['top', 'bottom', 'dresses', 'outerwear', 'swimwear', 'shoes', 'accessories']
 
+import json
+from google.genai import types, Client
 
-# def build_dynamic_system_prompt(base_prompt, partial_list):
+# ... [MANTIENI I TUOI SCHEMI DEFINITI SOPRA: item_schema, category_schema, ecc...] ...
+# ... [MANTIENI I SYSTEM PROMPT: TEXTUAL_SYSTEM_PROMPT, IMAGE_SYSTEM_PROMPT] ...
 
-#     dynamic_prompt = base_prompt
-#     item_list = ", ".join([f"'{item}'" for item in partial_list])
+FASHION_CATEGORIES = ['top', 'bottom', 'dresses', 'outerwear', 'swimwear', 'shoes', 'accessories']
 
-#     constraint_injection = (
-#                 f"\n\n*** PARTIAL OUTFIT CRITICAL INSTRUCTION ***\n"
-#                 f"Since this is a partial generation request, you **MUST** only include the following categories AND NOTHING ELSE in the JSON output: [{item_list}]. "
-#                 f"You MUST NOT include any other categories (like 'top', 'bottom', etc.) in the final JSON object keys. "
-#                 f"\n*********************************************"
-#             )
-#     dynamic_prompt = dynamic_prompt.replace("\n*** CRITICAL INSTRUCTION ***\n", constraint_injection + "\n*** CRITICAL INSTRUCTION ***\n")
-#     return dynamic_prompt
-
-# --- 4. Core Functions ---
-# def generate_outfit_plan(CLIENT: Client, MODEL_NAME: str, user_prompt: str, image_data:tuple[str, str] | None, user_preferences: dict | None, gender: str | None) -> dict:
+# def _reconstruct_gemini_history(simple_history: list[dict]) -> list[dict]:
 #     """
-#     Sends the user prompt to Gemini for stylistic suggestions.
-#     NOTE: hard_constraints are EXCLUDED from the prompt sent to the LLM.
-#     Returns the raw parsed JSON dictionary.
+#     Helper function che trasforma la storia 'semplice' dal DB
+#     nel formato complesso richiesto dall'SDK di Gemini.
 #     """
-#     try:
-
-#         #MOCK-UP RIGHT NOW, FOR THE FINAL IMPLEMENTATION SINCE THEY WANT TO MAKE IT ALL CHAT BASED
-#         #IF THE USER IS NOT LOGGED IN AND DOES NOT SPECIFY HIS/HER GENDER IN THE INITIAL QUERY
-#         #GEMINI NEEDS TO ASK THE USER FOR MORE DETAILS, INCLUDING THE GENDER
-#         if gender is None:
-#             gender = "male"
-        
-#         if image_data is None:
-#             user_request_block = (
-#                 "*** USER REQUEST ***\n"
-#                 f"{user_prompt}"
-#                 "\n**************************\n"
-#             )
-#         else:
-#             image_data_str = f"Image Data: {image_data[0]}, MIME Type: {image_data[1]}"
-#             user_request_block = (
-#                 "*** USER REQUEST ***\n"
-#                 f"{user_prompt} {image_data_str}" # Concatenate the strings
-#                 "\n**************************\n"
-#             )
-
-#         preference_string = ""
-        
-#         if user_preferences or gender:
-#             preferences = []
-
-#             # --- PREFERENCE FILTERING (Soft Suggestions) ---
-#             if user_preferences and user_preferences.get('favorite_color'):
-#                 preferences.append(f"favorite color: {user_preferences['favorite_color']}")
-            
-#             if user_preferences and user_preferences.get('favorite_material'):
-#                 preferences.append(f"favorite material: {user_preferences['favorite_material']}")
-
-#             if user_preferences and user_preferences.get('favorite_brand'):
-#                 preferences.append(f"favorite brand: {user_preferences['favorite_brand']}")
-#             # --- END PREFERENCE FILTERING ---
-                
-#             gender_block = ""
-#             if gender:
-#                 gender_block = (
-#                     "\n*** USER GENDER ***\n"
-#                     f"When selecting the outfit plan, note that the gender of the user is: {gender}.\n"
-#                 )
-                
-#             if preferences:
-#                 preference_string = (
-#                     gender_block +
-#                     "\n*** USER PREFERENCES (SOFT SUGGESTIONS) ***\n"
-#                     "When selecting the outfit plan, keep the following user preferences in mind: "
-#                     f"{', '.join(preferences)}."
-#                     "\n*** CRITICAL INSTRUCTION: STYLISH INTEGRATION ***\n"
-#                     "Treat all provided user preferences (color, material, brand) as strong suggestions to be **integrated tastefully** into the final ensemble, not as mandatory rules for every single item. Style and outfit cohesion are paramount."
-#                     "Specifically:\n"
-#                     "1. **Color:** **DO NOT** enforce the favorite color on *every* item. Use it sparingly to create a cohesive, balanced look (e.g., one or two black items if the preference is black, with the rest being complementary colors)."
-#                     "2. **Material/Brand:** **DO NOT** enforce the preferred material or brand on *every* item. More importantly, **NEVER** recommend a material that clashes with the user's request context (e.g., recommending wool for a beach outfit, even if it is a user preference)."
-#                     "Ensure all returned descriptions are **coherent** and make up a **well-structured, complete outfit**."
-#                     "\n**************************"
-#                 )
-#             else:
-#                 preference_string = gender
-#         # The final prompt sent to the LLM deliberately EXCLUDES hard_constraints
-#         full_prompt_for_llm = user_request_block + preference_string
-
-#         base_prompt = IMAGE_SYSTEM_PROMPT if image_data else TEXTUAL_SYSTEM_PROMPT
-
-#         response = CLIENT.models.generate_content(
-#             model = MODEL_NAME,
-#             contents = [full_prompt_for_llm],
-#             config = types.GenerateContentConfig(
-#                 system_instruction = base_prompt,
-#                 response_mime_type = "application/json",
-#                 response_schema = outfit_schema
-#             )
-#         )
-
-#         return response.parsed
-    
-#     except Exception as e:
-#         print("EXCEPTION: ", e)
-#         return {'message': 'Failed to generate outfit plan.'}
+#     gemini_history = []
+#     for msg in simple_history:
+#         # Ricostruiamo l'oggetto types.Part per ogni messaggio testuale salvato
+#         gemini_history.append({
+#             "role": msg["role"],
+#             "parts": [types.Part(text=create_text_prompt(msg["text"]))]
+#         })
+#     return gemini_history
 
 def generate_outfit_plan(
-    client: Client, 
-    model_name: str, 
-    new_user_query: str, 
-    chat_history: list, 
-    image_data:tuple[str, str] | None,
-    user_preferences: dict | None, 
-    gender: str | None 
+        client: Client,
+        model_name: str,
+        new_user_query: str,
+        chat_history: list[dict],
+        image_data: tuple[str, str] | None,
+        user_preferences: dict | None,
+        gender: str | None
 ) -> dict:
-    """
-    Manages the multi-turn conversation flow, gathering constraints or generating the final outfit.
-    """
 
     if gender is None:
-            gender = "male"
-        
-    
-    user_request_block = (
-        "*** USER REQUEST ***\n"
-        f"{new_user_query}"
-        "\n**************************\n"
-    )
-  
+        gender = "male"
 
-    preference_string = ""
-    if user_preferences or gender:
-        preferences = []
+    # --- 1. RICOSTRUZIONE STORIA PER API (Solo Testo Grezzo) ---
+    gemini_history = []
 
-        # --- PREFERENCE FILTERING (Soft Suggestions) ---
-        if user_preferences and user_preferences.get('favorite_color'):
-            preferences.append(f"favorite color: {user_preferences['favorite_color']}")
-        
-        if user_preferences and user_preferences.get('favorite_material'):
-            preferences.append(f"favorite material: {user_preferences['favorite_material']}")
+    for msg in chat_history:
+        gemini_history.append({
+            "role": msg["role"],
+            "parts": [types.Part(text=msg["text"])]
+        })
 
-        if user_preferences and user_preferences.get('favorite_brand'):
-            preferences.append(f"favorite brand: {user_preferences['favorite_brand']}")
-        # --- END PREFERENCE FILTERING ---
-            
-        gender_block = ""
-        if gender:
-            gender_block = (
-                "\n*** USER GENDER ***\n"
-                f"When selecting the outfit plan, note that the gender of the user is: {gender}.\n"
-            )
-            
-        if preferences:
-            preference_string = (
-                gender_block +
-                "\n*** USER PREFERENCES (SOFT SUGGESTIONS) ***\n"
-                "When selecting the outfit plan, keep the following user preferences in mind: "
-                f"{', '.join(preferences)}."
-                "\n*** CRITICAL INSTRUCTION: STYLISH INTEGRATION ***\n"
-                "Treat all provided user preferences (color, material, brand) as strong suggestions to be **integrated tastefully** into the final ensemble, not as mandatory rules for every single item. Style and outfit cohesion are paramount."
-                "Specifically:\n"
-                "1. **Color:** **DO NOT** enforce the favorite color on *every* item. Use it sparingly to create a cohesive, balanced look (e.g., one or two black items if the preference is black, with the rest being complementary colors)."
-                "2. **Material/Brand:** **DO NOT** enforce the preferred material or brand on *every* item. More importantly, **NEVER** recommend a material that clashes with the user's request context (e.g., recommending wool for a beach outfit, even if it is a user preference)."
-                "Ensure all returned descriptions are **coherent** and make up a **well-structured, complete outfit**."
-                "\n**************************"
-            )
-        else:
-            preference_string = gender_block
-# Combine text and FORCE string type to be safe
-    full_text_prompt = str(user_request_block + preference_string)
+    full_text_prompt = create_text_prompt(gender, new_user_query, user_preferences)
 
-    # 3. Construct the PARTS List using SDK Objects
-    # This is the specific fix for the validation errors.
-    parts_list = []
+    current_turn_parts = [types.Part(text=full_text_prompt)]
 
-    # Part A: The Text
-    # We explicitly tell the SDK "This is text"
-    parts_list.append(types.Part(text=full_text_prompt))
-
-    # Part B: The Image (if it exists)
+    # Part B: Immagine (se presente)
     if image_data:
         try:
-            # We explicitly tell the SDK "This is bytes"
-            # image_data[0] MUST be raw bytes (b'\x89PNG...'), not a Base64 string.
             img_part = types.Part.from_bytes(
-                data=image_data[0], 
+                data=image_data[0],
                 mime_type=image_data[1]
             )
-            parts_list.append(img_part)
+            current_turn_parts.append(img_part)
         except Exception as e:
             print(f"Error packing image data: {e}")
 
-    # 4. Update History
-    # The 'parts' key now contains a clean list of Part objects
-    chat_history.append({"role": "user", "parts": parts_list})
+    # Aggiungiamo il turno corrente alla storia PER L'API
+    gemini_history.append({"role": "user", "parts": current_turn_parts})
 
+    # --- 3. AGGIORNAMENTO STORIA SEMPLICE (PER DB) ---
+    # Salviamo solo il prompt puro dell'utente, senza il blocco preferenze/gender
+    chat_history.append({"role": "user", "text": new_user_query})
 
     base_prompt = IMAGE_SYSTEM_PROMPT if image_data else TEXTUAL_SYSTEM_PROMPT
 
-    
-    # 2. First attempt: Use the Input Gathering Schema to check state and extract constraints
+    # --- 4. CHIAMATA API ---
     try:
-        # We always send the full history to maintain context
         response = client.models.generate_content(
             model = model_name,
-            contents = chat_history,
+            contents = gemini_history,
             config = types.GenerateContentConfig(
                 system_instruction = base_prompt,
                 response_mime_type = "application/json",
-                response_schema = input_gathering_schema # Target the state-management schema
+                response_schema = input_gathering_schema
             )
         )
-        
-        # This will be the parsed JSON from the InputGatheringSchema
         dialogue_state = response.parsed
-        
+
     except Exception as e:
         print(f"Error during dialogue state check: {e}")
         return {'error': 'Failed to process dialogue state.'}
 
-    # 3. Analyze the returned status
+    # ... [IL RESTO DEL CODICE RIMANE UGUALE] ...
+
+    # --- GESTIONE RISPOSTA ---
     if dialogue_state.get('status') == 'AWAITING_INPUT':
-        # The model is asking for more information.
-        # The application should display dialogue_state['missing_info'] to the user.
-        
-        # Add the model's textual prompt to the history for context in the next turn
-        chat_history.append({"role": "model", "parts": [{"text": dialogue_state['missing_info']}]})
-        
+        chat_history.append({"role": "model", "text": dialogue_state['missing_info']})
         return {
             'status': 'AWAITING_INPUT',
             'prompt_to_user': dialogue_state['missing_info'],
@@ -417,49 +281,89 @@ def generate_outfit_plan(
             'current_budget': dialogue_state.get('max_budget'),
             'current_constraints': dialogue_state.get('hard_constraints')
         }
-        
+
     elif dialogue_state.get('status') == 'READY_TO_GENERATE':
-        
-        # All information is present. The system prompt instructs Gemini to switch modes,
-        # but since we target the schema here, we need a SECOND, final API call 
-        # specifically targeting the outfit_schema.
-        
-        # The final prompt in the history must instruct the model to generate the outfit JSON
-        final_generation_prompt = chat_history + [{
-            "role": "user", 
+        # Prompt tecnico
+        final_generation_prompt = gemini_history + [{
+            "role": "user",
             "parts": [{"text": "All constraints are now provided. Please generate the final, complete outfit plan immediately using the OutfitSchema."}]
         }]
-        
+
         try:
-            # 4. Final attempt: Use the Outfit Schema
             final_response = client.models.generate_content(
                 model = model_name,
                 contents = final_generation_prompt,
                 config = types.GenerateContentConfig(
                     system_instruction = base_prompt,
                     response_mime_type = "application/json",
-                    response_schema = outfit_schema # Target the FINAL outfit schema
+                    response_schema = outfit_schema
                 )
             )
-            
             final_data = final_response.parsed
+
+            final_plan_text = json.dumps(final_data.get('outfit_plan'))
+            chat_history.append({"role": "model", "text": final_plan_text})
 
             return {
                 'status': 'READY_TO_GENERATE',
                 'outfit_plan': final_data.get('outfit_plan'),
                 'budget': final_data.get('max_budget'),
                 'hard_constraints': final_data.get('hard_constraints'),
-                'history': final_generation_prompt 
+                'history': chat_history
             }
-            
         except Exception as e:
-            print(f"Error during final outfit generation: {e}")
-            return {'error': 'Failed to generate final outfit plan.'}
-            
+            print(e)
+            pass
+
     else:
-        # Handles guardrail response or unexpected structure
+        if dialogue_state.get('message'):
+            chat_history.append({"role": "model", "text": dialogue_state['message']})
         return dialogue_state
-    
+
+
+def create_text_prompt(gender: str, new_user_query: str, user_preferences: dict | None) -> str:
+    user_request_block = (
+        "*** USER REQUEST ***\n"
+        f"{new_user_query}"
+        "\n**************************\n"
+    )
+
+    preference_string = ""
+    if user_preferences or gender:
+        preferences = []
+        if user_preferences and user_preferences.get('favorite_color'):
+            preferences.append(f"favorite color: {user_preferences['favorite_color']}")
+        if user_preferences and user_preferences.get('favorite_material'):
+            preferences.append(f"favorite material: {user_preferences['favorite_material']}")
+        if user_preferences and user_preferences.get('favorite_brand'):
+            preferences.append(f"favorite brand: {user_preferences['favorite_brand']}")
+
+        gender_block = ""
+        if gender:
+            gender_block = (
+                "\n*** USER GENDER ***\n"
+                f"When selecting the outfit plan, note that the gender of the user is: {gender}.\n"
+            )
+
+        if preferences:
+            preference_string = (
+                    gender_block +
+                    "\n*** USER PREFERENCES (SOFT SUGGESTIONS) ***\n"
+                    f"When selecting the outfit plan, keep the following user preferences in mind: {', '.join(preferences)}."
+                    "\n*** CRITICAL INSTRUCTION: STYLISH INTEGRATION ***\n"
+                    "Treat all provided user preferences (color, material, brand) as strong suggestions to be **integrated tastefully** into the final ensemble, not as mandatory rules for every single item. Style and outfit cohesion are paramount."
+                    "Specifically:\n"
+                    "1. **Color:** **DO NOT** enforce the favorite color on *every* item. Use it sparingly to create a cohesive, balanced look.\n"
+                    "2. **Material/Brand:** **DO NOT** enforce the preferred material or brand on *every* item.\n"
+                    "Ensure all returned descriptions are **coherent** and make up a **well-structured, complete outfit**."
+                    "\n**************************"
+            )
+        else:
+            preference_string = gender_block
+
+    full_text_prompt = str(user_request_block + preference_string)
+    return full_text_prompt
+
 
 def parse_outfit_plan(json_plan: dict, hard_constraints: dict | None) -> list[dict]:
     """
