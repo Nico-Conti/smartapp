@@ -70,7 +70,7 @@ except Exception as e:
 
 FASHION_CATEGORIES = ['top', 'bottom', 'dresses', 'outerwear', 'swimwear', 'shoes', 'accessories']
 
-def outfit_recommendation_handler(user_prompt: str, chat_history: List[Dict[str, Any]], budget: float, current_constraints: Dict[str, Any], user_id_key: int | None, image_data:tuple[str, str] | None) -> Dict[str, Any]:
+def outfit_recommendation_handler(user_prompt: str, chat_history: List[Dict[str, Any]], user_id_key: int | None, image_data:tuple[str, str] | None) -> Dict[str, Any]:
     
     #CRITICAL: IMAGE_DATA NEEDS TO BE ALREADY ENCODED IN base64 BY THE FRONTEND
     #BEFORE GETTING PASSED TO THIS METHOD, ALSO THE mimeType NEEDS TO BE PASSED
@@ -106,8 +106,6 @@ def outfit_recommendation_handler(user_prompt: str, chat_history: List[Dict[str,
             "status": "AWAITING_INPUT",
             "prompt_to_user": response.get('prompt_to_user'),
             "chat_history": response.get('history', chat_history),
-            "current_budget": response.get('current_budget', budget), #DON'T KNOW IF THESE TWO FIELDS ARE NEEDED
-            "current_constraints": response.get('current_constraints', current_constraints), #DON'T KNOW IF THESE TWO FIELDS ARE NEEDED
             "status_code": 202 # Accepted (partial content)
         }
     
@@ -115,10 +113,10 @@ def outfit_recommendation_handler(user_prompt: str, chat_history: List[Dict[str,
 
     # Extract final plan and constraints from the LLM response
     outfit = response.get('outfit_plan')
-    final_budget = response.get('budget', budget)
-    user_constraints = response.get('hard_constraints', current_constraints)
+    budget = response.get('budget', 100000)
+    user_constraints = response.get('hard_constraints', {})
 
-    logging.info(f"LLM is READY_TO_GENERATE. Final Budget: {final_budget}")
+    logging.info(f"LLM is READY_TO_GENERATE. Final Budget: {budget}")
 
     if not outfit:
         logging.error("Either LLM returned READY_TO_GENERATE but 'outfit_plan' is missing or LLM returned an unexpected status")

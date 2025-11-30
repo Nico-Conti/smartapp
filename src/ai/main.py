@@ -78,6 +78,7 @@ if __name__ == '__main__':
         user_constraints = {}
         outfit_ready = False
         chat_history = []
+        over_budget_outfit = {}
         print("Input a request per cortesia bisogna testare")
         while not outfit_ready:
             user_prompt = input()
@@ -94,8 +95,6 @@ if __name__ == '__main__':
                 sys.exit(1)
             if status == "AWAITING_INPUT":
                 chat_history = response.get('history')
-                budget = response.get('current_budget')
-                user_constraints = response.get('current_constraints')
                 print(response.get('prompt_to_user'))
             elif status == "READY_TO_GENERATE":
                 outfit = response.get('outfit_plan')
@@ -180,6 +179,7 @@ if __name__ == '__main__':
             print(f"The best possible full outfit (all categories) costs €{best_full_cost:.2f}.")
             print("Displaying the partial outfit now. If you want the full outfit, you'll go over budget.")
             outfit_to_display = feasible_outfit
+            over_budget_outfit = best_full_outfit
             display_cost = budget - remaining_budget # Actual cost of the feasible partial outfit
 
         else:
@@ -217,8 +217,14 @@ if __name__ == '__main__':
         print(f"Remaining Budget (based on original budget): €{remaining_budget:.2f}")
 
         # Print the selected outfit
+        print("BEST OUTFIT UNDER BUDGET:")
         print(json.dumps(outfit_to_display, indent=2))
         print("\n" + "="*50)
+
+        if over_budget_outfit:
+            print("BEST OUTFIT OVER BUDGET:")
+            print(json.dumps(over_budget_outfit, indent=2))
+            print("\n" + "="*50)
         
         # ... (6. Terminal Visualization Block)
         start_time_viz = time.time()
