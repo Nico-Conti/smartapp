@@ -226,21 +226,34 @@ def generate_outfit_plan(
         model_name: str,
         new_user_query: str,
         chat_history: list[dict],
-        image_data: tuple[str, str] | None,
+        image_data: tuple[str, bytes] | None,
+        past_images: dict[str, bytes] | None,
         user_preferences: dict | None,
         gender: str | None
 ) -> dict:
-
+    print("AAAAAAAAAAAAAAAA", chat_history)
     if gender is None:
         gender = "male"
+
+    if past_images is None:
+        past_images = {}
 
     # --- 1. RICOSTRUZIONE STORIA PER API (Solo Testo Grezzo) ---
     gemini_history = []
 
     for msg in chat_history:
+        message_parts = [types.Part(text=msg["text"])]
+        if msg.get("role") == "user" and "image_id" in msg:
+            img_id = msg["image_id"]
+            if img_id in past_images:
+                img_bytes = past_images[img_id]
+                message_parts.append(types.Part.from_bytes(data=img_bytes, mime_type="image/jpeg"))
+            else:
+                print(f"Warning: Bytes for image {img_id} not found in past_images.")
+
         gemini_history.append({
             "role": msg["role"],
-            "parts": [types.Part(text=msg["text"])]
+            "parts": message_parts
         })
 
     full_text_prompt = create_text_prompt(gender, new_user_query, user_preferences)
@@ -252,7 +265,7 @@ def generate_outfit_plan(
         try:
             img_part = types.Part.from_bytes(
                 data=image_data[0],
-                mime_type=image_data[1]
+                mime_type="image/jpeg"
             )
             current_turn_parts.append(img_part)
         except Exception as e:
@@ -263,9 +276,11 @@ def generate_outfit_plan(
 
     # --- 3. AGGIORNAMENTO STORIA SEMPLICE (PER DB) ---
     # Salviamo solo il prompt puro dell'utente, senza il blocco preferenze/gender
-    chat_history.append({"role": "user", "text": new_user_query})
+    chat_history.append({"role": "user", "text": new_user_query, "image_id" : image_data[0] if image_data else None})
+    print("BBBBBBBBBBBB", chat_history)
 
-    base_prompt = IMAGE_SYSTEM_PROMPT if image_data else TEXTUAL_SYSTEM_PROMPT
+    has_images = image_data is not None or (past_images is not None and len(past_images) > 0)
+    base_prompt = IMAGE_SYSTEM_PROMPT if has_images else TEXTUAL_SYSTEM_PROMPT
 
     # --- 4. CHIAMATA API ---
     try:
@@ -293,8 +308,6 @@ def generate_outfit_plan(
             'status': 'AWAITING_INPUT',
             'prompt_to_user': dialogue_state['missing_info'],
             'history': chat_history,
-            'current_budget': dialogue_state.get('max_budget'),
-            'current_constraints': dialogue_state.get('hard_constraints')
         }
 
     elif dialogue_state.get('status') == 'READY_TO_GENERATE':

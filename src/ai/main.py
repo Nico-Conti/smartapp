@@ -79,11 +79,15 @@ if __name__ == '__main__':
         outfit_ready = False
         chat_history = []
         over_budget_outfit = {}
+        count = 0
         print("Input a request per cortesia bisogna testare")
         while not outfit_ready:
             user_prompt = input()
             print("\n--- Sending request to Gemini... ---")
-            response = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, chat_history, image_data, user_preferences, gender)
+            if count == 0:
+                response = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, chat_history, image_data, None, user_preferences, gender)
+            else:
+                response = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, chat_history, None, image_data, user_preferences, gender)
             status = response.get('status')
             print(status)
             if not status:
@@ -105,6 +109,7 @@ if __name__ == '__main__':
             elif status == 'Error':
                 print(response.get('missing_info'))
                 sys.exit(1)
+            count += 1
 
         print("BUDGET: ", budget)
         print("CONSTRAINTS: ", user_constraints)
