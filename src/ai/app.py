@@ -70,7 +70,7 @@ except Exception as e:
 
 FASHION_CATEGORIES = ['top', 'bottom', 'dresses', 'outerwear', 'swimwear', 'shoes', 'accessories']
 
-def outfit_recommendation_handler(user_prompt: str, chat_history: List[Dict[str, Any]], user_id_key: int | None, image_data:tuple[str, str] | None) -> Dict[str, Any]:
+def outfit_recommendation_handler(user_prompt: str, chat_history: List[Dict[str, Any]], user_id_key: int | None, image_data:tuple[str, bytes] | None, past_images:dict[str, bytes] | None) -> Dict[str, Any]:
     
     #CRITICAL: IMAGE_DATA NEEDS TO BE ALREADY ENCODED IN base64 BY THE FRONTEND
     #BEFORE GETTING PASSED TO THIS METHOD, ALSO THE mimeType NEEDS TO BE PASSED
@@ -89,7 +89,7 @@ def outfit_recommendation_handler(user_prompt: str, chat_history: List[Dict[str,
     # 1. USER'S QUERY HANDLING
     logging.info("--- Sending request to Gemini for state transition... ---")
 
-    response = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, chat_history, image_data, user_preferences, gender)
+    response = generate_outfit_plan(GEMINI_CLIENT, GEMINI_MODEL_NAME, user_prompt, chat_history, image_data, past_images, user_preferences, gender)
     status = response.get('status')
 
     # --- Status Check & Dialogue Termination ---

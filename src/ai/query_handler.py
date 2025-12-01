@@ -231,7 +231,6 @@ def generate_outfit_plan(
         user_preferences: dict | None,
         gender: str | None
 ) -> dict:
-    print("AAAAAAAAAAAAAAAA", chat_history)
     if gender is None:
         gender = "male"
 
@@ -264,7 +263,7 @@ def generate_outfit_plan(
     if image_data:
         try:
             img_part = types.Part.from_bytes(
-                data=image_data[0],
+                data=image_data[1],
                 mime_type="image/jpeg"
             )
             current_turn_parts.append(img_part)
@@ -277,7 +276,6 @@ def generate_outfit_plan(
     # --- 3. AGGIORNAMENTO STORIA SEMPLICE (PER DB) ---
     # Salviamo solo il prompt puro dell'utente, senza il blocco preferenze/gender
     chat_history.append({"role": "user", "text": new_user_query, "image_id" : image_data[0] if image_data else None})
-    print("BBBBBBBBBBBB", chat_history)
 
     has_images = image_data is not None or (past_images is not None and len(past_images) > 0)
     base_prompt = IMAGE_SYSTEM_PROMPT if has_images else TEXTUAL_SYSTEM_PROMPT

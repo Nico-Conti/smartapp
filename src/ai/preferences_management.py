@@ -1,33 +1,50 @@
 from supabase import Client
 
-def get_user_preferences(client: Client, user_id_key: str) -> dict | None:
+def get_user_preferences(client: Client, user_id_key: int) -> tuple[dict, str | None] | tuple[None, None]:
     """
-    Retrieves a user's preferences (favorite_color, favorite_material, favorite_brand) 
-    from the users_prova_preferences table using the unique user ID (UID).
+    Recupera le preferenze dell'utente dalla tabella relazionale 'user_preference'
+    e le mappa nel formato piatto (favorite_color, favorite_material, ecc.)
+    per mantenere la compatibilità.
     """
-    user_id_key = int(user_id_key)
-    # 1. Define the specific columns to select
-    select_columns = "favorite_color, favorite_material, favorite_brand, gender"
-    
+
     try:
-        # 2. Query the table, filter by the user's UID, and limit to 1 result
-        response = client.table('users_prova_preferences').select(select_columns).eq(
-            'user_id', # Column in your table that stores the user's UID (Ensure this column name is correct)
-            user_id_key
-        ).limit(1).execute() 
+        # 1. Esegui la query usando la sintassi di Supabase per le JOIN.
+        # Selezioniamo il 'value' dalla tabella di collegamento e il 'name' dalla tabella 'preferences'.
+        # Corrisponde a: SELECT up.value, p.name FROM user_preference up INNER JOIN preferences p ...
+        response = client.table('user_preference').select(
+            'value, preferences(name)'
+        ).eq('user_id', user_id_key).execute()
 
-        # 3. Check if data was returned
+        # 2. Controlla se sono stati trovati dati
         if not response.data:
-            #print(f"No preferences found for user ID: {user_id_key}")
+            # print(f"No preferences found for user ID: {user_id_key}")
             return None, None
-        
-        # 4. Return the single result dictionary
-        # response.data is a list of dictionaries, so we take the first element [0]
-        preferences = response.data[0]
-        gender = preferences.pop('gender', None)
 
-        return preferences, gender
-        
+        # 3. Trasforma la lista di righe in un unico dizionario
+        # response.data sarà tipo: [{'value': 'black', 'preferences': {'name': 'color'}}, ...]
+        result_prefs = {}
+        gender = None
+
+        for row in response.data:
+            # Estrai il nome della preferenza (es. 'color', 'brand', 'gender')
+            # Nota: 'preferences' qui è un oggetto annidato a causa della join
+            pref_data = row.get('preferences')
+            if not pref_data:
+                continue
+
+            p_name = pref_data.get('name')
+            p_value = row.get('value')
+
+            if p_name == 'gender':
+                # Il genere viene estratto separatamente come nella funzione originale
+                gender = p_value
+            else:
+                # Mappa i nomi standard del DB (es. 'color') nei nomi attesi dal tuo codice (es. 'favorite_color')
+                key_name = f"favorite_{p_name}"
+                result_prefs[key_name] = p_value
+
+        return result_prefs, gender
+
     except Exception as e:
         print(f"Error retrieving user preferences for {user_id_key}: {e}")
         return None, None
