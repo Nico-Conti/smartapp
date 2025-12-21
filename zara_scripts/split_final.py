@@ -9,7 +9,7 @@ for i, item in enumerate(data):
     count.append(item)
 
     if len(count) >= 250:
-        with open(f'final_{i}.json', 'w') as outfile:
+        with open(f'zara_catalog/final_{i}.json', 'w') as outfile:
             json.dump(count, outfile, indent=4)
         count = []
 

@@ -7,6 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import json
 import time
+import re
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
@@ -30,83 +31,83 @@ CATEGORY_URL_TEMPLATE = "https://www.zara.com/us/en/{slug}"
 # --- NEW: Category configuration based on your schema ---
 CATEGORIES_TO_SCRAPE = [
     {
-        "slug": "woman-outerwear-l1184.html?v1=2419032",
-        "name": "woman-outerwear-l1184.html?v1=2419032",
-        "main_category": "outerwear",
-        "role": "coats"
+        "slug": "man-shoes-sneakers-l797.html?v1=2436336",
+        "name": "man-shoes-sneakers-l797.html?v1=2436336",
+        "main_category": "shoes",
+        "role": "sneakers"
     },
     {
-        "slug": "woman-cardigans-sweaters-l8322.html?v1=2419844",
-        "name": "woman-cardigans-sweaters-l8322.html?v1=2419844",
-        "main_category": "top",
-        "role": "cardigans-sweaters"
+        "slug": "man-shoes-boots-l781.html?v1=2436391",
+        "name": "man-shoes-boots-l781.html?v1=2436391",
+        "main_category": "shoes",
+        "role": "boots"
     },
         {
-        "slug": "woman-dresses-l1066.html?v1=2420896",
-        "name": "woman-dresses-l1066.html?v1=2420896",
-        "main_category": "dresses",
-        "role": "dresses"
+        "slug": "man-shoes-laceup-l4378.html?v1=2436383",
+        "name": "man-shoes-laceup-l4378.html?v1=2436383",
+        "main_category": "shoes",
+        "role": "laceup"
     },
     {
-        "slug": "woman-jeans-wide-leg-l2241.html?v1=2419239",
-        "name": "woman-jeans-wide-leg-l2241.html?v1=2419239",
-        "main_category": "bottom",
-        "role": "jeans-wide"
+        "slug": "man-shoes-moccasins-l789.html?v1=2436392",
+        "name": "man-shoes-moccasins-l789.html?v1=2436392",
+        "main_category": "shoes",
+        "role": "moccasins"
     },
-    {
-        "slug": "woman-jeans-regular-l1140.html?v1=2419211",
-        "name": "woman-jeans-regular-l1140.html?v1=2419211",
-        "main_category": "bottom",
-        "role": "jeans-regular"
-    },
-    {
-        "slug": "woman-trousers-high-waist-l1779.html?v1=2420787",
-        "name": "woman-trousers-high-waist-l1779.html?v1=2420787",
-        "main_category": "bottom",
-        "role": "trousers-high-waist"
-    },
-    {
-        "slug": "woman-shirts-l1217.html?v1=2420369",
-        "name": "woman-shirts-l1217.html?v1=2420369",
-        "main_category": "top",
-        "role": "shirts"
-    },
-    {
-        "slug": "woman-tshirts-short-sleeved-l1380.html?v1=2420409",
-        "name": "woman-tshirts-short-sleeved-l1380.html?v1=2420409",
-        "main_category": "top",
-        "role": "tshirts"
-    },
-    {
-        "slug": "woman-skirts-l1299.html?v1=2420454",
-        "name": "woman-skirts-l1299.html?v1=2420454",
-        "main_category": "bottom",
-        "role": "skirts"
-    },
-        {
-        "slug": "woman-accessories-jewelry-l1015.html?v1=2418963",
-        "name": "woman-accessories-jewelry-l1015.html?v1=2418963",
-        "main_category": "accessories",
-        "role": "jewelry"
-    },
-        {
-        "slug": "woman-accessories-headwear-l1013.html?v1=2418968",
-        "name": "woman-accessories-headwear-l1013.html?v1=2418968",
-        "main_category": "accessories",
-        "role": "headwear"
-    },
-        {
-        "slug": "woman-beachwear-l1052.html?v1=2418962",
-        "name": "woman-beachwear-l1052.html?v1=2418962",
-        "main_category": "swimwear",
-        "role": "beachwear"
-    },
-            {
-        "slug": "woman-bags-l1024.html?v1=2417728",
-        "name": "woman-bags-l1024.html?v1=2417728",
-        "main_category": "accessories",
-        "role": "bags"
-    } 
+    # {
+    #     "slug": "woman-shoes-sandals-l1280.html?v1=2419172",
+    #     "name": "woman-shoes-sandals-l1280.html?v1=2419172",
+    #     "main_category": "shoes",
+    #     "role": "sandals"
+    # },
+    # {
+    #     "slug": "woman-trousers-high-waist-l1779.html?v1=2420787",
+    #     "name": "woman-trousers-high-waist-l1779.html?v1=2420787",
+    #     "main_category": "bottom",
+    #     "role": "trousers-high-waist"
+    # },
+    # {
+    #     "slug": "woman-shirts-l1217.html?v1=2420369",
+    #     "name": "woman-shirts-l1217.html?v1=2420369",
+    #     "main_category": "top",
+    #     "role": "shirts"
+    # },
+    # {
+    #     "slug": "woman-tshirts-short-sleeved-l1380.html?v1=2420409",
+    #     "name": "woman-tshirts-short-sleeved-l1380.html?v1=2420409",
+    #     "main_category": "top",
+    #     "role": "tshirts"
+    # },
+    # {
+    #     "slug": "woman-skirts-l1299.html?v1=2420454",
+    #     "name": "woman-skirts-l1299.html?v1=2420454",
+    #     "main_category": "bottom",
+    #     "role": "skirts"
+    # },
+    #     {
+    #     "slug": "woman-accessories-jewelry-l1015.html?v1=2418963",
+    #     "name": "woman-accessories-jewelry-l1015.html?v1=2418963",
+    #     "main_category": "accessories",
+    #     "role": "jewelry"
+    # },
+    #     {
+    #     "slug": "woman-accessories-headwear-l1013.html?v1=2418968",
+    #     "name": "woman-accessories-headwear-l1013.html?v1=2418968",
+    #     "main_category": "accessories",
+    #     "role": "headwear"
+    # },
+    #     {
+    #     "slug": "woman-beachwear-l1052.html?v1=2418962",
+    #     "name": "woman-beachwear-l1052.html?v1=2418962",
+    #     "main_category": "swimwear",
+    #     "role": "beachwear"
+    # },
+    #         {
+    #     "slug": "woman-bags-l1024.html?v1=2417728",
+    #     "name": "woman-bags-l1024.html?v1=2417728",
+    #     "main_category": "accessories",
+    #     "role": "bags"
+    # } 
 
 ]
 
@@ -128,7 +129,7 @@ def make_driver():
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--log-level=3") 
 
-    driver = uc.Chrome(options=options, version_main=141)
+    driver = uc.Chrome(options=options, version_main=143)
     
     # Add a network timeout (separate from script timeout)
     driver.set_page_load_timeout(60) # Set a high limit for the page to load
@@ -186,6 +187,11 @@ def parse_product_grid(html: str, main_category: str, role: str):
         img_tag = li.select_one('img.media-image__image')
         image = img_tag.get('src') if img_tag else None
 
+        # --- FIX: Force High Resolution Image ---
+        if image:
+            # Replace w=... with w=1080 to get high quality
+            image = re.sub(r'w=\d+', 'w=1080', image)
+
         # Selects the specific link tag
         link_tag = li.select_one('a[class="product-link product-grid-product__link link"]')
         product_link = link_tag.get('href') if link_tag else None
@@ -197,12 +203,20 @@ def parse_product_grid(html: str, main_category: str, role: str):
         # Extracts the text and cleans it
         title = title_tag.text.strip() if title_tag else None
 
+        # Extract ID from image link (e.g. 12289620800 from .../12289620800-e1...)
+        image_id = None
+        if image:
+            match = re.search(r'/(\d+)-e1', image)
+            if match:
+                image_id = match.group(1)
+
         results.append({
             "title": title,
             "image_link": image,
             "url": product_link,
             "main_category": main_category,
-            "role": role
+            "role": role,
+            "image_id": image_id
         })
 
     return results
@@ -231,8 +245,8 @@ def fetch_and_scroll(driver, url, main_category, role):
 
 
 
-def scrape_product_detail_via_schema(driver, product_url):
-    print(f"  -> Fetching details for: {product_url}")
+def scrape_product_detail_via_schema(driver, product_url, image_id=None):
+    print(f"  -> Fetching details for: {product_url} (Image ID: {image_id})")
     details_dict = {} # <-- NOTE: Renamed to avoid confusion
     SCHEMA_ID = 'product-schema'
     MAIN_CONTENT_ID = 'main-content'
@@ -251,7 +265,7 @@ def scrape_product_detail_via_schema(driver, product_url):
         #     cookies.click()
         #     print("  -> Cookie banner accepted/closed.")
         #     time.sleep(1)  # Allow time for the banner to close
-
+        
         #     stay_button = WebDriverWait(driver, 0.5).until(
         #         EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[class="zds-button geolocation-modal__button zds-button--primary zds-button--small"]'))
         #     )
@@ -278,9 +292,42 @@ def scrape_product_detail_via_schema(driver, product_url):
         print("  -> ✅ Product Schema script found after stabilization.")
         json_string = schema_element.get_attribute('innerHTML')
         detail_soup = BeautifulSoup(driver.page_source, "html.parser")
-
+        
+        # --- NEW: Extract viewPayload for correct Variant URL ---
+        page_source = driver.page_source
+        variant_product_id = None
+        
+        try:
+            start_marker = "viewPayload ="
+            start_idx = page_source.find(start_marker)
+            if start_idx != -1:
+                obj_start = page_source.find("{", start_idx)
+                if obj_start != -1:
+                    brace_count = 0
+                    json_payload_str = ""
+                    for i in range(obj_start, len(page_source)):
+                        char = page_source[i]
+                        json_payload_str += char
+                        if char == '{':
+                            brace_count += 1
+                        elif char == '}':
+                            brace_count -= 1
+                            if brace_count == 0:
+                                break
+                    
+                    payload_data = json.loads(json_payload_str)
+                    colors = payload_data.get('product', {}).get('detail', {}).get('colors', [])
+                    
+                    if image_id:
+                        color_code = image_id[-3:] if len(image_id) >= 3 else image_id
+                        for c in colors:
+                            if c.get('id') == color_code:
+                                variant_product_id = c.get('productId')
+                                print(f"  -> Found Variant ID in viewPayload: {variant_product_id} for color {color_code}")
+                                break
+        except Exception as vp_e:
+            print(f"  -> Warning: Could not extract viewPayload for variant ID: {vp_e}")
             
-
     except Exception as e:
         print(f"  -> ❌ ERROR during navigation/wait: {e}")
         return {} 
@@ -289,25 +336,65 @@ def scrape_product_detail_via_schema(driver, product_url):
     if json_string:
         try:
             # 🐛 DEBUG: Print the raw JSON content to verify structure
-            print(f"  -> 🐛 DEBUG: JSON Preview (first 500 chars): {json_string[:20]}...")
+            # print(f"  -> 🐛 DEBUG: JSON Preview (first 500 chars): {json_string[:20]}...")
             
             # --- CRITICAL FIX 1: LOAD THE JSON STRING INTO A PYTHON DICTIONARY ---
             json_data = json.loads(json_string)
-            json_data = json_data if isinstance(json_data, dict) else json_data[0]
             
-                    # Materiale
+            # --- FIND CORRECT VARIANT ---
+            target_data = None
+            if isinstance(json_data, list):
+                # Only try to match if we have an image_id
+                if image_id:
+                    # Extract color code (last 3 digits usually)
+                    # Example: 12289620800 -> 800
+                    color_code = image_id[-3:] if len(image_id) >= 3 else image_id
+                    
+                    print(f"  -> Looking for variant matching color code: {color_code}...")
+                    
+                    for item in json_data:
+                        sku = item.get('sku', '')
+                        # Check if color code is in SKU (e.g. -800-)
+                        # SKU format is often INTERNAL_ID-COLOR-SIZE
+                        if f"-{color_code}-" in sku:
+                            target_data = item
+                            print("  -> ✅ FOUND MATCHING VARIANT by SKU!")
+                            break
+                        # Fallback: check if image link contains it (less reliable if image is generic)
+                        # elif color_code in item.get('image', ''):
+                        #     target_data = item
+                        #     break
+                
+                if not target_data:
+                    print("  -> No specific variant matched (or no ID provided). Using first item.")
+                    target_data = json_data[0]
+            else:
+                target_data = json_data
+
+            
+            # Materiale - Usually common for all variants but good to re-extract
             composition_div = detail_soup.find("div", class_="product-detail-composition")
+            material = ""
             if composition_div:
                 material= composition_div.get_text(strip=True).replace("Composition: ", "")
 
-            details_dict['id'] = json_data.get('sku')
-            details_dict['schema_color'] = json_data.get('color')
-            details_dict['schema_description'] = json_data.get('description')
+            details_dict['id'] = target_data.get('sku')
+            details_dict['schema_color'] = target_data.get('color')
+            details_dict['schema_description'] = target_data.get('description')
             details_dict['material'] = material
-            details_dict['brand'] = json_data.get('brand')
-            details_dict['price'] = json_data.get('offers', {}).get('price')
-            details_dict['audience'] = "female"
+            details_dict['brand'] = target_data.get('brand')
+            details_dict['price'] = target_data.get('offers', {}).get('price')
+            details_dict['audience'] = "male"
+            
+            # Update URL with variant ID if found
+            if variant_product_id:
+                base_url = product_url.split('?')[0] # Clean existing params if any
+                details_dict['url'] = f"{base_url}?v1={variant_product_id}"
+                print(f"  -> ✅ Updated URL to Variant URL: {details_dict['url']}")
+            else:
+                details_dict['url'] = product_url # Fallback
 
+            print(f"  -> Extracted Color: {details_dict['schema_color']}")
             print("  -> ✅ Successfully extracted ALL data from dedicated JSON-LD schema.")
                 
         except json.JSONDecodeError as e:
@@ -395,7 +482,7 @@ def main():
                 continue
             
             # Call the PDP scraping function
-            details = scrape_product_detail_via_schema(driver, item['url'])
+            details = scrape_product_detail_via_schema(driver, item['url'], item.get('image_id'))
             
             # # Print the successfully extracted dictionary
             # print("  -> JSON DETTAGLIATO: ", details)
@@ -410,9 +497,9 @@ def main():
             # Random delay between products to mimic human behavior
             # time.sleep(1 + random.random() * 1.5) 
 
-            with open(f"zara_catalog/donna/{role}.json", "w", encoding="utf-8") as f:
+            with open(f"zara_catalog/uomo/{role}.json", "w", encoding="utf-8") as f:
                 json.dump(successful_data, f, indent=4, ensure_ascii=False)
-            print(f"\n✅ Test data successfully saved to zara_catalog/donna/{role}.json")
+            print(f"\n✅ Test data successfully saved to zara_catalog/uomo/{role}.json")
 
             print("\n" + "="*50)
             print("--- Final Extracted Data Preview (First Item with Details) ---")

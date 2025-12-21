@@ -30,65 +30,103 @@ CATEGORY_URL_TEMPLATE = "https://shop.mango.com/us/en/c/{slug}"
 # --- NEW: Category configuration based on your schema ---
 CATEGORIES_TO_SCRAPE = [
     {
-        "slug": "women/blazers/fitted_51f3df1a",
-        "name": "women/blazers/fitted_51f3df1a",
-        "main_category": "outerwear",
-        "role": "blazers-donna"
-    },
-    {
-        "slug": "women/dresses-and-jumpsuits/wedding-guest_d66b6a79",
-        "name": "women/dresses-and-jumpsuits/wedding-guest_d66b6a79",
-        "main_category": "dresses",
-        "role": "wedding-dresses-donna"
-    },
-        {
-        "slug": "women/dresses-and-jumpsuits/casual_fe0040cc",
-        "name": "women/dresses-and-jumpsuits/casual_fe0040cc",
-        "main_category": "dresses",
-        "role": "dresses-donna"
-    },
-    {
-        "slug": "women/dresses-and-jumpsuits/floral_97b9994b",
-        "name": "women/dresses-and-jumpsuits/floral_97b9994b",
-        "main_category": "dresses",
-        "role": "floral-dresses-donna"
-    },
-        {
-        "slug": "women/jackets_5ef3ad3b",
-        "name": "women/jackets_5ef3ad3b",
-        "main_category": "outerwear",
-        "role": "jackets-donna"
-    },
-    {
-        "slug": "women/jeans_164d8c42",
-        "name": "women/jeans_164d8c42",
-        "main_category": "bottom",
-        "role": "jeans-donna"
-    },
-    {
-        "slug": "women/pants/straight_47e592a3",
-        "name": "women/pants/straight_47e592a3",
-        "main_category": "bottom",
-        "role": "pants-donna"
-    },
-    {
-        "slug": "women/t-shirts_8e23bdfb",
-        "name": "women/t-shirts_8e23bdfb",
+        "slug": "men/sweaters-and-cardigans_89e09112",
+        "name": "men/sweaters-and-cardigans_89e09112",
         "main_category": "top",
-        "role": "t-shirts-donna"
-    },
-        {
-        "slug": "women/trench-coats-and-parkas/trench-coats_6b240267",
-        "name": "women/trench-coats-and-parkas/trench-coats_6b240267",
-        "main_category": "outerwear",
-        "role": "trench-coats-donna"
+        "role": "sweaters-and-cardigans"
     },
     {
-        "slug": "women/skirts/short_3a5e9b8a",
-        "name": "women/skirts/short_3a5e9b8a",
+        "slug": "men/pants_b126cc9c",
+        "name": "men/pants_b126cc9c",
         "main_category": "bottom",
-        "role": "skirts-donna"
-    }
+        "role": "pants"
+    },
+    {
+        "slug": "men/blazers_e18ecd07",
+        "name": "men/blazers_e18ecd07",
+        "main_category": "outerwear",
+        "role": "blazers"
+    },
+    {
+        "slug": "men/shirts_85ceefeb",
+        "name": "men/shirts_85ceefeb",
+        "main_category": "top",
+        "role": "shirts"
+    },
+    {
+        "slug": "men/t-shirts_05a59413",
+        "name": "men/t-shirts_05a59413",
+        "main_category": "top",
+        "role": "t-shirts"
+    },
+    {
+        "slug": "men/trench-coats_6337428e",
+        "name": "men/trench-coats_6337428e",
+        "main_category": "outerwear",
+        "role": "trench-coats"
+    },
+    {
+        "slug": "men/sweatshirts_f0789c5b",
+        "name": "men/sweatshirts_f0789c5b",
+        "main_category": "top",
+        "role": "sweatshirts"
+    },
+    
+
+    # {
+    #     "slug": "women/dresses-and-jumpsuits/wedding-guest_d66b6a79",
+    #     "name": "women/dresses-and-jumpsuits/wedding-guest_d66b6a79",
+    #     "main_category": "dresses",
+    #     "role": "wedding-dresses-donna"
+    # },
+    #     {
+    #     "slug": "women/dresses-and-jumpsuits/casual_fe0040cc",
+    #     "name": "women/dresses-and-jumpsuits/casual_fe0040cc",
+    #     "main_category": "dresses",
+    #     "role": "dresses-donna"
+    # },
+    # {
+    #     "slug": "women/dresses-and-jumpsuits/floral_97b9994b",
+    #     "name": "women/dresses-and-jumpsuits/floral_97b9994b",
+    #     "main_category": "dresses",
+    #     "role": "floral-dresses-donna"
+    # },
+    #     {
+    #     "slug": "women/jackets_5ef3ad3b",
+    #     "name": "women/jackets_5ef3ad3b",
+    #     "main_category": "outerwear",
+    #     "role": "jackets-donna"
+    # },
+    # {
+    #     "slug": "women/jeans_164d8c42",
+    #     "name": "women/jeans_164d8c42",
+    #     "main_category": "bottom",
+    #     "role": "jeans-donna"
+    # },
+    # {
+    #     "slug": "women/pants/straight_47e592a3",
+    #     "name": "women/pants/straight_47e592a3",
+    #     "main_category": "bottom",
+    #     "role": "pants-donna"
+    # },
+    # {
+    #     "slug": "women/t-shirts_8e23bdfb",
+    #     "name": "women/t-shirts_8e23bdfb",
+    #     "main_category": "top",
+    #     "role": "t-shirts-donna"
+    # },
+    #     {
+    #     "slug": "women/trench-coats-and-parkas/trench-coats_6b240267",
+    #     "name": "women/trench-coats-and-parkas/trench-coats_6b240267",
+    #     "main_category": "outerwear",
+    #     "role": "trench-coats-donna"
+    # },
+    # {
+    #     "slug": "women/skirts/short_3a5e9b8a",
+    #     "name": "women/skirts/short_3a5e9b8a",
+    #     "main_category": "bottom",
+    #     "role": "skirts-donna"
+    # }
 ]
 
 import undetected_chromedriver as uc
@@ -109,7 +147,7 @@ def make_driver():
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--log-level=3") 
 
-    driver = uc.Chrome(options=options, version_main=141)
+    driver = uc.Chrome(options=options, version_main=143)
     
     # Add a network timeout (separate from script timeout)
     driver.set_page_load_timeout(60) # Set a high limit for the page to load
@@ -194,7 +232,7 @@ def fetch_and_scroll(driver, url, main_category, role):
     driver.get(url)
     click_cookies(driver)
     # time.sleep(5)
-    fully_scroll(driver, pause=0.8, max_loops=7)
+    fully_scroll(driver, pause=0.8, max_loops=20)
     soup_html = driver.page_source
         
 
@@ -220,7 +258,7 @@ def scrape_product_detail_via_schema(driver, product_url):
         "schema_description": "N/A",
         "material": "N/A",
         "price": "N/A",
-        "audience": "female",
+        "audience": "male",
     }
 
     try:
@@ -285,7 +323,7 @@ def scrape_product_detail_via_schema(driver, product_url):
     if selected_span:
         img = selected_span.find("img")
         if img and img.has_attr("alt"):
-            alt_text = img["alt"]  # e.g. "Color Ecru selected"
+            alt_text = img["alt"]  
             colour = alt_text
             if colour.lower().startswith("color "):
                 colour = colour[6:]
@@ -417,9 +455,9 @@ def main():
             # Random delay between products to mimic human behavior
             # time.sleep(1 + random.random() * 1.5) 
 
-            with open(f"mango_catalog/donna/{role}.json", "w", encoding="utf-8") as f:
+            with open(f"mango_catalog/uomo/{role}.json", "w", encoding="utf-8") as f:
                 json.dump(successful_data, f, indent=4, ensure_ascii=False)
-            print(f"\n✅ Test data successfully saved to mango_catalog/donna/{role}.json")
+            print(f"\n✅ Test data successfully saved to mango_catalog/uomo/{role}.json")
 
             print("\n" + "="*50)
             print("--- Final Extracted Data Preview (First Item with Details) ---")

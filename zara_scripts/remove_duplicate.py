@@ -7,7 +7,7 @@ from pathlib import Path
 # The specific file path to deduplicate
 SINGLE_FILE_PATH = Path('zara_catalog/final.json') 
 # The key used to define uniqueness (e.g., 'id' or 'url').
-UNIQUE_CHECK_KEY = 'id'
+UNIQUE_CHECK_KEY = 'url'
 # Strategy for deduplication ('first' keeps the first record, 'last' keeps the last).
 KEEP_STRATEGY = 'first'
 # -------------------------
